@@ -13,19 +13,21 @@ export function Footer() {
   return (
     <footer className="border-t border-paper-line bg-paper">
       <div className="container-dn py-16 md:py-20">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-12">
           <div className="md:col-span-6">
             <p className="text-[15px] font-semibold tracking-tight text-ink">
               Draper Norwood
             </p>
-            <p className="mt-4 max-w-md text-[15px] leading-relaxed text-ink-muted">
+            <p className="mt-4 max-w-md text-[15.5px] leading-[1.6] text-ink/70">
               Strategy, web, and AI execution for sharper positioning and
               stronger digital presence.
             </p>
           </div>
 
           <div className="md:col-span-3">
-            <p className="eyebrow">Navigate</p>
+            <p className="text-[11px] uppercase tracking-[0.18em] text-ink/40">
+              Navigate
+            </p>
             <ul className="mt-5 space-y-3">
               {NAV.map((n) => (
                 <li key={n.href}>
@@ -41,7 +43,9 @@ export function Footer() {
           </div>
 
           <div className="md:col-span-3">
-            <p className="eyebrow">Contact</p>
+            <p className="text-[11px] uppercase tracking-[0.18em] text-ink/40">
+              Contact
+            </p>
             <ul className="mt-5 space-y-3">
               <li>
                 <Link
@@ -51,20 +55,13 @@ export function Footer() {
                   hello@drapernorwood.com
                 </Link>
               </li>
-              <li>
-                <Link href="#contact" className="link-quiet">
-                  Work With Us
-                  <span aria-hidden="true">→</span>
-                </Link>
-              </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-start justify-between gap-3 border-t border-paper-line pt-8 text-[13px] text-ink-muted md:flex-row md:items-center">
-          <p>© {year} Draper Norwood. All rights reserved.</p>
-          <p className="tracking-tight">
-            Built for clarity, credibility, and measurable improvement.
+        <div className="mt-16 border-t border-paper-line pt-8">
+          <p className="text-[13px] text-ink/55">
+            © {year} Draper Norwood
           </p>
         </div>
       </div>

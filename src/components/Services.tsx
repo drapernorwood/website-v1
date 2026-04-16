@@ -29,52 +29,47 @@ const SERVICES = [
 
 export function Services() {
   return (
-    <section id="services" className="section">
+    <section id="services" className="py-24 md:py-32 lg:py-40">
       <div className="container-dn">
-        <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
-          <div>
-            <p className="eyebrow">04 — Services</p>
-            <h2 className="mt-3 text-h2 font-medium text-ink">Services</h2>
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-16">
+          <div className="md:col-span-5">
+            <h2 className="text-h2 font-medium tracking-tighter2 text-ink">
+              Services
+            </h2>
           </div>
-          <p className="max-w-md text-[15px] leading-relaxed text-ink-muted">
-            Four disciplines, one operating posture: clarify, build, and improve
-            how the business performs.
-          </p>
+          <div className="md:col-span-6 md:col-start-7 md:pt-3">
+            <p className="max-w-[42ch] text-[16px] leading-[1.6] text-ink/65">
+              Four disciplines, one operating posture: clarify, build, and
+              improve how the business performs.
+            </p>
+          </div>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-paper-line bg-paper-line md:mt-16 md:grid-cols-2">
+        <ul className="mt-16 border-t border-paper-line md:mt-20">
           {SERVICES.map((s) => (
-            <article
-              key={s.n}
-              className="group relative bg-paper p-8 transition-colors duration-300 ease-smooth hover:bg-paper-soft md:p-10"
-            >
-              <div className="flex items-start justify-between">
-                <span className="text-[11px] uppercase tracking-[0.16em] text-ink-muted">
-                  {s.n}
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="translate-x-0 text-ink-muted transition-transform duration-300 ease-smooth group-hover:translate-x-1 group-hover:text-ink"
-                >
-                  →
-                </span>
-              </div>
-              <h3 className="mt-10 text-[22px] font-medium leading-snug tracking-tight text-ink md:text-[26px]">
-                {s.title}
-              </h3>
-              <p className="mt-4 max-w-[46ch] text-[15.5px] leading-relaxed text-ink/75">
-                {s.body}
-              </p>
-            </article>
-          ))}
-        </div>
+            <li key={s.n} className="border-b border-paper-line">
+              <article className="group grid grid-cols-12 gap-6 py-10 md:py-14">
+                <div className="col-span-12 md:col-span-1">
+                  <span className="text-[11px] uppercase tracking-[0.18em] text-ink/40">
+                    {s.n}
+                  </span>
+                </div>
 
-        <div className="mt-12 flex justify-center md:mt-14">
-          <Link href="#services" className="link-quiet">
-            Explore Services
-            <span aria-hidden="true">→</span>
-          </Link>
-        </div>
+                <div className="col-span-12 md:col-span-6">
+                  <h3 className="text-[24px] font-medium leading-[1.15] tracking-tight text-ink md:text-[30px] lg:text-[34px]">
+                    {s.title}
+                  </h3>
+                </div>
+
+                <div className="col-span-12 md:col-span-5 md:pt-2">
+                  <p className="max-w-[46ch] text-[15.5px] leading-[1.6] text-ink/70 md:text-[16px]">
+                    {s.body}
+                  </p>
+                </div>
+              </article>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
