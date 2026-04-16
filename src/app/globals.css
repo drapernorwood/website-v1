@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", serif;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: theme("colors.paper.DEFAULT");
+  color: theme("colors.ink.DEFAULT");
+  font-feature-settings: "ss01", "cv11";
+}
+
+::selection {
+  background: theme("colors.ink.DEFAULT");
+  color: theme("colors.paper.DEFAULT");
+}
+
+@layer components {
+  .container-dn {
+    @apply mx-auto w-full max-w-container px-6 md:px-8 lg:px-10;
+  }
+
+  .eyebrow {
+    @apply text-eyebrow uppercase font-medium text-ink-muted;
+  }
+
+  .rule {
+    @apply h-px w-full bg-paper-line;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink text-paper
+           px-5 py-3 text-sm font-medium tracking-tight
+           transition-colors duration-200 ease-smooth
+           hover:bg-ink-soft focus:outline-none focus-visible:ring-2
+           focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full
+           border border-ink/15 bg-transparent text-ink
+           px-5 py-3 text-sm font-medium tracking-tight
+           transition-colors duration-200 ease-smooth
+           hover:border-ink/40 hover:bg-ink/[0.03]
+           focus:outline-none focus-visible:ring-2
+           focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
+  }
+
+  .link-quiet {
+    @apply inline-flex items-center gap-1.5 text-sm font-medium text-ink
+           transition-colors duration-200 ease-smooth hover:text-accent;
+  }
+
+  .card {
+    @apply rounded-xl border border-paper-line bg-paper-soft/40
+           transition-colors duration-200 ease-smooth hover:border-ink/20 hover:bg-paper-soft;
+  }
+
+  .section {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .section-tight {
+    @apply py-16 md:py-24;
+  }
+}
+
+/* Subtle grid backdrop used sparingly */
+.grid-backdrop {
+  background-image:
+    linear-gradient(to right, rgba(11, 12, 14, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 12, 14, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at 70% 30%, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at 70% 30%, black 30%, transparent 75%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
