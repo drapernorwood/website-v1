@@ -1,2 +1,3 @@
 # website-v1
-Draper Norwood company website and brand presence.
+
+Official Draper Norwood website. This repo contains the company’s public-facing website, brand presentation, and launch-ready web presence.
