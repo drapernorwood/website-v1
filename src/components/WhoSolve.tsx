@@ -17,54 +17,33 @@ const SOLVE = [
 
 export function WhoSolve() {
   return (
-    <section className="section bg-paper-soft/50 border-y border-paper-line">
+    <section className="section border-y border-paper-line bg-paper-soft/40">
       <div className="container-dn">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 lg:gap-20">
-          <Column
-            index="02"
-            eyebrow="Who we serve"
-            heading="Who we work with"
-            items={WHO}
-          />
-          <Column
-            index="03"
-            eyebrow="What we solve"
-            heading="What we help solve"
-            items={SOLVE}
-          />
+        <div className="grid grid-cols-1 gap-14 md:grid-cols-2 md:gap-20 lg:gap-24">
+          <Column heading="Who we work with" items={WHO} />
+          <Column heading="What we help solve" items={SOLVE} />
         </div>
       </div>
     </section>
   );
 }
 
-function Column({
-  index,
-  eyebrow,
-  heading,
-  items,
-}: {
-  index: string;
-  eyebrow: string;
-  heading: string;
-  items: string[];
-}) {
+function Column({ heading, items }: { heading: string; items: string[] }) {
   return (
     <div>
-      <p className="eyebrow">
-        {index} — {eyebrow}
-      </p>
-      <h3 className="mt-3 text-h2 font-medium text-ink">{heading}</h3>
+      <h3 className="text-h2 font-medium tracking-tighter2 text-ink">
+        {heading}
+      </h3>
 
       <ul className="mt-10 divide-y divide-paper-line border-t border-paper-line">
         {items.map((item) => (
           <li
             key={item}
-            className="flex items-start gap-4 py-5 text-[16px] leading-relaxed text-ink/85 md:text-[17px]"
+            className="flex items-start gap-4 py-5 text-[16.5px] leading-[1.55] text-ink/80 md:text-[17.5px]"
           >
             <span
               aria-hidden="true"
-              className="mt-[0.7em] inline-block h-px w-4 shrink-0 bg-ink/30"
+              className="mt-[0.75em] inline-block h-px w-4 shrink-0 bg-ink/25"
             />
             <span>{item}</span>
           </li>

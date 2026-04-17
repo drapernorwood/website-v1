@@ -1,94 +1,79 @@
 import Link from "next/link";
 
-type Card = {
-  n: string;
+type Block = {
+  label: string;
   title: string;
   body: string;
-  cta: string;
-  href: string;
-  disabled?: boolean;
+  cta?: { text: string; href: string };
 };
 
-const CARDS: Card[] = [
+const BLOCKS: Block[] = [
   {
-    n: "01",
+    label: "Work",
     title: "Selected Work",
     body:
       "Strategic, digital, and creative work shaped to improve clarity, trust, and business performance.",
-    cta: "View Examples",
-    href: "#contact",
+    cta: { text: "View Examples", href: "#contact" },
   },
   {
-    n: "02",
+    label: "Perspective",
     title: "Founder Perspective",
     body:
       "Built with a point of view grounded in strategy, execution, and commercially useful outcomes.",
-    cta: "About the Founder",
-    href: "#about",
+    cta: { text: "About the Founder", href: "#about" },
   },
   {
-    n: "03",
+    label: "Results",
     title: "Client Results",
     body:
-      "Testimonials, case studies, and project outcomes can be integrated here as Draper Norwood V1 expands.",
-    cta: "Coming Soon",
-    href: "#",
-    disabled: true,
+      "Case studies, testimonials, and measurable outcomes are added as engagements complete.",
   },
 ];
 
 export function Proof() {
   return (
-    <section className="section bg-paper-soft/50 border-y border-paper-line">
+    <section className="section">
       <div className="container-dn">
-        <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
-          <div>
-            <p className="eyebrow">06 — Credibility</p>
-            <h2 className="mt-3 text-h2 font-medium text-ink">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-16">
+          <div className="md:col-span-5">
+            <h2 className="text-h2 font-medium tracking-tighter2 text-ink">
               Proof and Credibility
             </h2>
           </div>
-          <p className="max-w-md text-[15px] leading-relaxed text-ink-muted">
-            A framework for credibility — evidence, perspective, and results —
-            built to accept real assets as the studio expands.
-          </p>
+          <div className="md:col-span-6 md:col-start-7 md:pt-3">
+            <p className="max-w-[44ch] text-[16px] leading-[1.6] text-ink/65">
+              Evidence is built in three forms: work shown, perspective
+              established, and outcomes documented over time.
+            </p>
+          </div>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 md:mt-16 md:grid-cols-3">
-          {CARDS.map((c) => (
+        <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden border-y border-paper-line bg-paper-line md:mt-20 md:grid-cols-3">
+          {BLOCKS.map((b) => (
             <article
-              key={c.n}
-              className="card flex h-full flex-col justify-between p-7 md:p-8"
+              key={b.title}
+              className="flex h-full flex-col bg-paper py-10 md:px-8 md:py-12"
             >
-              <div>
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] uppercase tracking-[0.16em] text-ink-muted">
-                    {c.n}
-                  </span>
-                  {c.disabled && (
-                    <span className="rounded-full border border-paper-line bg-paper px-2.5 py-1 text-[10px] uppercase tracking-[0.14em] text-ink-muted">
-                      Placeholder
-                    </span>
-                  )}
-                </div>
-                <h3 className="mt-8 text-[20px] font-medium tracking-tight text-ink md:text-[22px]">
-                  {c.title}
-                </h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-ink/75">
-                  {c.body}
-                </p>
-              </div>
+              <span className="text-[11px] uppercase tracking-[0.18em] text-ink/40">
+                {b.label}
+              </span>
+              <h3 className="mt-8 text-[22px] font-medium leading-[1.2] tracking-tight text-ink md:text-[24px]">
+                {b.title}
+              </h3>
+              <p className="mt-4 max-w-[36ch] text-[15.5px] leading-[1.6] text-ink/70">
+                {b.body}
+              </p>
 
-              <div className="mt-8">
-                {c.disabled ? (
-                  <span className="inline-flex items-center gap-1.5 text-sm font-medium text-ink-muted">
-                    {c.cta}
-                  </span>
-                ) : (
-                  <Link href={c.href} className="link-quiet">
-                    {c.cta}
+              <div className="mt-auto pt-10">
+                {b.cta ? (
+                  <Link href={b.cta.href} className="link-quiet">
+                    {b.cta.text}
                     <span aria-hidden="true">→</span>
                   </Link>
+                ) : (
+                  <span className="text-[13px] uppercase tracking-[0.14em] text-ink/40">
+                    In progress
+                  </span>
                 )}
               </div>
             </article>

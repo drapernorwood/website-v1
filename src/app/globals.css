@@ -40,7 +40,7 @@ body {
 
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink text-paper
-           px-5 py-3 text-sm font-medium tracking-tight
+           px-6 py-3.5 text-[14px] font-medium tracking-tight
            transition-colors duration-200 ease-smooth
            hover:bg-ink-soft focus:outline-none focus-visible:ring-2
            focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
@@ -49,7 +49,7 @@ body {
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2 rounded-full
            border border-ink/15 bg-transparent text-ink
-           px-5 py-3 text-sm font-medium tracking-tight
+           px-6 py-3.5 text-[14px] font-medium tracking-tight
            transition-colors duration-200 ease-smooth
            hover:border-ink/40 hover:bg-ink/[0.03]
            focus:outline-none focus-visible:ring-2
@@ -75,14 +75,14 @@ body {
   }
 }
 
-/* Subtle grid backdrop used sparingly */
+/* Subtle architectural backdrop used sparingly */
 .grid-backdrop {
   background-image:
-    linear-gradient(to right, rgba(11, 12, 14, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(11, 12, 14, 0.05) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse at 70% 30%, black 30%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse at 70% 30%, black 30%, transparent 75%);
+    linear-gradient(to right, rgba(11, 12, 14, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 12, 14, 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse at 80% 20%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 80% 20%, black 20%, transparent 70%);
 }
 
 @media (prefers-reduced-motion: reduce) {
