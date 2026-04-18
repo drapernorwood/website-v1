@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const SERVICES = [
   {
     n: "01",
@@ -48,7 +46,7 @@ export function Services() {
         <ul className="mt-16 border-t border-paper-line md:mt-20">
           {SERVICES.map((s) => (
             <li key={s.n} className="border-b border-paper-line">
-              <article className="group grid grid-cols-12 gap-6 py-10 md:py-14">
+              <article className="group -mx-4 grid grid-cols-12 gap-6 rounded-lg px-4 py-10 transition-colors duration-300 ease-smooth hover:bg-paper-soft/60 md:py-14">
                 <div className="col-span-12 md:col-span-1">
                   <span className="text-[11px] uppercase tracking-[0.18em] text-ink/40">
                     {s.n}
@@ -61,10 +59,19 @@ export function Services() {
                   </h3>
                 </div>
 
-                <div className="col-span-12 md:col-span-5 md:pt-2">
+                <div className="col-span-11 md:col-span-4 md:pt-2">
                   <p className="max-w-[46ch] text-[15.5px] leading-[1.6] text-ink/70 md:text-[16px]">
                     {s.body}
                   </p>
+                </div>
+
+                <div className="col-span-1 hidden items-start justify-end pt-2 md:flex md:pt-3">
+                  <span
+                    aria-hidden="true"
+                    className="translate-x-0 text-[18px] text-ink/20 transition-all duration-300 ease-smooth group-hover:translate-x-1 group-hover:text-ink/60"
+                  >
+                    →
+                  </span>
                 </div>
               </article>
             </li>

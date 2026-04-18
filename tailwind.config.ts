@@ -50,10 +50,10 @@ const config: Config = {
         prose2: "68ch",
       },
       fontSize: {
-        display: ["clamp(2.5rem, 6.2vw, 5.25rem)", { lineHeight: "1.03", letterSpacing: "-0.03em" }],
-        h1: ["clamp(2.25rem, 4.8vw, 3.75rem)", { lineHeight: "1.06", letterSpacing: "-0.025em" }],
-        h2: ["clamp(1.875rem, 3.4vw, 2.75rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
-        h3: ["clamp(1.25rem, 1.6vw, 1.5rem)", { lineHeight: "1.25", letterSpacing: "-0.01em" }],
+        display: ["clamp(2.75rem, 6.5vw, 5.5rem)", { lineHeight: "1.02", letterSpacing: "-0.035em" }],
+        h1: ["clamp(2.25rem, 4.8vw, 3.875rem)", { lineHeight: "1.05", letterSpacing: "-0.028em" }],
+        h2: ["clamp(1.875rem, 3.4vw, 2.875rem)", { lineHeight: "1.09", letterSpacing: "-0.022em" }],
+        h3: ["clamp(1.25rem, 1.6vw, 1.5rem)", { lineHeight: "1.22", letterSpacing: "-0.012em" }],
         eyebrow: ["0.78rem", { lineHeight: "1.2", letterSpacing: "0.14em" }],
       },
       boxShadow: {
