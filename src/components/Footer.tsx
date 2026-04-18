@@ -12,23 +12,27 @@ export function Footer() {
 
   return (
     <footer className="border-t border-paper-line bg-paper">
-      <div className="container-dn py-16 md:py-20">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-12">
+      <div className="container-dn py-20 md:py-24">
+        <div className="grid grid-cols-1 gap-14 md:grid-cols-12 md:gap-12">
           <div className="md:col-span-6">
-            <p className="text-[15px] font-semibold tracking-tight text-ink">
-              Draper Norwood
-            </p>
-            <p className="mt-4 max-w-md text-[15.5px] leading-[1.6] text-ink/70">
+            <div className="flex items-baseline gap-2">
+              <span className="wordmark">Draper Norwood</span>
+              <span
+                aria-hidden="true"
+                className="font-serif text-[13px] italic font-light text-ink/40"
+              >
+                studio
+              </span>
+            </div>
+            <p className="mt-5 max-w-md text-[15.5px] leading-[1.6] text-ink/70">
               Strategy, web, and AI execution for sharper positioning and
               stronger digital presence.
             </p>
           </div>
 
           <div className="md:col-span-3">
-            <p className="text-[11px] uppercase tracking-[0.18em] text-ink/40">
-              Navigate
-            </p>
-            <ul className="mt-5 space-y-3">
+            <p className="caption">Navigate</p>
+            <ul className="mt-6 space-y-3">
               {NAV.map((n) => (
                 <li key={n.href}>
                   <Link
@@ -43,10 +47,8 @@ export function Footer() {
           </div>
 
           <div className="md:col-span-3">
-            <p className="text-[11px] uppercase tracking-[0.18em] text-ink/40">
-              Contact
-            </p>
-            <ul className="mt-5 space-y-3">
+            <p className="caption">Contact</p>
+            <ul className="mt-6 space-y-3">
               <li>
                 <Link
                   href="mailto:hello@drapernorwood.com"
@@ -59,9 +61,12 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 border-t border-paper-line pt-8">
+        <div className="mt-20 flex flex-col items-start justify-between gap-3 border-t border-paper-line pt-8 md:flex-row md:items-center">
           <p className="text-[13px] text-ink/55">
             © {year} Draper Norwood
+          </p>
+          <p className="font-serif text-[13px] italic text-ink/50">
+            Clarity · Execution · Leverage
           </p>
         </div>
       </div>

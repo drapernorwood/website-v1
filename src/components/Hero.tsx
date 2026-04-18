@@ -8,38 +8,30 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 grid-backdrop opacity-40"
       />
 
-      <div className="container-dn relative pt-28 pb-28 md:pt-36 md:pb-36 lg:pt-44 lg:pb-44">
-        <div
-          aria-hidden="true"
-          className="absolute right-0 top-0 hidden flex-col items-end gap-3 pt-10 lg:flex"
-        >
-          <span className="text-[10px] uppercase tracking-[0.2em] text-ink/35">
-            Strategy · Web · AI
-          </span>
-          <div className="h-px w-8 bg-ink/20" />
-          <span className="font-serif text-[11px] italic text-ink/30">
-            Est. 2025
-          </span>
+      <div className="container-dn relative pt-20 pb-20 md:pt-28 md:pb-28 lg:pt-36 lg:pb-32">
+        <div className="flex items-center gap-3">
+          <div aria-hidden className="h-px w-8 bg-ink/30" />
+          <p className="eyebrow">Strategy · Web · AI Execution</p>
         </div>
 
-        <div className="max-w-5xl">
-          <p className="eyebrow">Strategy, Web, and AI Execution</p>
+        <h1 className="mt-10 text-display font-medium tracking-tightest text-ink md:mt-14">
+          Sharper positioning.
+          <br className="hidden sm:block" />{" "}
+          Stronger digital assets.
+          <br className="hidden sm:block" />{" "}
+          <span className="serif-display italic font-light text-ink/80">
+            Better business performance.
+          </span>
+        </h1>
 
-          <h1 className="mt-8 text-display font-medium tracking-tightest text-ink md:mt-10">
-            Sharper positioning.
-            <br className="hidden sm:block" />{" "}
-            Stronger digital assets.
-            <br className="hidden sm:block" />{" "}
-            <span className="text-ink/45">Better business performance.</span>
-          </h1>
-
-          <p className="mt-10 max-w-[54ch] text-[17px] leading-[1.6] text-ink/70 md:mt-12 md:text-[19px]">
+        <div className="mt-12 grid grid-cols-1 items-end gap-12 md:mt-16 md:grid-cols-12 md:gap-10">
+          <p className="md:col-span-7 max-w-[56ch] text-[17px] leading-[1.6] text-ink/70 md:text-[19px]">
             Draper Norwood helps companies clarify what they do, strengthen
             how they show up online, and build modern digital assets that
             improve trust, traction, and profitability.
           </p>
 
-          <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-3 md:mt-14">
+          <div className="md:col-span-5 md:justify-self-end flex flex-wrap items-center gap-x-6 gap-y-3">
             <Link href="#contact" className="btn-primary">
               Work With Us
               <ArrowRight />
@@ -50,12 +42,28 @@ export function Hero() {
             </Link>
           </div>
         </div>
+
+        <div className="mt-20 md:mt-28 lg:mt-32 rail">
+          <RailItem label="Studio" value="Draper Norwood" />
+          <RailItem label="Practice" value="Strategy · Web · AI" />
+          <RailItem label="Posture" value="Clarity & Execution" />
+          <RailItem label="Since" value="2025" />
+        </div>
       </div>
 
       <div className="container-dn">
         <div className="rule" />
       </div>
     </section>
+  );
+}
+
+function RailItem({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rail-item">
+      <span className="rail-label">{label}</span>
+      <span className="rail-value">{value}</span>
+    </div>
   );
 }
 

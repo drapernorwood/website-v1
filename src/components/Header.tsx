@@ -27,25 +27,34 @@ export function Header() {
         "sticky top-0 z-50 w-full",
         "transition-[background-color,border-color,backdrop-filter] duration-300 ease-smooth",
         scrolled
-          ? "border-b border-paper-line/80 bg-paper/80 backdrop-blur-md"
+          ? "border-b border-paper-line/80 bg-paper/85 backdrop-blur-md"
           : "border-b border-transparent bg-transparent",
       ].join(" ")}
     >
       <div className="container-dn flex h-16 items-center justify-between md:h-20">
         <Link
           href="/"
-          className="text-[15px] font-semibold tracking-tight text-ink"
+          className="group flex items-baseline gap-2"
           aria-label="Draper Norwood — Home"
         >
-          Draper Norwood
+          <span className="wordmark">Draper Norwood</span>
+          <span
+            aria-hidden="true"
+            className="font-serif text-[13px] italic font-light text-ink/40 transition-colors duration-200 ease-smooth group-hover:text-ink/70"
+          >
+            studio
+          </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
+        <nav
+          className="hidden items-center gap-9 md:flex"
+          aria-label="Primary"
+        >
           {NAV.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm text-ink/75 transition-colors hover:text-ink"
+              className="text-[13.5px] text-ink/65 transition-colors duration-200 hover:text-ink"
             >
               {item.label}
             </Link>
@@ -53,7 +62,7 @@ export function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <Link href="#contact" className="btn-primary">
+          <Link href="#contact" className="btn-primary !px-5 !py-2.5 !text-[13px]">
             Work With Us
           </Link>
         </div>
@@ -68,9 +77,19 @@ export function Header() {
           <span className="sr-only">Menu</span>
           <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
             {open ? (
-              <path d="M3 3l10 10M13 3L3 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              <path
+                d="M3 3l10 10M13 3L3 13"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
             ) : (
-              <path d="M2 5h12M2 11h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              <path
+                d="M2 5h12M2 11h12"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
             )}
           </svg>
         </button>
@@ -89,7 +108,11 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Link href="#contact" onClick={() => setOpen(false)} className="btn-primary mt-2 w-full">
+            <Link
+              href="#contact"
+              onClick={() => setOpen(false)}
+              className="btn-primary mt-2 w-full"
+            >
               Work With Us
             </Link>
           </div>
