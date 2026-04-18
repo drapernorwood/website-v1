@@ -9,6 +9,19 @@ export function Hero() {
       />
 
       <div className="container-dn relative pt-28 pb-28 md:pt-36 md:pb-36 lg:pt-44 lg:pb-44">
+        <div
+          aria-hidden="true"
+          className="absolute right-0 top-0 hidden flex-col items-end gap-3 pt-10 lg:flex"
+        >
+          <span className="text-[10px] uppercase tracking-[0.2em] text-ink/35">
+            Strategy · Web · AI
+          </span>
+          <div className="h-px w-8 bg-ink/20" />
+          <span className="font-serif text-[11px] italic text-ink/30">
+            Est. 2025
+          </span>
+        </div>
+
         <div className="max-w-5xl">
           <p className="eyebrow">Strategy, Web, and AI Execution</p>
 
