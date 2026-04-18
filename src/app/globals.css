@@ -25,40 +25,84 @@ body {
   color: theme("colors.paper.DEFAULT");
 }
 
+/* Fraunces optical sizing for display moments */
+.serif-display {
+  font-family: var(--font-serif);
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+}
+
+.serif-text {
+  font-family: var(--font-serif);
+  font-variation-settings: "opsz" 48, "SOFT" 50;
+}
+
 @layer components {
   .container-dn {
-    @apply mx-auto w-full max-w-container px-6 md:px-8 lg:px-10;
+    @apply mx-auto w-full max-w-container px-6 md:px-10 lg:px-12;
   }
 
   .eyebrow {
-    @apply text-eyebrow uppercase font-medium text-ink-muted;
+    @apply text-[11px] uppercase font-medium text-ink/55;
+    letter-spacing: 0.22em;
   }
 
   .rule {
     @apply h-px w-full bg-paper-line;
   }
 
+  .wordmark {
+    @apply text-[15px] font-semibold text-ink;
+    letter-spacing: -0.02em;
+  }
+
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink text-paper
-           px-6 py-3.5 text-[14px] font-medium tracking-tight
+           px-7 py-4 text-[14px] font-medium
            transition-colors duration-200 ease-smooth
            hover:bg-ink-soft focus:outline-none focus-visible:ring-2
            focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
+    letter-spacing: -0.01em;
   }
 
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2 rounded-full
            border border-ink/15 bg-transparent text-ink
-           px-6 py-3.5 text-[14px] font-medium tracking-tight
+           px-7 py-4 text-[14px] font-medium
            transition-colors duration-200 ease-smooth
            hover:border-ink/40 hover:bg-ink/[0.03]
            focus:outline-none focus-visible:ring-2
            focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
+    letter-spacing: -0.01em;
   }
 
   .link-quiet {
-    @apply inline-flex items-center gap-1.5 text-sm font-medium text-ink
+    @apply inline-flex items-center gap-1.5 text-[14px] font-medium text-ink
            transition-colors duration-200 ease-smooth hover:text-accent;
+    letter-spacing: -0.005em;
+  }
+
+  .caption {
+    @apply text-[11px] font-medium uppercase text-ink/50;
+    letter-spacing: 0.2em;
+  }
+
+  .rail {
+    @apply grid grid-cols-2 gap-y-6 border-t border-paper-line pt-6
+           md:grid-cols-4 md:gap-6;
+  }
+
+  .rail-item {
+    @apply flex flex-col gap-1.5;
+  }
+
+  .rail-label {
+    @apply text-[10px] font-medium uppercase text-ink/40;
+    letter-spacing: 0.22em;
+  }
+
+  .rail-value {
+    @apply text-[14px] font-medium text-ink/80;
+    letter-spacing: -0.005em;
   }
 
   .card {
@@ -67,11 +111,11 @@ body {
   }
 
   .section {
-    @apply py-20 md:py-28 lg:py-32;
+    @apply py-24 md:py-32 lg:py-40;
   }
 
   .section-tight {
-    @apply py-16 md:py-24;
+    @apply py-20 md:py-28;
   }
 }
 
@@ -80,9 +124,9 @@ body {
   background-image:
     linear-gradient(to right, rgba(11, 12, 14, 0.035) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(11, 12, 14, 0.035) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: radial-gradient(ellipse at 80% 20%, black 20%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse at 80% 20%, black 20%, transparent 70%);
+  background-size: 88px 88px;
+  mask-image: radial-gradient(ellipse at 80% 15%, black 15%, transparent 65%);
+  -webkit-mask-image: radial-gradient(ellipse at 80% 15%, black 15%, transparent 65%);
 }
 
 @media (prefers-reduced-motion: reduce) {

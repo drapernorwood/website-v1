@@ -1,11 +1,15 @@
 export function WhatSection() {
   return (
-    <section id="about" className="section">
+    <section id="about" className="section-tight md:section">
       <div className="container-dn">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
           <div className="md:col-span-5">
-            <h2 className="text-h2 font-medium tracking-tighter2 text-ink">
-              What Draper Norwood is
+            <span className="caption">Overview</span>
+            <h2 className="mt-6 text-h2 font-medium tracking-tighter2 text-ink">
+              What Draper Norwood{" "}
+              <span className="serif-display italic font-light text-ink/80">
+                is
+              </span>
             </h2>
           </div>
 

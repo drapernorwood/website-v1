@@ -17,21 +17,34 @@ const SOLVE = [
 
 export function WhoSolve() {
   return (
-    <section className="section border-y border-paper-line bg-paper-soft/40">
+    <section className="section border-y border-paper-line bg-paper-soft/50">
       <div className="container-dn">
-        <div className="grid grid-cols-1 gap-14 md:grid-cols-2 md:gap-20 lg:gap-24">
-          <Column heading="Who we work with" items={WHO} />
-          <Column heading="What we help solve" items={SOLVE} />
+        <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-20 lg:gap-28">
+          <Column label="Who" heading="Who we work with" items={WHO} />
+          <Column
+            label="What"
+            heading="What we help solve"
+            items={SOLVE}
+          />
         </div>
       </div>
     </section>
   );
 }
 
-function Column({ heading, items }: { heading: string; items: string[] }) {
+function Column({
+  label,
+  heading,
+  items,
+}: {
+  label: string;
+  heading: string;
+  items: string[];
+}) {
   return (
     <div>
-      <h3 className="text-h2 font-medium tracking-tighter2 text-ink">
+      <span className="caption">{label}</span>
+      <h3 className="mt-6 text-h2 font-medium tracking-tighter2 text-ink">
         {heading}
       </h3>
 
@@ -39,11 +52,11 @@ function Column({ heading, items }: { heading: string; items: string[] }) {
         {items.map((item) => (
           <li
             key={item}
-            className="flex items-start gap-4 py-5 text-[16.5px] leading-[1.55] text-ink/80 md:text-[17.5px]"
+            className="flex items-start gap-5 py-5 text-[16.5px] leading-[1.55] text-ink/80 md:text-[17.5px]"
           >
             <span
               aria-hidden="true"
-              className="mt-[0.75em] inline-block h-px w-4 shrink-0 bg-ink/25"
+              className="mt-[0.78em] inline-block h-px w-5 shrink-0 bg-ink/30"
             />
             <span>{item}</span>
           </li>
