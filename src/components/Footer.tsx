@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const NAV = [
@@ -15,16 +16,14 @@ export function Footer() {
       <div className="container-dn py-20 md:py-24">
         <div className="grid grid-cols-1 gap-14 md:grid-cols-12 md:gap-12">
           <div className="md:col-span-6">
-            <div className="flex items-baseline gap-2">
-              <span className="wordmark">Draper Norwood</span>
-              <span
-                aria-hidden="true"
-                className="font-serif text-[13px] italic font-light text-ink/40"
-              >
-                studio
-              </span>
-            </div>
-            <p className="mt-5 max-w-md text-[15.5px] leading-[1.6] text-ink/70">
+            <Image
+              src="/brand/dn-lockup-tight.png"
+              alt="Draper Norwood"
+              width={1293}
+              height={237}
+              className="h-10 w-auto md:h-12"
+            />
+            <p className="mt-8 max-w-md text-[15.5px] leading-[1.6] text-ink/70">
               Strategy, web, and AI execution for sharper positioning and
               stronger digital presence.
             </p>

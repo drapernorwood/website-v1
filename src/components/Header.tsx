@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -34,16 +35,17 @@ export function Header() {
       <div className="container-dn flex h-16 items-center justify-between md:h-20">
         <Link
           href="/"
-          className="group flex items-baseline gap-2"
+          className="group inline-flex items-center"
           aria-label="Draper Norwood — Home"
         >
-          <span className="wordmark">Draper Norwood</span>
-          <span
-            aria-hidden="true"
-            className="font-serif text-[13px] italic font-light text-ink/40 transition-colors duration-200 ease-smooth group-hover:text-ink/70"
-          >
-            studio
-          </span>
+          <Image
+            src="/brand/dn-wordmark-tight.png"
+            alt="Draper Norwood"
+            width={1262}
+            height={99}
+            priority
+            className="h-[18px] w-auto transition-opacity duration-200 ease-smooth group-hover:opacity-80 md:h-[20px]"
+          />
         </Link>
 
         <nav
