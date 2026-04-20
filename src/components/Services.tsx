@@ -25,7 +25,7 @@ const SERVICES = [
     kicker: "Craft",
     title: "Creative and growth assets",
     body:
-      "Create the supporting assets that bring clarity, consistency, and taste to how the business is seen, built with the right tools, creative judgment, and human craft.",
+      "Create the supporting assets that bring clarity, consistency, and taste to how the business is seen — built with the right tools, creative judgment, and human craft.",
   },
 ];
 
