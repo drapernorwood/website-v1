@@ -40,10 +40,10 @@ export function Services() {
           </span>
         </h2>
 
-        <ul className="mt-20 border-t border-paper-line md:mt-28">
+        <ul className="mt-16 border-t border-ink/10 md:mt-20">
           {SERVICES.map((s) => (
-            <li key={s.n} className="border-b border-paper-line">
-              <article className="group -mx-4 grid grid-cols-12 gap-x-6 gap-y-4 rounded-xl px-4 py-10 md:py-16">
+            <li key={s.n} className="border-b border-ink/10">
+              <article className="grid grid-cols-12 gap-x-6 gap-y-4 py-9 md:py-14">
                 <div className="col-span-2 md:col-span-1">
                   <span
                     aria-hidden="true"
@@ -53,15 +53,17 @@ export function Services() {
                   </span>
                 </div>
 
-                <div className="col-span-10 md:col-span-6 md:pl-4">
-                  <span className="caption block">{s.kicker}</span>
+                <div className="col-span-10 md:col-span-5">
+                  <span className="caption block text-ink/65 tracking-[0.24em]">
+                    {s.kicker}
+                  </span>
                   <h3 className="mt-3 text-[24px] font-medium leading-[1.2] tracking-tight text-ink md:mt-4 md:text-[30px] md:leading-[1.12] lg:text-[34px]">
                     {s.title}
                   </h3>
                 </div>
 
-                <div className="col-span-10 col-start-3 md:col-span-5 md:col-start-auto md:pt-2">
-                  <p className="max-w-[46ch] text-[15.5px] leading-[1.6] text-ink/70 md:text-[16px]">
+                <div className="col-span-10 col-start-3 md:col-span-6 md:col-start-auto md:pt-2">
+                  <p className="max-w-[52ch] text-[16px] leading-[1.65] text-ink/80 md:text-[17px]">
                     {s.body}
                   </p>
                 </div>
