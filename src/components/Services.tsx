@@ -11,7 +11,7 @@ const SERVICES = [
     kicker: "Trust",
     title: "Web and digital presence",
     body:
-      "Strengthen the digital front door with sharper structure, clearer messaging, and a stronger path to trust and action.",
+      "Strengthen the digital front door with clearer structure, sharper messaging, and a stronger path to trust and action.",
   },
   {
     n: "03",
@@ -25,7 +25,7 @@ const SERVICES = [
     kicker: "Craft",
     title: "Creative and growth assets",
     body:
-      "Create the supporting assets that bring clarity, consistency, and taste to how the business is seen — built with the right tools, creative judgment, and human craft.",
+      "Create the supporting assets that bring clarity, consistency, and taste to how the business is seen, built with the right tools, creative judgment, and human craft.",
   },
 ];
 
@@ -44,8 +44,8 @@ export function Services() {
           </div>
           <div className="md:col-span-5 md:col-start-8 md:pt-4">
             <p className="max-w-[46ch] text-[16px] leading-[1.6] text-ink/65 md:text-[17px]">
-              Practical work that sharpens how a business is positioned,
-              presented, and built.
+              Work that sharpens how a business is positioned, presented, and
+              built.
             </p>
           </div>
         </div>
