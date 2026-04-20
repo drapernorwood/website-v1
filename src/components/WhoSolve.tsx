@@ -1,18 +1,18 @@
 const WHO = [
-  "companies with strong underlying value but weak positioning",
-  "businesses whose website or messaging undersells what they actually do",
-  "founders with too many moving parts and no clear external structure",
-  "teams that need strategic thinking plus real execution",
-  "companies that want to use AI and modern digital systems in practical, commercially useful ways",
+  "businesses that are stronger than the market currently perceives",
+  "companies whose website, messaging, or digital presence is not carrying the weight it should",
+  "founders and teams with serious capability but too much external blur",
+  "businesses that need strategic thinking and real execution, not more detached advice",
+  "companies looking to use AI and modern systems with judgment to improve efficiency, customer experience, or profitability",
 ];
 
 const SOLVE = [
-  "unclear positioning",
-  "weak or outdated digital presence",
-  "offers that are valuable but poorly communicated",
-  "websites that do not convert trust into action",
-  "fragmented digital experiences",
-  "lack of strategic direction around AI, systems, and execution",
+  "positioning that is too vague, too generic, or too soft to compete well",
+  "websites and digital assets that look acceptable but fail to earn action",
+  "valuable offers that are not being framed with enough clarity or force",
+  "fragmented digital experiences that weaken credibility",
+  "execution gaps between what the business knows it should do and what actually gets built",
+  "unclear direction around AI, systems, and modern digital leverage",
 ];
 
 export function WhoSolve() {
@@ -20,10 +20,14 @@ export function WhoSolve() {
     <section className="section border-y border-paper-line bg-paper-soft/50">
       <div className="container-dn">
         <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-20 lg:gap-28">
-          <Column label="Who" heading="Who we work with" items={WHO} />
           <Column
-            label="What"
-            heading="What we help solve"
+            heading="Who it’s for"
+            lead="We work with companies that have substance, but not yet the structure, positioning, or digital presence to express it with full force."
+            items={WHO}
+          />
+          <Column
+            heading="What it helps solve"
+            lead="We help fix the gaps between capability and perception, strategy and execution, attention and trust."
             items={SOLVE}
           />
         </div>
@@ -33,20 +37,23 @@ export function WhoSolve() {
 }
 
 function Column({
-  label,
   heading,
+  lead,
   items,
 }: {
-  label: string;
   heading: string;
+  lead: string;
   items: string[];
 }) {
   return (
     <div>
-      <span className="caption">{label}</span>
-      <h3 className="mt-6 text-h2 font-medium tracking-tighter2 text-ink">
+      <h3 className="text-h2 font-medium tracking-tighter2 text-ink">
         {heading}
       </h3>
+
+      <p className="mt-6 max-w-[46ch] text-[16px] leading-[1.6] text-ink/70 md:text-[17px]">
+        {lead}
+      </p>
 
       <ul className="mt-10 divide-y divide-paper-line border-t border-paper-line">
         {items.map((item) => (
