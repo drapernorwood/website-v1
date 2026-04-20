@@ -33,27 +33,17 @@ export function Services() {
   return (
     <section id="services" className="py-24 md:py-36 lg:py-44">
       <div className="container-dn">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-16">
-          <div className="md:col-span-6">
-            <h2 className="text-h2 font-medium tracking-tighter2 text-ink">
-              What we{" "}
-              <span className="serif-display italic font-light text-ink/80">
-                do
-              </span>
-            </h2>
-          </div>
-          <div className="md:col-span-5 md:col-start-8 md:pt-4">
-            <p className="max-w-[46ch] text-[16px] leading-[1.6] text-ink/65 md:text-[17px]">
-              Work that sharpens how a business is positioned, presented, and
-              built.
-            </p>
-          </div>
-        </div>
+        <h2 className="text-h2 font-medium tracking-tighter2 text-ink">
+          What we{" "}
+          <span className="serif-display italic font-light text-ink/80">
+            do
+          </span>
+        </h2>
 
         <ul className="mt-20 border-t border-paper-line md:mt-28">
           {SERVICES.map((s) => (
             <li key={s.n} className="border-b border-paper-line">
-              <article className="group -mx-4 grid grid-cols-12 gap-x-6 gap-y-4 rounded-xl px-4 py-10 transition-colors duration-300 ease-smooth hover:bg-paper-soft/50 md:py-16">
+              <article className="group -mx-4 grid grid-cols-12 gap-x-6 gap-y-4 rounded-xl px-4 py-10 md:py-16">
                 <div className="col-span-2 md:col-span-1">
                   <span
                     aria-hidden="true"
@@ -70,19 +60,10 @@ export function Services() {
                   </h3>
                 </div>
 
-                <div className="col-span-12 md:col-span-4 md:pt-2">
+                <div className="col-span-10 col-start-3 md:col-span-5 md:col-start-auto md:pt-2">
                   <p className="max-w-[46ch] text-[15.5px] leading-[1.6] text-ink/70 md:text-[16px]">
                     {s.body}
                   </p>
-                </div>
-
-                <div className="col-span-1 hidden items-start justify-end pt-3 md:flex">
-                  <span
-                    aria-hidden="true"
-                    className="translate-x-0 text-[18px] text-ink/20 transition-all duration-300 ease-smooth group-hover:translate-x-1.5 group-hover:text-ink/70"
-                  >
-                    →
-                  </span>
                 </div>
               </article>
             </li>
