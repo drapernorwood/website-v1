@@ -40,8 +40,8 @@ export function Hero() {
 
         <div className="mt-14 grid grid-cols-1 items-end gap-12 md:mt-20 md:grid-cols-12 md:gap-10">
           <p className="md:col-span-7 max-w-[56ch] text-[17px] leading-[1.65] text-ink/70 md:text-[19px]">
-            Draper Norwood helps companies clarify their value, elevate their
-            digital presence, and present themselves with greater precision,
+            We help companies clarify their value, elevate their digital
+            presence, and present themselves with greater precision,
             credibility, and force.
           </p>
 

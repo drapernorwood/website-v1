@@ -18,10 +18,10 @@ export function WhatSection() {
                 Your business is stronger than the market sees.
               </p>
               <p>
-                Draper Norwood closes the gap between what a company actually
-                delivers and how it is perceived — through sharper positioning,
-                a stronger digital presence, and practical assets built to earn
-                trust and create leverage.
+                We close the gap between what a company actually delivers and
+                how it is perceived — through sharper positioning, a stronger
+                digital presence, and practical assets built to earn trust and
+                create leverage.
               </p>
               <p>
                 Not advice. Not decks. Work that moves the business.

@@ -26,9 +26,9 @@ export function WhoSolve() {
             <Column
               heading={
                 <>
-                  Who it’s{" "}
+                  Who we{" "}
                   <span className="serif-display italic font-light text-ink/80">
-                    for
+                    help
                   </span>
                 </>
               }
@@ -40,7 +40,7 @@ export function WhoSolve() {
             <Column
               heading={
                 <>
-                  What it helps{" "}
+                  What we{" "}
                   <span className="serif-display italic font-light text-ink/80">
                     solve
                   </span>
