@@ -68,12 +68,12 @@ export function Services() {
 
                 <div className="col-span-10 md:col-span-6 md:pl-4">
                   <span className="caption block">{s.kicker}</span>
-                  <h3 className="mt-3 text-[24px] font-medium leading-[1.12] tracking-tight text-ink md:mt-4 md:text-[30px] lg:text-[34px]">
+                  <h3 className="mt-3 text-[24px] font-medium leading-[1.2] tracking-tight text-ink md:mt-4 md:text-[30px] md:leading-[1.12] lg:text-[34px]">
                     {s.title}
                   </h3>
                 </div>
 
-                <div className="col-span-11 md:col-span-4 md:pt-2">
+                <div className="col-span-12 md:col-span-4 md:pt-2">
                   <p className="max-w-[46ch] text-[15.5px] leading-[1.6] text-ink/70 md:text-[16px]">
                     {s.body}
                   </p>
