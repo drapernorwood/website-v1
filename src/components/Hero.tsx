@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export function Hero() {
@@ -7,6 +8,21 @@ export function Hero() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 grid-backdrop opacity-40"
       />
+
+      {/* Faint DN monogram — subliminal brand presence, not decoration */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-16 top-1/2 -translate-y-1/2 select-none opacity-[0.04] md:-right-8 lg:right-0"
+      >
+        <Image
+          src="/brand/dn-logo.png"
+          alt=""
+          width={2000}
+          height={2000}
+          className="h-[480px] w-auto md:h-[640px] lg:h-[760px]"
+          priority
+        />
+      </div>
 
       <div className="container-dn relative pt-20 pb-20 md:pt-28 md:pb-28 lg:pt-36 lg:pb-32">
         <div className="flex items-center gap-3">
@@ -22,28 +38,22 @@ export function Hero() {
           </span>
         </h1>
 
-        <div className="mt-14 grid grid-cols-1 gap-12 md:mt-20 md:grid-cols-12 md:gap-10">
+        <div className="mt-14 grid grid-cols-1 items-end gap-12 md:mt-20 md:grid-cols-12 md:gap-10">
           <p className="md:col-span-7 max-w-[56ch] text-[17px] leading-[1.65] text-ink/70 md:text-[19px]">
             Draper Norwood helps companies clarify their value, elevate their
             digital presence, and present themselves with greater precision,
             credibility, and force.
           </p>
 
-          <div className="md:col-span-4 md:col-start-9">
-            <div className="flex items-center gap-3">
-              <div aria-hidden className="h-px w-6 bg-ink/30" />
-              <p className="eyebrow">Begin</p>
-            </div>
-            <div className="mt-6 flex flex-col items-start gap-4">
-              <Link href="#contact" className="btn-primary">
-                Work With Us
-                <ArrowRight />
-              </Link>
-              <Link href="#services" className="link-quiet">
-                View Services
-                <span aria-hidden="true">→</span>
-              </Link>
-            </div>
+          <div className="md:col-span-5 md:justify-self-end flex flex-wrap items-center gap-x-6 gap-y-3">
+            <Link href="#contact" className="btn-primary">
+              Work With Us
+              <ArrowRight />
+            </Link>
+            <Link href="#services" className="link-quiet">
+              View Services
+              <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </div>
 
