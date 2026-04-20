@@ -12,7 +12,7 @@ export function Hero() {
       {/* Faint DN monogram — subliminal brand presence, not decoration */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-16 top-1/2 -translate-y-1/2 select-none opacity-[0.04] md:-right-8 lg:right-0"
+        className="pointer-events-none absolute -right-16 top-[62%] -translate-y-1/2 select-none opacity-[0.04] md:-right-8 lg:right-0"
       >
         <Image
           src="/brand/dn-logo.png"
