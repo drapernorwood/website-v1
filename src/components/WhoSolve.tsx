@@ -1,9 +1,11 @@
+import type { ReactNode } from "react";
+
 const WHO = [
   "businesses that are stronger than the market currently perceives",
   "companies whose website, messaging, or digital presence is not carrying the weight it should",
   "founders and teams with serious capability but too much external blur",
   "businesses that need strategic thinking and real execution, not more detached advice",
-  "companies looking to use AI and modern systems with judgment to improve efficiency, customer experience, or profitability",
+  "companies ready to apply AI and modern systems with judgment, not hype",
 ];
 
 const SOLVE = [
@@ -11,7 +13,7 @@ const SOLVE = [
   "websites and digital assets that look acceptable but fail to earn action",
   "valuable offers that are not being framed with enough clarity or force",
   "fragmented digital experiences that weaken credibility",
-  "execution gaps between what the business knows it should do and what actually gets built",
+  "execution gaps between intent and what actually ships",
   "unclear direction around AI, systems, and modern digital leverage",
 ];
 
@@ -19,17 +21,35 @@ export function WhoSolve() {
   return (
     <section className="section border-y border-paper-line bg-paper-soft/50">
       <div className="container-dn">
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-20 lg:gap-28">
-          <Column
-            heading="Who it’s for"
-            lead="We work with companies that have substance, but not yet the structure, positioning, or digital presence to express it with full force."
-            items={WHO}
-          />
-          <Column
-            heading="What it helps solve"
-            lead="We help fix the gaps between capability and perception, strategy and execution, attention and trust."
-            items={SOLVE}
-          />
+        <div className="grid grid-cols-1 gap-16 md:grid-cols-12 md:gap-x-12 lg:gap-x-20">
+          <div className="md:col-span-5">
+            <Column
+              heading={
+                <>
+                  Who it’s{" "}
+                  <span className="serif-display italic font-light text-ink/80">
+                    for
+                  </span>
+                </>
+              }
+              lead="We work with companies that have substance, but not yet the structure, positioning, or digital presence to express it with full force."
+              items={WHO}
+            />
+          </div>
+          <div className="md:col-span-6 md:col-start-7 md:pt-24 lg:pt-32">
+            <Column
+              heading={
+                <>
+                  What it helps{" "}
+                  <span className="serif-display italic font-light text-ink/80">
+                    solve
+                  </span>
+                </>
+              }
+              lead="We help fix the gaps between capability and perception, strategy and execution, attention and trust."
+              items={SOLVE}
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -41,7 +61,7 @@ function Column({
   lead,
   items,
 }: {
-  heading: string;
+  heading: ReactNode;
   lead: string;
   items: string[];
 }) {
