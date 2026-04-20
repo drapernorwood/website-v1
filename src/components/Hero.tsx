@@ -15,20 +15,18 @@ export function Hero() {
         </div>
 
         <h1 className="mt-10 text-display font-medium tracking-tightest text-ink md:mt-14">
-          Sharper positioning.
-          <br className="hidden sm:block" />{" "}
-          Stronger digital assets.
+          Make your business clearer —
           <br className="hidden sm:block" />{" "}
           <span className="serif-display italic font-light text-ink/80">
-            Better business performance.
+            and harder to ignore.
           </span>
         </h1>
 
         <div className="mt-12 grid grid-cols-1 items-end gap-12 md:mt-16 md:grid-cols-12 md:gap-10">
           <p className="md:col-span-7 max-w-[56ch] text-[17px] leading-[1.6] text-ink/70 md:text-[19px]">
-            Draper Norwood helps companies clarify what they do, strengthen
-            how they show up online, and build modern digital assets that
-            improve trust, traction, and profitability.
+            Draper Norwood helps companies clarify their value, elevate their
+            digital presence, and present themselves with greater precision,
+            credibility, and force.
           </p>
 
           <div className="md:col-span-5 md:justify-self-end flex flex-wrap items-center gap-x-6 gap-y-3">
