@@ -56,28 +56,12 @@ export function Hero() {
             </Link>
           </div>
         </div>
-
-        <div className="mt-20 md:mt-28 lg:mt-32 rail">
-          <RailItem label="Studio" value="Draper Norwood" />
-          <RailItem label="Practice" value="Strategy · Web · AI" />
-          <RailItem label="Posture" value="Clarity & Execution" />
-          <RailItem label="Since" value="2025" />
-        </div>
       </div>
 
       <div className="container-dn">
         <div className="rule" />
       </div>
     </section>
-  );
-}
-
-function RailItem({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="rail-item">
-      <span className="rail-label">{label}</span>
-      <span className="rail-value">{value}</span>
-    </div>
   );
 }
 
