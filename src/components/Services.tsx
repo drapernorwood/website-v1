@@ -1,31 +1,31 @@
 const SERVICES = [
   {
     n: "01",
-    kicker: "Positioning",
-    title: "Positioning and Strategic Clarity",
+    kicker: "Clarity",
+    title: "Positioning and strategy",
     body:
-      "Clarify what the business is, who it serves, what it solves, and how to express that with more force and precision.",
+      "Clarify what the business is, what it solves, and how it should be expressed with more force and precision.",
   },
   {
     n: "02",
-    kicker: "Presence",
-    title: "Web and Digital Presence",
+    kicker: "Trust",
+    title: "Web and digital presence",
     body:
-      "Improve the digital front door through better website structure, messaging, UX thinking, and digital presentation.",
+      "Strengthen the digital front door with sharper structure, clearer messaging, and a stronger path to trust and action.",
   },
   {
     n: "03",
-    kicker: "Execution",
-    title: "AI and Modern Execution Systems",
+    kicker: "Leverage",
+    title: "AI and modern systems",
     body:
-      "Use AI and modern workflows to create practical leverage, stronger systems, and better execution without hype.",
+      "Design and build practical systems, workflows, and customer-facing tools using AI, guided by judgment, design, and craftsmanship.",
   },
   {
     n: "04",
-    kicker: "Growth",
-    title: "Creative and Growth Assets",
+    kicker: "Craft",
+    title: "Creative and growth assets",
     body:
-      "Develop supporting materials that strengthen trust, attention, communication, and market presence.",
+      "Create the supporting assets that bring clarity, consistency, and taste to how the business is seen, built with the right tools, creative judgment, and human craft.",
   },
 ];
 
@@ -35,20 +35,17 @@ export function Services() {
       <div className="container-dn">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-16">
           <div className="md:col-span-6">
-            <span className="caption">The practice</span>
-            <h2 className="mt-6 text-h2 font-medium tracking-tighter2 text-ink">
-              Four disciplines,
-              <br className="hidden sm:block" />{" "}
+            <h2 className="text-h2 font-medium tracking-tighter2 text-ink">
+              What we{" "}
               <span className="serif-display italic font-light text-ink/80">
-                one operating posture.
+                do
               </span>
             </h2>
           </div>
           <div className="md:col-span-5 md:col-start-8 md:pt-4">
             <p className="max-w-[46ch] text-[16px] leading-[1.6] text-ink/65 md:text-[17px]">
-              Each engagement blends sharp strategic thinking with real
-              execution — clarify the business, build what is needed, and
-              improve how it performs.
+              Practical work that sharpens how a business is positioned,
+              presented, and built.
             </p>
           </div>
         </div>
