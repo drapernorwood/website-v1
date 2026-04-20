@@ -1,31 +1,55 @@
+import type { ReactNode } from "react";
+
 const WHO = [
-  "companies with strong underlying value but weak positioning",
-  "businesses whose website or messaging undersells what they actually do",
-  "founders with too many moving parts and no clear external structure",
-  "teams that need strategic thinking plus real execution",
-  "companies that want to use AI and modern digital systems in practical, commercially useful ways",
+  "businesses that are stronger than the market currently perceives",
+  "companies whose website, messaging, or digital presence is not carrying the weight it should",
+  "founders and teams with serious capability but too much external blur",
+  "businesses that need strategic thinking and real execution, not more detached advice",
+  "companies ready to apply AI and modern systems with judgment, not hype",
 ];
 
 const SOLVE = [
-  "unclear positioning",
-  "weak or outdated digital presence",
-  "offers that are valuable but poorly communicated",
-  "websites that do not convert trust into action",
-  "fragmented digital experiences",
-  "lack of strategic direction around AI, systems, and execution",
+  "positioning that is too vague, too generic, or too soft to compete well",
+  "websites and digital assets that look acceptable but fail to earn action",
+  "valuable offers that are not being framed with enough clarity or force",
+  "fragmented digital experiences that weaken credibility",
+  "execution gaps between intent and what actually ships",
+  "unclear direction around AI, systems, and modern digital leverage",
 ];
 
 export function WhoSolve() {
   return (
     <section className="section border-y border-paper-line bg-paper-soft/50">
       <div className="container-dn">
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-20 lg:gap-28">
-          <Column label="Who" heading="Who we work with" items={WHO} />
-          <Column
-            label="What"
-            heading="What we help solve"
-            items={SOLVE}
-          />
+        <div className="grid grid-cols-1 gap-16 md:grid-cols-12 md:gap-x-12 lg:gap-x-20">
+          <div className="md:col-span-5">
+            <Column
+              heading={
+                <>
+                  Who we{" "}
+                  <span className="serif-display italic font-light text-ink/80">
+                    help
+                  </span>
+                </>
+              }
+              lead="We work with companies that have substance, but not yet the structure, positioning, or digital presence to express it with full force."
+              items={WHO}
+            />
+          </div>
+          <div className="md:col-span-6 md:col-start-7 md:pt-24 lg:pt-32">
+            <Column
+              heading={
+                <>
+                  What we{" "}
+                  <span className="serif-display italic font-light text-ink/80">
+                    solve
+                  </span>
+                </>
+              }
+              lead="We help fix the gaps between capability and perception, strategy and execution, attention and trust."
+              items={SOLVE}
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -33,20 +57,23 @@ export function WhoSolve() {
 }
 
 function Column({
-  label,
   heading,
+  lead,
   items,
 }: {
-  label: string;
-  heading: string;
+  heading: ReactNode;
+  lead: string;
   items: string[];
 }) {
   return (
     <div>
-      <span className="caption">{label}</span>
-      <h3 className="mt-6 text-h2 font-medium tracking-tighter2 text-ink">
+      <h3 className="text-h2 font-medium tracking-tighter2 text-ink">
         {heading}
       </h3>
+
+      <p className="mt-6 max-w-[46ch] text-[16px] leading-[1.6] text-ink/70 md:text-[17px]">
+        {lead}
+      </p>
 
       <ul className="mt-10 divide-y divide-paper-line border-t border-paper-line">
         {items.map((item) => (

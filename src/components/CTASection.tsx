@@ -20,8 +20,8 @@ export function CTASection() {
             <em className="italic">clearer path forward?</em>
           </h2>
           <p className="mx-auto mt-10 max-w-2xl text-[17px] leading-[1.6] text-ink/70 md:mt-12 md:text-[19px]">
-            Draper Norwood works with companies that need strategic clarity
-            and real execution — not more noise.
+            We work with companies that need strategic clarity and real
+            execution — not more noise.
           </p>
 
           <div className="mt-12 flex flex-col items-center gap-x-6 gap-y-3 sm:flex-row sm:justify-center md:mt-16">
