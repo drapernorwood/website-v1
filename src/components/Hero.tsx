@@ -12,7 +12,7 @@ export function Hero() {
       {/* Faint DN monogram — subliminal brand presence, not decoration */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-16 top-[62%] -translate-y-1/2 select-none opacity-[0.03] md:-right-8 md:opacity-[0.04] lg:right-0"
+        className="pointer-events-none absolute -right-16 top-1/2 -translate-y-1/2 select-none opacity-[0.03] md:-right-8 md:opacity-[0.04] lg:right-0"
       >
         <Image
           src="/brand/dn-logo.png"
@@ -32,9 +32,9 @@ export function Hero() {
 
         <h1 className="mt-8 text-display font-medium tracking-tightest text-ink md:mt-12">
           Make your business clearer
-          <br />{" "}
+          <br className="hidden sm:block" />{" "}
           <span className="serif-display italic font-light text-ink/80">
-            — and harder to ignore.
+            {"—\u00A0and harder to ignore."}
           </span>
         </h1>
 
