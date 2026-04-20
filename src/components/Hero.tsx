@@ -31,10 +31,10 @@ export function Hero() {
         </div>
 
         <h1 className="mt-8 text-display font-medium tracking-tightest text-ink md:mt-12">
-          Make your business clearer —
+          Make your business clearer
           <br className="hidden sm:block" />{" "}
           <span className="serif-display italic font-light text-ink/80">
-            and harder to ignore.
+            — and harder to ignore.
           </span>
         </h1>
 
