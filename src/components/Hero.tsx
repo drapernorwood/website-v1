@@ -25,11 +25,6 @@ export function Hero() {
       </div>
 
       <div className="container-dn relative pt-14 pb-20 md:pt-28 md:pb-28 lg:pt-36 lg:pb-32">
-        <div className="flex items-center gap-3">
-          <div aria-hidden className="h-px w-8 bg-ink/30" />
-          <p className="eyebrow">Strategy · Web · AI Execution</p>
-        </div>
-
         <h1 className="mt-8 text-display font-medium tracking-tightest text-ink md:mt-12">
           Make your business clearer
           <br className="hidden sm:block" />{" "}
