@@ -13,8 +13,12 @@ export function WhatSection() {
               </h2>
             </div>
 
-            <div className="md:col-span-7 md:pt-2 md:border-l md:border-paper-line md:pl-4">
-              <div className="max-w-[58ch] space-y-5 text-[17px] leading-[1.65] text-ink/65 md:text-[19px]">
+            <div className="relative md:col-span-7 md:pt-2 md:border-l md:border-paper-line md:pl-4">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 hidden select-none grid-analytical md:block"
+              />
+              <div className="relative max-w-[58ch] space-y-5 text-[17px] leading-[1.65] text-ink/65 md:text-[19px]">
                 <p className="text-ink font-medium">
                   Your business is stronger than the market sees.
                 </p>
