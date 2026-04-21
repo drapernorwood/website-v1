@@ -12,8 +12,7 @@ export function CTASection() {
       />
       <div className="container-dn relative">
         <div className="mx-auto max-w-4xl text-center">
-          <span className="caption">Begin</span>
-          <h2 className="serif-display mt-8 font-light text-[34px] leading-[1.12] tracking-tightserif text-ink md:mt-10 md:text-[54px] lg:text-[64px]">
+          <h2 className="serif-display font-light text-[34px] leading-[1.12] tracking-tightserif text-ink md:text-[54px] lg:text-[64px]">
             Need sharper positioning,
             <br className="hidden sm:block" />{" "}
             stronger digital assets, or a{" "}
