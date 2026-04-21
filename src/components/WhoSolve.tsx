@@ -16,10 +16,10 @@ export function WhoSolve() {
           <Column
             heading={
               <>
-                Who we{" "}
                 <span className="serif-display italic font-light text-ink/80">
-                  help
+                  Who
                 </span>
+                {" "}we help
               </>
             }
             lead="We work with companies that have substance, but not yet the structure, positioning, or digital presence to express it with full force."

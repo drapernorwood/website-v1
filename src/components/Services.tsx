@@ -35,10 +35,10 @@ export function Services() {
       <div className="container-dn">
         <div>
           <h2 className="text-h2 font-medium tracking-tighter2 text-ink">
-            How we{" "}
             <span className="serif-display italic font-light text-ink/80">
-              help
+              How
             </span>
+            {" "}we help
           </h2>
           <p className="mt-6 max-w-[56ch] text-[17px] leading-[1.65] text-ink/70">
             We close the gaps between capability and perception, strategy and execution, attention and trust.
