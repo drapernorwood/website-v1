@@ -35,9 +35,6 @@ export function Proof() {
         <div className="max-w-[54ch]">
           <h2 className="text-h2 font-medium tracking-tighter2 text-ink">
             Proof, built through real work.
-            <span className="serif-display italic font-light text-ink/80 block">
-              work, perspective, outcomes.
-            </span>
           </h2>
         </div>
 
