@@ -21,7 +21,7 @@ export function WhoSolve() {
   return (
     <section className="section border-y border-paper-line bg-paper-soft/50">
       <div className="container-dn">
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-12 md:gap-x-12 lg:gap-x-20">
+        <div className="grid grid-cols-1 gap-16 md:grid-cols-12 md:gap-x-10 lg:gap-x-16">
           <div className="md:col-span-5">
             <Column
               heading={
@@ -36,7 +36,7 @@ export function WhoSolve() {
               items={WHO}
             />
           </div>
-          <div className="md:col-span-6 md:col-start-7 md:pt-24 lg:pt-32">
+          <div className="md:col-span-6 md:col-start-7">
             <Column
               heading={
                 <>
@@ -71,19 +71,19 @@ function Column({
         {heading}
       </h3>
 
-      <p className="mt-6 max-w-[46ch] text-[16px] leading-[1.6] text-ink/70 md:text-[17px]">
+      <p className="mt-4 max-w-[46ch] text-[16px] leading-[1.6] text-ink/70 md:text-[17px]">
         {lead}
       </p>
 
-      <ul className="mt-10 divide-y divide-paper-line border-t border-paper-line">
+      <ul className="mt-10 divide-y divide-paper-line/75 border-t border-paper-line/75">
         {items.map((item) => (
           <li
             key={item}
-            className="flex items-start gap-5 py-5 text-[16.5px] leading-[1.55] text-ink/80 md:text-[17.5px]"
+            className="flex items-start gap-4 py-4 text-[16.5px] leading-[1.55] text-ink/80 md:text-[17.5px]"
           >
             <span
               aria-hidden="true"
-              className="mt-[0.78em] inline-block h-px w-5 shrink-0 bg-ink/30"
+              className="mt-[0.78em] inline-block h-px w-5 shrink-0 bg-ink/40"
             />
             <span>{item}</span>
           </li>
