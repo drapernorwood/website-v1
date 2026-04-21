@@ -31,7 +31,7 @@ const SERVICES = [
 
 export function Services() {
   return (
-    <section id="services" className="py-24 md:py-36 lg:py-44">
+    <section id="services" className="pt-36 pb-24 md:pt-52 md:pb-36 lg:pt-60 lg:pb-44">
       <div className="container-dn">
         <h2 className="text-h2 font-medium tracking-tighter2 text-ink">
           What we{" "}
@@ -40,14 +40,14 @@ export function Services() {
           </span>
         </h2>
 
-        <ul className="mt-10 border-t border-ink/10 md:mt-20">
+        <ul className="mt-8 border-t border-ink/10 md:mt-14">
           {SERVICES.map((s) => (
             <li key={s.n} className="border-b border-ink/10">
-              <article className="grid grid-cols-12 gap-x-6 gap-y-2 py-7 md:gap-y-0 md:py-14">
+              <article className="grid grid-cols-12 gap-x-6 gap-y-2 py-6 md:gap-y-0 md:py-11">
                 <div className="col-span-2 md:col-span-1">
                   <span
                     aria-hidden="true"
-                    className="serif-display italic font-light text-[28px] leading-none text-ink/35 md:text-[52px] lg:text-[64px]"
+                    className="serif-display italic font-light text-[28px] leading-none text-ink/50 md:text-[52px] lg:text-[64px]"
                   >
                     {s.n}
                   </span>
@@ -57,13 +57,13 @@ export function Services() {
                   <span className="caption block text-ink/65 tracking-[0.24em]">
                     {s.kicker}
                   </span>
-                  <h3 className="mt-3 text-[22px] font-medium leading-[1.22] tracking-tight text-ink md:mt-4 md:text-[30px] md:leading-[1.12] lg:text-[34px]">
+                  <h3 className="mt-3 text-[24px] font-medium leading-[1.22] tracking-tight text-ink md:mt-4 md:text-[32px] md:leading-[1.12] lg:text-[36px]">
                     {s.title}
                   </h3>
                 </div>
 
                 <div className="col-span-12 md:col-span-6 md:pt-2">
-                  <p className="max-w-[52ch] text-[15.5px] leading-[1.65] text-ink/75 md:text-[17px] md:text-ink/80">
+                  <p className="max-w-[46ch] text-[15.5px] leading-[1.72] text-ink/65 md:text-[17px] md:text-ink/70">
                     {s.body}
                   </p>
                 </div>
