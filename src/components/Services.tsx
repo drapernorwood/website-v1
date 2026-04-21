@@ -33,14 +33,19 @@ export function Services() {
   return (
     <section id="services" className="pt-36 pb-24 md:pt-52 md:pb-36 lg:pt-60 lg:pb-44">
       <div className="container-dn">
-        <h2 className="text-h2 font-medium tracking-tighter2 text-ink">
-          What we{" "}
-          <span className="serif-display italic font-light text-ink/80">
-            do
-          </span>
-        </h2>
+        <div>
+          <h2 className="text-h2 font-medium tracking-tighter2 text-ink">
+            How we{" "}
+            <span className="serif-display italic font-light text-ink/80">
+              help
+            </span>
+          </h2>
+          <p className="mt-6 max-w-[56ch] text-[17px] leading-[1.65] text-ink/70">
+            We close the gaps between capability and perception, strategy and execution, attention and trust.
+          </p>
+        </div>
 
-        <ul className="mt-8 border-t border-ink/10 md:mt-14">
+        <ul className="mt-12 border-t border-ink/10 md:mt-20">
           {SERVICES.map((s) => (
             <li key={s.n} className="border-b border-ink/10">
               <article className="grid grid-cols-12 gap-x-6 gap-y-2 py-6 md:gap-y-0 md:py-11">
