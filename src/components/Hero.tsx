@@ -56,9 +56,6 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="container-dn">
-        <div className="h-px w-full bg-ink/[0.12]" />
-      </div>
     </section>
   );
 }
