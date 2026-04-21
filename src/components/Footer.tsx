@@ -24,8 +24,7 @@ export function Footer() {
               className="h-10 w-auto md:h-12"
             />
             <p className="mt-8 max-w-md text-[15.5px] leading-[1.6] text-ink/70">
-              Strategy, web, and AI execution for sharper positioning and
-              stronger digital presence.
+              Bringing clarity to ideas, structure to systems, and craft to how businesses are presented and built.
             </p>
           </div>
 
@@ -65,7 +64,7 @@ export function Footer() {
             © {year} Draper Norwood
           </p>
           <p className="font-serif text-[13px] italic text-ink/50">
-            Clarity · Execution · Leverage
+            Clarity · Structure · Craft
           </p>
         </div>
       </div>
