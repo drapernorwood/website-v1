@@ -13,8 +13,8 @@ export function WhoSolve() {
   return (
     <section className="section border-y border-paper-line bg-paper-soft/50">
       <div className="container-dn">
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-12 md:items-center md:gap-12 lg:gap-20">
-          <div className="md:col-span-7">
+        <div className="grid grid-cols-1 md:grid-cols-12 md:items-center md:gap-16 lg:gap-20">
+          <div className="md:col-span-6">
             <Column
               heading={
                 <>
@@ -29,14 +29,15 @@ export function WhoSolve() {
             />
           </div>
 
-          <div className="md:col-span-5">
-            <div className="relative aspect-[2/1] overflow-hidden md:aspect-[3/2]">
+          <div className="mt-14 md:col-span-6 md:mt-0">
+            {/* fade-from-left on the wrapper — more reliable than masking the img element */}
+            <div className="relative overflow-hidden fade-from-left" style={{ aspectRatio: "4/3" }}>
               <Image
                 src="/whiteboard.png"
                 alt="Whiteboard showing strategic positioning framework"
                 fill
-                className="object-cover object-right-center fade-from-left"
-                sizes="(min-width: 768px) 41vw, 100vw"
+                className="object-cover object-right-top"
+                sizes="(min-width: 768px) 50vw, 100vw"
               />
             </div>
           </div>
