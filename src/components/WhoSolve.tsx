@@ -11,10 +11,25 @@ const WHO = [
 
 export function WhoSolve() {
   return (
-    <section className="section border-y border-paper-line bg-paper-soft/50">
+    <section className="relative overflow-hidden section border-y border-paper-line bg-paper-soft/50">
+      {/* Whiteboard — full section height, right half, desktop only */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 select-none overflow-hidden fade-from-left md:block"
+      >
+        <Image
+          src="/whiteboard.png"
+          alt=""
+          fill
+          className="object-cover"
+          style={{ objectPosition: "55% top" }}
+          sizes="50vw"
+        />
+      </div>
+
       <div className="container-dn">
-        <div className="grid grid-cols-1 md:grid-cols-12 md:items-center md:gap-16 lg:gap-20">
-          <div className="md:col-span-6">
+        <div className="md:grid md:grid-cols-2">
+          <div className="md:pr-10 lg:pr-16">
             <Column
               heading={
                 <>
@@ -28,19 +43,20 @@ export function WhoSolve() {
               items={WHO}
             />
           </div>
+        </div>
 
-          <div className="mt-14 md:col-span-6 md:mt-0">
-            {/* fade-from-left on the wrapper — more reliable than masking the img element */}
-            <div className="relative overflow-hidden fade-from-left" style={{ aspectRatio: "4/3" }}>
-              <Image
-                src="/whiteboard.png"
-                alt="Whiteboard showing strategic positioning framework"
-                fill
-                className="object-cover object-right-top"
-                sizes="(min-width: 768px) 50vw, 100vw"
-              />
-            </div>
-          </div>
+        {/* Mobile — image stacked below text, compact crop */}
+        <div
+          className="relative mt-14 overflow-hidden fade-from-left md:hidden"
+          style={{ aspectRatio: "2/1" }}
+        >
+          <Image
+            src="/whiteboard.png"
+            alt="Whiteboard showing strategic positioning framework"
+            fill
+            className="object-cover object-right-top"
+            sizes="100vw"
+          />
         </div>
       </div>
     </section>
