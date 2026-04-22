@@ -12,18 +12,17 @@ const WHO = [
 export function WhoSolve() {
   return (
     <section className="relative overflow-hidden section border-y border-paper-line bg-paper-soft/50">
-      {/* Whiteboard — full section height, right half, desktop only */}
+      {/* Whiteboard — full section height, right side flush to screen edge */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 select-none overflow-hidden fade-from-left md:block"
+        className="pointer-events-none absolute inset-y-0 right-0 left-[45%] hidden select-none overflow-hidden fade-from-left md:block"
       >
         <Image
           src="/whiteboard.png"
           alt=""
           fill
-          className="object-cover"
-          style={{ objectPosition: "55% top" }}
-          sizes="50vw"
+          className="object-cover object-right-top"
+          sizes="55vw"
         />
       </div>
 
