@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { ReactNode } from "react";
 
 const WHO = [
@@ -12,19 +13,33 @@ export function WhoSolve() {
   return (
     <section className="section border-y border-paper-line bg-paper-soft/50">
       <div className="container-dn">
-        <div className="max-w-[65ch]">
-          <Column
-            heading={
-              <>
-                <span className="serif-display italic font-light text-ink/80">
-                  Who
-                </span>
-                {" "}we help
-              </>
-            }
-            lead="We work with companies that have substance, but not yet the structure, positioning, or digital presence to express it with full force."
-            items={WHO}
-          />
+        <div className="grid grid-cols-1 gap-16 md:grid-cols-12 md:items-center md:gap-12 lg:gap-20">
+          <div className="md:col-span-7">
+            <Column
+              heading={
+                <>
+                  <span className="serif-display italic font-light text-ink/80">
+                    Who
+                  </span>
+                  {" "}we help
+                </>
+              }
+              lead="We work with companies that have substance, but not yet the structure, positioning, or digital presence to express it with full force."
+              items={WHO}
+            />
+          </div>
+
+          <div className="md:col-span-5">
+            <div className="relative aspect-[2/1] overflow-hidden md:aspect-[3/2]">
+              <Image
+                src="/whiteboard.png"
+                alt="Whiteboard showing strategic positioning framework"
+                fill
+                className="object-cover object-right-center fade-from-left"
+                sizes="(min-width: 768px) 41vw, 100vw"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

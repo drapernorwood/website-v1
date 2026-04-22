@@ -119,6 +119,12 @@ body {
   }
 }
 
+/* Left-to-right fade mask — image fades from transparent into background on left */
+.fade-from-left {
+  mask-image: linear-gradient(to right, transparent 0%, black 42%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 42%);
+}
+
 /* Fine analytical grid — contained structural layer, right-column use only */
 .grid-analytical {
   background-image:
