@@ -1,6 +1,22 @@
+import Image from "next/image";
+
 export function WhatSection() {
   return (
-    <section id="about" className="py-10 md:py-16 lg:py-20">
+    <section id="about" className="relative overflow-hidden py-10 md:py-16 lg:py-20">
+      {/* Mill structure — atmospheric right-anchored background layer, desktop only */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 right-0 hidden w-[62%] select-none md:block"
+      >
+        <Image
+          src="/mill-structure.png"
+          alt=""
+          fill
+          className="object-cover object-right-top opacity-60"
+          sizes="(min-width: 768px) 62vw"
+        />
+      </div>
+
       <div className="container-dn">
         <div className="border-t border-b border-paper-line py-10 md:py-16 lg:py-20">
           <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-10">

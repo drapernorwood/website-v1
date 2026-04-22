@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { ReactNode } from "react";
 
 const WHO = [
@@ -10,20 +11,50 @@ const WHO = [
 
 export function WhoSolve() {
   return (
-    <section className="section border-y border-paper-line bg-paper-soft/50">
+    <section className="relative overflow-hidden section border-y border-paper-line bg-paper-soft/50">
+      {/* Whiteboard — full section height, right side flush to screen edge */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 right-0 left-[45%] hidden select-none overflow-hidden fade-from-left md:block"
+      >
+        <Image
+          src="/whiteboard.png"
+          alt=""
+          fill
+          className="object-cover object-right-top"
+          sizes="55vw"
+        />
+      </div>
+
       <div className="container-dn">
-        <div className="max-w-[65ch]">
-          <Column
-            heading={
-              <>
-                <span className="serif-display italic font-light text-ink/80">
-                  Who
-                </span>
-                {" "}we help
-              </>
-            }
-            lead="We work with companies that have substance, but not yet the structure, positioning, or digital presence to express it with full force."
-            items={WHO}
+        <div className="md:grid md:grid-cols-2">
+          <div className="md:pr-10 lg:pr-16">
+            <Column
+              heading={
+                <>
+                  <span className="serif-display italic font-light text-ink/80">
+                    Who
+                  </span>
+                  {" "}we help
+                </>
+              }
+              lead="We work with companies that have substance, but not yet the structure, positioning, or digital presence to express it with full force."
+              items={WHO}
+            />
+          </div>
+        </div>
+
+        {/* Mobile — image stacked below text, compact crop */}
+        <div
+          className="relative mt-14 overflow-hidden fade-from-left md:hidden"
+          style={{ aspectRatio: "2/1" }}
+        >
+          <Image
+            src="/whiteboard.png"
+            alt="Whiteboard showing strategic positioning framework"
+            fill
+            className="object-cover object-right-top"
+            sizes="100vw"
           />
         </div>
       </div>
