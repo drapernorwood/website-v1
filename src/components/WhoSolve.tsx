@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { ReactNode } from "react";
 
 const WHO = [
@@ -10,8 +11,29 @@ const WHO = [
 
 export function WhoSolve() {
   return (
-    <section className="section border-y border-paper-line bg-paper-soft/50">
-      <div className="container-dn">
+    <section className="section relative overflow-hidden border-y border-paper-line bg-paper-soft/50">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 hidden select-none structural-carryover md:block"
+      />
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-0 top-1/2 hidden h-[78%] w-[46%] -translate-y-1/2 select-none lg:block xl:w-[44%]"
+      >
+        <div className="image-fade-right relative h-full w-full">
+          <Image
+            src="/whiteboard.png"
+            alt=""
+            fill
+            sizes="(min-width: 1280px) 44vw, 46vw"
+            className="object-cover object-center opacity-95"
+            style={{ filter: "contrast(0.92) brightness(1.02)" }}
+          />
+        </div>
+      </div>
+
+      <div className="container-dn relative">
         <div className="max-w-[65ch]">
           <Column
             heading={

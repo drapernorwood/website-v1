@@ -6,7 +6,7 @@ export function Hero() {
     <section className="relative overflow-hidden">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 grid-backdrop opacity-40"
+        className="pointer-events-none absolute inset-0 vertical-guides"
       />
 
       {/* Faint DN monogram — subliminal brand presence, not decoration */}

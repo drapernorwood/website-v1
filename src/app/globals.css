@@ -119,14 +119,43 @@ body {
   }
 }
 
-/* Fine analytical grid — contained structural layer, right-column use only */
+/* Fine analytical grid — structural layer for "The Gap" */
 .grid-analytical {
   background-image:
-    linear-gradient(to right, rgba(11, 12, 14, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(11, 12, 14, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(11, 12, 14, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 12, 14, 0.055) 1px, transparent 1px);
   background-size: 52px 52px;
-  mask-image: radial-gradient(ellipse at 58% 44%, black 12%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse at 58% 44%, black 12%, transparent 70%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 100%);
+}
+
+/* Hero: vertical-only guides — invisible structural anchor behind monogram.
+   Spacing matches .grid-analytical (52px) so the system reads continuous. */
+.vertical-guides {
+  background-image:
+    linear-gradient(to right, rgba(11, 12, 14, 0.018) 1px, transparent 1px);
+  background-size: 52px 100%;
+  mask-image: radial-gradient(ellipse 55% 70% at 82% 45%, black 18%, transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse 55% 70% at 82% 45%, black 18%, transparent 72%);
+}
+
+/* Who-we-help: structural carryover. Vertical+horizontal lines continue from
+   "The Gap" but at lower opacity, masked to fade out exactly where the
+   whiteboard image fades in — no overlap, no hard cut. */
+.structural-carryover {
+  background-image:
+    linear-gradient(to right, rgba(11, 12, 14, 0.028) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 12, 14, 0.028) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: linear-gradient(to right, transparent 38%, black 52%, black 60%, transparent 78%);
+  -webkit-mask-image: linear-gradient(to right, transparent 38%, black 52%, black 60%, transparent 78%);
+}
+
+/* Whiteboard image fade — fully transparent on left, fully visible on right.
+   Mid-point matches the carryover fade-out so structure dissolves into image. */
+.image-fade-right {
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.35) 22%, black 55%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.35) 22%, black 55%);
 }
 
 /* Subtle architectural backdrop used sparingly */
