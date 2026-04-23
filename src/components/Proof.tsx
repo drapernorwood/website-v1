@@ -42,7 +42,7 @@ export function Proof() {
           {BLOCKS.map((b, i) => (
             <article
               key={b.title}
-              className="proof-card flex h-full flex-col border-b border-paper-line bg-paper py-8 md:border-b-0 md:px-8 md:py-12"
+              className="proof-card flex h-full flex-col border-b border-paper-line bg-paper py-6 md:border-b-0 md:px-8 md:py-10"
             >
               <div className="flex items-baseline gap-4">
                 <span
@@ -54,17 +54,17 @@ export function Proof() {
                 <span className="caption">{b.label}</span>
               </div>
 
-              <h3 className="mt-8 text-[22px] font-medium leading-[1.18] tracking-tight text-ink md:mt-10 md:text-[26px]">
+              <h3 className="mt-6 text-[22px] font-medium leading-[1.18] tracking-tight text-ink md:mt-8 md:text-[26px]">
                 {b.title}
               </h3>
               <p className="mt-3 max-w-[38ch] text-[15.5px] leading-[1.6] text-ink/70 md:text-[16px]">
                 {b.body}
               </p>
 
-              <div className="mt-auto pt-8 md:pt-10">
+              <div className="mt-auto pt-6 md:pt-8">
                 <Link href={b.cta.href} className="link-quiet">
                   {b.cta.text}
-                  <span aria-hidden="true"> →</span>
+                  <span aria-hidden="true">→</span>
                 </Link>
               </div>
             </article>

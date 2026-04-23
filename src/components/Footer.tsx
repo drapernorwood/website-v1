@@ -35,7 +35,7 @@ export function Footer() {
                 <li key={n.href}>
                   <Link
                     href={n.href}
-                    className="text-[15px] text-ink/80 transition-colors hover:text-ink"
+                    className="text-[15px] text-ink/80 transition-colors duration-200 hover:text-ink"
                   >
                     {n.label}
                   </Link>
@@ -50,7 +50,7 @@ export function Footer() {
               <li>
                 <Link
                   href="mailto:hello@drapernorwood.com"
-                  className="text-[15px] text-ink/80 transition-colors hover:text-ink"
+                  className="text-[15px] text-ink/80 transition-colors duration-200 hover:text-ink"
                 >
                   hello@drapernorwood.com
                 </Link>

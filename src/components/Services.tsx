@@ -48,7 +48,7 @@ export function Services() {
         <ul className="services-list mt-12 border-t border-paper-line md:mt-20">
           {SERVICES.map((s) => (
             <li key={s.n} className="border-b border-paper-line">
-              <article className="services-row grid grid-cols-12 gap-x-6 gap-y-2 py-6 md:gap-y-0 md:py-10">
+              <article className="services-row grid grid-cols-12 gap-x-6 gap-y-2 py-5 md:gap-y-0 md:py-8">
                 <div className="col-span-2 md:col-span-1">
                   <span
                     aria-hidden="true"

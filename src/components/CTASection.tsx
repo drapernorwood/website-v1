@@ -22,7 +22,7 @@ export function CTASection() {
             Built for companies that need strategic clarity, stronger execution, and real forward momentum.
           </p>
 
-          <div className="mt-12 flex flex-col items-center gap-x-6 gap-y-3 sm:flex-row sm:justify-center md:mt-16">
+          <div className="mt-10 flex flex-col items-center gap-x-6 gap-y-3 sm:flex-row sm:justify-center md:mt-12">
             <Link href="mailto:hello@drapernorwood.com" className="btn-primary">
               Start the conversation
               <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
@@ -36,9 +36,9 @@ export function CTASection() {
                 />
               </svg>
             </Link>
-            <Link href="#services" className="link-quiet">
+            <Link href="#services" className="link-quiet opacity-75">
               Explore services
-              <span aria-hidden="true"> →</span>
+              <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>

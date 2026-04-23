@@ -47,7 +47,6 @@ export function WhoSolve() {
             />
           </div>
         </div>
-
       </div>
     </section>
   );
