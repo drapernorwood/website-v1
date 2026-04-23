@@ -77,7 +77,7 @@ function Column({
         {heading}
       </h3>
 
-      <p className="mt-4 max-w-[46ch] text-[16px] leading-[1.6] text-ink/70 md:text-[17px]">
+      <p className="mt-6 max-w-[46ch] text-[16px] leading-[1.6] text-ink/70 md:text-[17px]">
         {lead}
       </p>
 
