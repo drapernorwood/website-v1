@@ -38,7 +38,7 @@ export function CTASection() {
             </Link>
             <Link href="#services" className="link-quiet opacity-75">
               Explore services
-              <span aria-hidden="true"> →</span>
+              <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>

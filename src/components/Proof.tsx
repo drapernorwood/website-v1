@@ -64,7 +64,7 @@ export function Proof() {
               <div className="mt-auto pt-6 md:pt-8">
                 <Link href={b.cta.href} className="link-quiet">
                   {b.cta.text}
-                  <span aria-hidden="true"> →</span>
+                  <span aria-hidden="true">→</span>
                 </Link>
               </div>
             </article>

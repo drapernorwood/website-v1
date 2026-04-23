@@ -71,7 +71,7 @@ export function Header() {
 
         <button
           type="button"
-          className="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink/10 text-ink"
+          className="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink/10 text-ink transition-colors duration-200 ease-smooth hover:bg-ink/[0.03]"
           aria-label="Toggle menu"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
