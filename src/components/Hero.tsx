@@ -26,7 +26,7 @@ export function Hero() {
 
       <div className="container-dn relative pt-14 pb-14 md:pt-28 md:pb-20 lg:pt-36 lg:pb-24">
         <h1
-          style={{ lineHeight: "0.98" }}
+          style={{ lineHeight: "1.04" }}
           className="mt-8 text-display font-medium tracking-tightest text-ink md:mt-12"
         >
           Make your business clearer
