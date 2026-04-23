@@ -31,7 +31,7 @@ const SERVICES = [
 
 export function Services() {
   return (
-    <section id="services" className="pt-36 pb-24 md:pt-52 md:pb-36 lg:pt-60 lg:pb-44">
+    <section id="services" className="pt-28 pb-24 md:pt-40 md:pb-36 lg:pt-48 lg:pb-44">
       <div className="container-dn">
         <div>
           <h2 className="text-h2 font-medium tracking-tighter2 text-ink">

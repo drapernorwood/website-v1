@@ -54,7 +54,7 @@ export function Proof() {
                 <span className="caption">{b.label}</span>
               </div>
 
-              <h3 className="mt-7 text-[22px] font-medium leading-[1.18] tracking-tight text-ink md:mt-9 md:text-[26px]">
+              <h3 className="mt-8 text-[22px] font-medium leading-[1.18] tracking-tight text-ink md:mt-10 md:text-[26px]">
                 {b.title}
               </h3>
               <p className="mt-3 max-w-[38ch] text-[15.5px] leading-[1.6] text-ink/70 md:text-[16px]">
