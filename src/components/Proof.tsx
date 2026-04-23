@@ -11,19 +11,19 @@ const BLOCKS: Block[] = [
   {
     label: "Work",
     title: "Selected Work",
-    body: "Real work across strategy, digital, and execution — built to improve clarity, trust, and business performance.",
+    body: "Selected examples of positioning, digital, and execution work designed to sharpen clarity, strengthen trust, and improve business performance.",
     cta: { text: "View Examples", href: "#contact" },
   },
   {
     label: "Perspective",
     title: "Founder Perspective",
-    body: "A point of view shaped by strategy, execution, and real-world commercial outcomes.",
+    body: "Strategic thinking shaped by real client work — where positioning, execution, and commercial reality have to align.",
     cta: { text: "About the Founder", href: "#about" },
   },
   {
     label: "Results",
     title: "Client Results",
-    body: "Case studies, documented outcomes, and measurable improvements across selected engagements.",
+    body: "Documented outcomes and selected examples of how clearer positioning, stronger digital assets, and better execution lead to measurable business improvement.",
     cta: { text: "View Results", href: "#contact" },
   },
 ];
@@ -38,30 +38,30 @@ export function Proof() {
           </h2>
         </div>
 
-        <div className="mt-20 grid grid-cols-1 border-t border-paper-line md:mt-28 md:grid-cols-3 md:gap-px md:bg-paper-line">
+        <div className="mt-14 grid grid-cols-1 border-t border-ink/[0.12] md:mt-20 md:grid-cols-3 md:gap-px md:bg-ink/[0.12]">
           {BLOCKS.map((b, i) => (
             <article
               key={b.title}
-              className="flex h-full flex-col border-b border-paper-line bg-paper py-10 md:border-b-0 md:px-8 md:py-14 md:first:pl-0 md:last:pr-0"
+              className="proof-card flex h-full flex-col border-b border-ink/[0.12] bg-paper py-8 md:border-b-0 md:px-8 md:py-12 md:first:pl-0 md:last:pr-0"
             >
-              <div className="flex items-baseline gap-6">
+              <div className="flex items-baseline gap-4">
                 <span
                   aria-hidden
-                  className="serif-display italic font-light text-[28px] leading-none text-ink/30 md:text-[36px]"
+                  className="serif-display italic font-light text-[24px] leading-none text-ink/[0.22] md:text-[30px]"
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="caption">{b.label}</span>
               </div>
 
-              <h3 className="mt-10 text-[22px] font-medium leading-[1.18] tracking-tight text-ink md:mt-14 md:text-[26px]">
+              <h3 className="mt-7 text-[22px] font-medium leading-[1.18] tracking-tight text-ink md:mt-9 md:text-[26px]">
                 {b.title}
               </h3>
-              <p className="mt-4 max-w-[38ch] text-[15.5px] leading-[1.6] text-ink/70 md:text-[16px]">
+              <p className="mt-3 max-w-[38ch] text-[15.5px] leading-[1.6] text-ink/70 md:text-[16px]">
                 {b.body}
               </p>
 
-              <div className="mt-auto pt-10 md:pt-14">
+              <div className="mt-auto pt-8 md:pt-10">
                 <Link href={b.cta.href} className="link-quiet">
                   {b.cta.text}
                   <span aria-hidden="true"> →</span>
