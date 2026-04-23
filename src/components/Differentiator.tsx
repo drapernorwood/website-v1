@@ -15,16 +15,16 @@ export function Differentiator() {
           <div className="lg:col-span-9 lg:pl-4">
             <figure className="relative">
               <blockquote className="serif-display font-light text-[30px] leading-[1.18] tracking-tightserif text-ink md:text-[44px] lg:text-[54px]">
-                A core strength of Draper Norwood is seeing the{" "}
+                Draper Norwood sees the{" "}
                 <em className="italic">hidden constraints</em>, overlooked
                 opportunities, and strategic patterns others miss — then
-                turning that insight into{" "}
+                turns that insight into{" "}
                 <em className="italic">practical action</em>.
               </blockquote>
             </figure>
 
             <p className="mt-12 text-[16.5px] leading-[1.65] text-ink/70 md:text-[17.5px]">
-              The difference is not just seeing what others miss — it&apos;s bringing it into form.
+              The difference is not just seeing what others miss — it is bringing it into form.
             </p>
           </div>
         </div>
