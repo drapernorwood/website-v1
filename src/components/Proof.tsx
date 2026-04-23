@@ -71,12 +71,6 @@ export function Proof() {
           ))}
         </div>
 
-        <div className="mt-16 border-t border-paper-line pt-12 md:mt-20">
-          <span className="caption text-ink/40">Experience includes</span>
-          <div className="mt-8 flex flex-wrap items-center gap-x-10 gap-y-4">
-            {/* Logo images will be placed here */}
-          </div>
-        </div>
       </div>
     </section>
   );
