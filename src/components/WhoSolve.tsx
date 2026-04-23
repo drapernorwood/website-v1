@@ -89,7 +89,7 @@ function Column({
           >
             <span
               aria-hidden="true"
-              className="mt-[0.78em] inline-block h-px w-5 shrink-0 bg-ink/40"
+              className="mt-[0.78em] inline-block h-px w-5 shrink-0 bg-ink/20"
             />
             <span>{item}</span>
           </li>
