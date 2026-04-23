@@ -19,13 +19,12 @@ export function CTASection() {
             <em className="italic">clearer path forward?</em>
           </h2>
           <p className="mx-auto mt-10 max-w-2xl text-[17px] leading-[1.6] text-ink/70 md:mt-12 md:text-[19px]">
-            We work with companies that need strategic clarity and real
-            execution — not more noise.
+            Built for companies that need strategic clarity, stronger execution, and real forward momentum.
           </p>
 
           <div className="mt-12 flex flex-col items-center gap-x-6 gap-y-3 sm:flex-row sm:justify-center md:mt-16">
             <Link href="mailto:hello@drapernorwood.com" className="btn-primary">
-              Start the Conversation
+              Start the conversation
               <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
                 <path
                   d="M2 7h10M8 3l4 4-4 4"
@@ -38,7 +37,8 @@ export function CTASection() {
               </svg>
             </Link>
             <Link href="#services" className="link-quiet">
-              Or explore services first
+              Explore services
+              <span aria-hidden="true"> →</span>
             </Link>
           </div>
         </div>
