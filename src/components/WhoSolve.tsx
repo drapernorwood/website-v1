@@ -48,19 +48,6 @@ export function WhoSolve() {
           </div>
         </div>
 
-        {/* Mobile — image stacked below text, compact crop */}
-        <div
-          className="relative mt-14 overflow-hidden fade-from-left md:hidden"
-          style={{ aspectRatio: "2/1" }}
-        >
-          <Image
-            src="/whiteboard.png"
-            alt="Whiteboard showing strategic positioning framework"
-            fill
-            className="object-cover object-right-top"
-            sizes="100vw"
-          />
-        </div>
       </div>
     </section>
   );
