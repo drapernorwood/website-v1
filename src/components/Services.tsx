@@ -45,9 +45,9 @@ export function Services() {
           </p>
         </div>
 
-        <ul className="services-list mt-12 border-t border-ink/10 md:mt-20">
+        <ul className="services-list mt-12 border-t border-paper-line md:mt-20">
           {SERVICES.map((s) => (
-            <li key={s.n} className="border-b border-ink/10">
+            <li key={s.n} className="border-b border-paper-line">
               <article className="services-row grid grid-cols-12 gap-x-6 gap-y-2 py-6 md:gap-y-0 md:py-10">
                 <div className="col-span-2 md:col-span-1">
                   <span

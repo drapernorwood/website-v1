@@ -28,7 +28,7 @@ export function Header() {
         "sticky top-0 z-50 w-full",
         "transition-[background-color,border-color,backdrop-filter] duration-300 ease-smooth",
         scrolled
-          ? "border-b border-paper-line/80 bg-paper/85 backdrop-blur-md"
+          ? "border-b border-paper-line bg-paper/85 backdrop-blur-md"
           : "border-b border-transparent bg-transparent",
       ].join(" ")}
     >
