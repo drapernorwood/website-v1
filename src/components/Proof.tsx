@@ -38,11 +38,11 @@ export function Proof() {
           </h2>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 border-t border-ink/[0.12] md:mt-20 md:grid-cols-3 md:gap-px md:bg-ink/[0.12]">
+        <div className="mt-14 grid grid-cols-1 border-t border-ink/[0.12] md:mt-20 md:grid-cols-3 md:gap-px md:bg-ink/[0.12] md:border-l md:border-r">
           {BLOCKS.map((b, i) => (
             <article
               key={b.title}
-              className="proof-card flex h-full flex-col border-b border-ink/[0.12] bg-paper py-8 md:border-b-0 md:px-8 md:py-12 md:first:pl-0 md:last:pr-0"
+              className="proof-card flex h-full flex-col border-b border-ink/[0.12] bg-paper py-8 md:border-b-0 md:px-8 md:py-12"
             >
               <div className="flex items-baseline gap-4">
                 <span
@@ -71,7 +71,7 @@ export function Proof() {
           ))}
         </div>
 
-        <div className="mt-16 border-t border-paper-line pt-12 md:mt-20">
+        <div className="mt-16 border-t border-ink/[0.09] pt-12 md:mt-20">
           <span className="caption text-ink/40">Experience includes</span>
           <div className="mt-8 flex flex-wrap items-center gap-x-10 gap-y-4">
             {/* Logo images will be placed here */}

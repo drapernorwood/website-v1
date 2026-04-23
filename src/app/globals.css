@@ -197,11 +197,10 @@ body {
 /* Proof section — card hover */
 @media (hover: hover) {
   .proof-card {
-    transition: background-color 150ms ease, transform 150ms ease;
+    transition: background-color 150ms ease;
   }
   .proof-card:hover {
     background-color: rgba(11, 12, 14, 0.02);
-    transform: translateY(-1px);
   }
 }
 
