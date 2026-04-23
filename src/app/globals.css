@@ -145,6 +145,55 @@ body {
   -webkit-mask-image: radial-gradient(ellipse at 80% 15%, black 15%, transparent 65%);
 }
 
+/* How we help — vertical spine */
+.services-list {
+  position: relative;
+}
+.services-list::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2%;
+  width: 1px;
+  background: currentColor;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+/* How we help — horizontal micro-lines */
+.services-row {
+  position: relative;
+}
+.services-row::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.025;
+  pointer-events: none;
+}
+
+/* How we help — desktop hover */
+@media (hover: hover) {
+  .services-number {
+    transition: color 140ms ease;
+  }
+  .services-row {
+    transition: transform 140ms ease, background-color 140ms ease;
+  }
+  .services-row:hover {
+    background-color: rgba(11, 12, 14, 0.02);
+    transform: translateY(-1px);
+  }
+  .services-row:hover .services-number {
+    --tw-text-opacity: 0.65;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {

@@ -45,21 +45,21 @@ export function Services() {
           </p>
         </div>
 
-        <ul className="mt-12 border-t border-ink/10 md:mt-20">
+        <ul className="services-list mt-12 border-t border-ink/10 md:mt-20">
           {SERVICES.map((s) => (
             <li key={s.n} className="border-b border-ink/10">
-              <article className="grid grid-cols-12 gap-x-6 gap-y-2 py-6 md:gap-y-0 md:py-11">
+              <article className="services-row grid grid-cols-12 gap-x-6 gap-y-2 py-6 md:gap-y-0 md:py-10">
                 <div className="col-span-2 md:col-span-1">
                   <span
                     aria-hidden="true"
-                    className="serif-display italic font-light text-[28px] leading-none text-ink/50 md:text-[52px] lg:text-[64px]"
+                    className="services-number serif-display italic font-light text-[28px] leading-none text-ink/50 md:text-[52px] lg:text-[64px]"
                   >
                     {s.n}
                   </span>
                 </div>
 
                 <div className="col-span-10 md:col-span-5">
-                  <span className="caption block text-ink/65 tracking-[0.24em]">
+                  <span className="caption block text-[10px] text-ink/60 tracking-[0.28em]">
                     {s.kicker}
                   </span>
                   <h3 className="mt-3 text-[24px] font-medium leading-[1.22] tracking-tight text-ink md:mt-4 md:text-[32px] md:leading-[1.12] lg:text-[36px]">
@@ -68,7 +68,7 @@ export function Services() {
                 </div>
 
                 <div className="col-span-12 md:col-span-6 md:pt-2">
-                  <p className="max-w-[46ch] text-[15.5px] leading-[1.72] text-ink/65 md:text-[17px] md:text-ink/70">
+                  <p className="max-w-[46ch] text-[15.5px] leading-[1.72] text-ink/60 md:text-[17px] md:text-ink/65">
                     {s.body}
                   </p>
                 </div>
