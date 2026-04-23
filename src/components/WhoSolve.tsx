@@ -15,13 +15,17 @@ export function WhoSolve() {
       {/* Whiteboard — full section height, right side flush to screen edge */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 right-0 left-[45%] hidden select-none overflow-hidden fade-from-left md:block"
+        className="pointer-events-none absolute inset-y-0 right-0 left-[45%] hidden select-none overflow-hidden md:block"
+        style={{
+          maskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.35) 30%, black 62%)",
+          WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.35) 30%, black 62%)",
+        }}
       >
         <Image
           src="/whiteboard.png"
           alt=""
           fill
-          className="object-cover object-right-top"
+          className="object-cover object-right-top opacity-95"
           sizes="55vw"
         />
       </div>
@@ -44,19 +48,6 @@ export function WhoSolve() {
           </div>
         </div>
 
-        {/* Mobile — image stacked below text, compact crop */}
-        <div
-          className="relative mt-14 overflow-hidden fade-from-left md:hidden"
-          style={{ aspectRatio: "2/1" }}
-        >
-          <Image
-            src="/whiteboard.png"
-            alt="Whiteboard showing strategic positioning framework"
-            fill
-            className="object-cover object-right-top"
-            sizes="100vw"
-          />
-        </div>
       </div>
     </section>
   );
