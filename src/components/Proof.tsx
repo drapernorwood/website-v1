@@ -50,7 +50,7 @@ const CASES: Case[] = [
     perspective: {
       body: (
         <>
-          Most people treat content like output. <strong className="font-semibold text-ink">I treat it like a system.</strong> Creator Secrets came from watching the same pattern repeat across platforms: the right idea, packaged correctly, distributed in the right environment, can move from attention to revenue with surprising force. The point was never just “make content.” <em>The point was to understand the mechanics underneath visibility — why people stop, why they act, and how attention becomes commercial movement.</em>
+          Most people treat content like output. <strong className="font-semibold text-ink">We treat it like a system.</strong> Creator Secrets came from watching the same pattern repeat across platforms: the right idea, packaged correctly and distributed in the right environment, can move from attention to revenue with surprising force. <em>One video did exactly that on Snapchat — not over months of posting, but through a single 3-day Spotlight distribution cycle.</em> The point was never just “make content.” The point was to understand the mechanics underneath visibility: <em>why people stop, why they act, and how attention becomes commercial movement.</em>
         </>
       ),
     },
@@ -61,7 +61,7 @@ const CASES: Case[] = [
     perspective: {
       body: (
         <>
-          HealthLinks had something many businesses have: real value, but too many disconnected surfaces. Publication, audience, providers, sales conversations, media — all useful, but not fully aligned. <strong className="font-semibold text-ink">The opportunity was to make the brand work harder as a system.</strong> <em>Not more content for the sake of content. Not media sitting beside the business.</em> A clearer structure where trust, expertise, visibility, and sales support all reinforced each other.
+          HealthLinks Magazine had something many businesses have: real value, but too many disconnected surfaces. Publication, audience, advertisers, media — all useful, but not fully aligned. <strong className="font-semibold text-ink">The opportunity was to make the brand work harder as a system.</strong> <em>Not more content for the sake of content. Not media sitting beside the business.</em> A clearer structure where trust, expertise, visibility, and sales support all reinforced each other.
         </>
       ),
     },
@@ -72,7 +72,7 @@ const CASES: Case[] = [
     perspective: {
       body: (
         <>
-          Hidden material does not create impact just because it exists. <strong className="font-semibold text-ink">It needs a frame strong enough to make people care.</strong> The Lost Archives is built on that conviction. The work is not simply publishing old recordings; <em>it is turning buried intellectual and spiritual material into a discovery engine.</em> The archive becomes the source, but the system is what gives it motion: mystery, packaging, distribution, and a clear path from curiosity to deeper exploration.
+          Hidden material does not create impact just because it exists. <strong className="font-semibold text-ink">It needs a frame strong enough to make people care.</strong> For the University of Science and Philosophy — the Walter and Lao Russell institution at philosophy.org — <em>The Lost Archives turns rare recordings and buried intellectual-spiritual material into a discovery engine.</em> The archive becomes the source, but the system gives it motion: mystery, packaging, distribution, and a clear path from curiosity to deeper exploration.
         </>
       ),
     },
