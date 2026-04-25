@@ -1,6 +1,6 @@
 export function Differentiator() {
   return (
-    <section className="section border-y border-paper-line bg-paper-soft/50">
+    <section className="border-y border-paper-line bg-paper-soft/50 py-28 md:py-40 lg:py-48">
       <div className="container-dn">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-3">

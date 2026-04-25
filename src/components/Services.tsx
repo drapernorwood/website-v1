@@ -40,9 +40,6 @@ export function Services() {
             </span>
             {" "}we help
           </h2>
-          <p className="mt-6 max-w-[56ch] text-[17px] leading-[1.65] text-ink/70">
-            We close the gaps between capability and perception, strategy and execution, attention and trust.
-          </p>
         </div>
 
         <ul className="services-list mt-12 border-t border-paper-line md:mt-20">

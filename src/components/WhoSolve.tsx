@@ -5,7 +5,7 @@ const WHO = [
   "businesses that are stronger than the market currently perceives",
   "companies whose website, messaging, or digital presence is not carrying the weight it should",
   "founders and teams with serious capability but too much external blur",
-  "businesses that need strategic thinking and real execution, not more detached advice",
+  "businesses that need strategic thinking and real execution — not consultants, decks, or hand-offs",
   "companies ready to apply AI and modern systems with judgment, not hype",
 ];
 
