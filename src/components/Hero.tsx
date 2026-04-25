@@ -39,8 +39,7 @@ export function Hero() {
         <div className="mt-14 max-w-[56ch] md:mt-20">
           <p className="text-[17px] leading-[1.65] text-ink/70 md:text-[19px]">
             We help companies clarify their value, elevate their digital
-            presence, and present themselves with greater precision,
-            credibility, and force.
+            presence, and present themselves with greater authority.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 md:mt-10">

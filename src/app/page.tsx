@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
+import { LogoStrip } from "@/components/LogoStrip";
 import { WhatSection } from "@/components/WhatSection";
 import { WhoSolve } from "@/components/WhoSolve";
 import { Services } from "@/components/Services";
@@ -14,6 +15,7 @@ export default function HomePage() {
       <Header />
       <main id="home">
         <Hero />
+        <LogoStrip />
         <WhatSection />
         <WhoSolve />
         <Services />

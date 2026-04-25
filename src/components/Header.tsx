@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const NAV = [
-  { href: "/", label: "Home" },
   { href: "#services", label: "Services" },
   { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
@@ -32,7 +31,7 @@ export function Header() {
           : "border-b border-transparent bg-transparent",
       ].join(" ")}
     >
-      <div className="container-dn flex h-16 items-center justify-between md:h-20">
+      <div className="container-dn flex h-16 items-center justify-between md:h-[72px]">
         <Link
           href="/"
           className="group inline-flex items-center"
@@ -44,7 +43,7 @@ export function Header() {
             width={1262}
             height={99}
             priority
-            className="h-[18px] w-auto transition-opacity duration-200 ease-smooth group-hover:opacity-80 md:h-[20px]"
+            className="h-[18px] w-auto transition-opacity duration-200 ease-smooth group-hover:opacity-80 md:h-[22px]"
           />
         </Link>
 
