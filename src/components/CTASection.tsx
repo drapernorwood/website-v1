@@ -18,11 +18,7 @@ export function CTASection() {
             stronger digital assets, or a{" "}
             <em className="italic">clearer path forward?</em>
           </h2>
-          <p className="mx-auto mt-10 max-w-2xl text-[17px] leading-[1.6] text-ink/70 md:mt-12 md:text-[19px]">
-            Built for companies that need strategic clarity, stronger execution, and real forward momentum.
-          </p>
-
-          <div className="mt-10 flex flex-col items-center gap-x-6 gap-y-3 sm:flex-row sm:justify-center md:mt-12">
+          <div className="mt-10 flex flex-col items-center gap-x-6 gap-y-3 sm:flex-row sm:justify-center md:mt-14">
             <Link href="mailto:hello@drapernorwood.com" className="btn-primary">
               Start the conversation
               <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
