@@ -268,7 +268,7 @@ export function Proof() {
           <div className="overflow-hidden">
             <div className="grid grid-cols-1 border-b border-l border-r border-paper-line md:grid-cols-3 md:gap-px md:bg-paper-line">
               {CASES.map((c, i) => (
-                <Fragment key={c.work.title}>
+                <Fragment key={i}>
                   <ArtifactCell {...c.work} onExpand={setExpanded} />
                   <PerspectiveCell
                     index={i}
