@@ -12,7 +12,7 @@ export function LogoStrip() {
           alt="Verizon, GE, DCD, Park Seed, HealthLinks Magazine, USP"
           width={2896}
           height={543}
-          className="h-auto w-full opacity-90"
+          className="h-auto w-full opacity-75"
           sizes="(min-width: 1280px) 1200px, 100vw"
         />
       </div>
