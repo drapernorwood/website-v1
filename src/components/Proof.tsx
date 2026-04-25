@@ -10,9 +10,9 @@ type Block = {
 };
 
 type Case = {
-  work: { title: string; image: string; alt: string };
+  work: { title: ReactNode; image: string; alt: string };
   perspective: { teaser: ReactNode; rest: ReactNode };
-  result: { title: string; image: string; alt: string };
+  result: { title: ReactNode; image: string; alt: string };
 };
 
 const BLOCKS: Block[] = [
@@ -56,7 +56,7 @@ const CASES: Case[] = [
     result: { title: "DataCenter Dynamics", image: "/dcd-results.png", alt: "DataCenter Dynamics campaign results — audience and reach metrics" },
   },
   {
-    work: { title: "Creator Secrets", image: "/cs-work.png", alt: "Creator Secrets — content system and platform strategy" },
+    work: { title: <em>Creator Secrets</em>, image: "/cs-work.png", alt: "Creator Secrets — content system and platform strategy" },
     perspective: {
       teaser: (
         <>
@@ -69,7 +69,7 @@ const CASES: Case[] = [
             Creator Secrets came from watching the same pattern repeat across platforms: the right idea, packaged correctly and distributed in the right environment, can move from attention to revenue with surprising force.
           </p>
           <p>
-            One video did exactly that on Snapchat — not over months of posting, but through <strong className="font-semibold text-ink">a single 3-day Spotlight distribution cycle.</strong>
+            One video did <em>exactly that</em> on Snapchat — not over months of posting, but through <strong className="font-semibold text-ink">a single 3-day Spotlight distribution cycle.</strong>
           </p>
           <p>
             The point was to understand the mechanics underneath visibility: <em>why people stop, why they act, and how attention becomes commercial movement.</em>
@@ -77,7 +77,7 @@ const CASES: Case[] = [
         </>
       ),
     },
-    result: { title: "Creator Secrets", image: "/cs-results.png", alt: "Creator Secrets results — TikTok Shop revenue and growth metrics" },
+    result: { title: <em>Creator Secrets</em>, image: "/cs-results.png", alt: "Creator Secrets results — TikTok Shop revenue and growth metrics" },
   },
   {
     work: { title: "HealthLinks Podcast", image: "/hl-work.png", alt: "HealthLinks Podcast — brand and media strategy" },
@@ -111,7 +111,7 @@ const CASES: Case[] = [
       rest: (
         <>
           <p>
-            For the University of Science and Philosophy — the Walter and Lao Russell institution at philosophy.org — <em>The Lost Archives turns rare recordings and buried material into a discovery engine.</em>
+            For the University of Science and Philosophy — the Walter and Lao Russell institution at philosophy.org — <em>we turned rare recordings and buried material into a discovery engine.</em>
           </p>
           <p>
             The archive becomes the source, but <strong className="font-semibold text-ink">the system gives it motion:</strong> mystery, packaging, distribution, and a clear path from curiosity to deeper exploration.
