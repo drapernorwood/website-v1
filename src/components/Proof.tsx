@@ -141,7 +141,7 @@ function ArtifactCell({
         type="button"
         onClick={() => onExpand({ src: image, alt })}
         aria-label={`Expand ${alt}`}
-        className="group relative block w-full overflow-hidden rounded-2xl aspect-[4/3] md:aspect-square focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+        className="group relative block w-full overflow-hidden rounded-2xl aspect-square focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
       >
         <Image
           src={image}
@@ -220,7 +220,7 @@ export function Proof() {
           </h2>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 border-t border-paper-line md:mt-20 md:grid-cols-3 md:gap-px md:bg-paper-line md:border-l md:border-r">
+        <div className="hidden md:mt-20 md:grid md:grid-cols-3 md:gap-px md:bg-paper-line md:border-t md:border-l md:border-r md:border-paper-line">
           {BLOCKS.map((b, i) => (
             <button
               key={b.title}
@@ -267,7 +267,7 @@ export function Proof() {
         <div
           id="proof-cases"
           aria-hidden={!revealed}
-          className={`grid transition-[grid-template-rows,opacity] duration-500 ease-smooth ${revealed ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
+          className={`mt-10 md:mt-0 grid transition-[grid-template-rows,opacity] duration-500 ease-smooth ${revealed ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
         >
           <div className="overflow-hidden">
             <div className="md:grid md:grid-cols-3 md:gap-px md:bg-paper-line md:border-b md:border-l md:border-r md:border-paper-line">
@@ -284,7 +284,7 @@ export function Proof() {
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="caption">Case Study</span>
+                    <span className="caption">{c.work.title}</span>
                   </div>
                   <ArtifactCell {...c.work} label="Work" onExpand={setExpanded} />
                   <PerspectiveCell
