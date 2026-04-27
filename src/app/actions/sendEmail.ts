@@ -48,6 +48,7 @@ export async function sendInquiry(formData: FormData): Promise<SendResult> {
   }
 
   try {
+    console.log('Sending emails via Resend...');
     await Promise.all([
       // Inquiry notification to Draper Norwood
       resend.emails.send({
@@ -103,9 +104,11 @@ export async function sendInquiry(formData: FormData): Promise<SendResult> {
       }),
     ]);
 
+    console.log('Emails sent successfully');
     return { success: true };
   } catch (err) {
-    console.error('Resend error:', err);
+    const errorMsg = err instanceof Error ? err.message : JSON.stringify(err);
+    console.error('Resend error:', errorMsg);
     return { success: false, error: 'Failed to send. Please try again or email us directly.' };
   }
 }
