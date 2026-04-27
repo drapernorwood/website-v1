@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import Image from "next/image";
 
 type Block = {
@@ -126,19 +126,22 @@ const CASES: Case[] = [
 function ArtifactCell({
   image,
   alt,
+  label,
   onExpand,
 }: {
   image: string;
   alt: string;
+  label: string;
   onExpand: (img: { src: string; alt: string }) => void;
 }) {
   return (
-    <div className="flex h-full flex-col bg-paper py-6 md:px-8 md:py-10">
+    <div className="flex h-full flex-col bg-paper py-4 md:py-10 md:px-8">
+      <span className="caption mb-3 md:hidden">{label}</span>
       <button
         type="button"
         onClick={() => onExpand({ src: image, alt })}
         aria-label={`Expand ${alt}`}
-        className="group relative block w-full overflow-hidden rounded-2xl aspect-square focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+        className="group relative block w-full overflow-hidden rounded-2xl aspect-[4/3] md:aspect-square focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
       >
         <Image
           src={image}
@@ -167,7 +170,8 @@ function PerspectiveCell({
 }) {
   const restId = `proof-rest-${index}`;
   return (
-    <div className="flex h-full flex-col justify-center bg-paper py-6 md:px-8 md:py-10">
+    <div className="flex h-full flex-col justify-center bg-paper py-4 md:py-10 md:px-8">
+      <span className="caption mb-3 md:hidden">Perspective</span>
       <p className="text-[15px] leading-[1.7] text-ink/70">{teaser}</p>
       <div
         id={restId}
@@ -266,10 +270,23 @@ export function Proof() {
           className={`grid transition-[grid-template-rows,opacity] duration-500 ease-smooth ${revealed ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
         >
           <div className="overflow-hidden">
-            <div className="grid grid-cols-1 border-b border-l border-r border-paper-line md:grid-cols-3 md:gap-px md:bg-paper-line">
+            <div className="md:grid md:grid-cols-3 md:gap-px md:bg-paper-line md:border-b md:border-l md:border-r md:border-paper-line">
               {CASES.map((c, i) => (
-                <Fragment key={i}>
-                  <ArtifactCell {...c.work} onExpand={setExpanded} />
+                <div
+                  key={i}
+                  className="mt-10 first:mt-6 border-t border-paper-line pt-6 md:contents"
+                >
+                  {/* Mobile-only case heading — md:contents collapses the wrapper on desktop */}
+                  <div className="md:hidden flex items-baseline gap-3">
+                    <span
+                      aria-hidden="true"
+                      className="serif-display italic font-light text-[22px] leading-none text-ink/[0.22]"
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="caption">Case Study</span>
+                  </div>
+                  <ArtifactCell {...c.work} label="Work" onExpand={setExpanded} />
                   <PerspectiveCell
                     index={i}
                     teaser={c.perspective.teaser}
@@ -277,8 +294,8 @@ export function Proof() {
                     open={openCase === i}
                     onToggle={toggleCase}
                   />
-                  <ArtifactCell {...c.result} onExpand={setExpanded} />
-                </Fragment>
+                  <ArtifactCell {...c.result} label="Result" onExpand={setExpanded} />
+                </div>
               ))}
             </div>
           </div>
