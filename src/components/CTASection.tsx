@@ -178,6 +178,8 @@ function InquiryPanel() {
       </p>
 
       <form onSubmit={handleSubmit} noValidate className="mt-10">
+        {/* Honeypot — hidden from humans, filled by bots */}
+        <input type="text" name="_hp" aria-hidden="true" tabIndex={-1} autoComplete="off" style={{ display: 'none' }} />
         <div className="grid grid-cols-1 gap-x-6 gap-y-7 sm:grid-cols-2">
           <FormField
             label="Name"
