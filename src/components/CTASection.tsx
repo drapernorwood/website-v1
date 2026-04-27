@@ -156,7 +156,6 @@ function InquiryPanel() {
   if (status === 'success') {
     return (
       <div className="py-4">
-        <p className="eyebrow mb-6">Sent</p>
         <p className="serif-display font-light text-[26px] leading-[1.15] tracking-tightserif text-ink">
           Thank you. We&apos;ll be in touch.
         </p>
@@ -171,11 +170,10 @@ function InquiryPanel() {
 
   return (
     <>
-      <p className="eyebrow mb-5">Inquiry</p>
-      <h3 className="serif-display font-light text-[26px] leading-[1.15] tracking-tightserif text-ink">
-        Start the conversation
-      </h3>
-      <p className="mt-3 text-[14px] leading-relaxed text-ink/55">
+      <p
+        className="text-[15px] text-ink/60"
+        style={{ letterSpacing: '-0.005em' }}
+      >
         Share a few details and we&apos;ll see if there&apos;s a fit.
       </p>
 
@@ -276,8 +274,8 @@ function FormField({ label, name, type, placeholder, error, required }: FormFiel
     <div>
       <label
         htmlFor={name}
-        className="mb-2.5 block text-[10px] font-medium uppercase text-ink/40"
-        style={{ letterSpacing: '0.16em' }}
+        className="mb-2.5 block text-[10px] font-medium uppercase text-ink/45"
+        style={{ letterSpacing: '0.1em' }}
       >
         {label}
       </label>
@@ -289,7 +287,7 @@ function FormField({ label, name, type, placeholder, error, required }: FormFiel
         required={required}
         aria-describedby={error ? `${name}-error` : undefined}
         aria-invalid={error ? true : undefined}
-        className="w-full border-b border-paper-line bg-transparent py-3 text-[15px] text-ink placeholder:text-ink/25 transition-colors duration-200 ease-smooth focus:border-ink/40 focus:outline-none"
+        className="w-full border-b border-paper-line bg-transparent py-3 text-[15px] text-ink placeholder:text-ink/35 transition-colors duration-200 ease-smooth focus:border-ink/40 focus:outline-none"
       />
       {error && (
         <p id={`${name}-error`} role="alert" className="mt-1.5 text-[12px] text-red-500">
@@ -313,8 +311,8 @@ function FormTextarea({ label, name, placeholder, error, required }: FormTextare
     <div>
       <label
         htmlFor={name}
-        className="mb-2.5 block text-[10px] font-medium uppercase text-ink/40"
-        style={{ letterSpacing: '0.16em' }}
+        className="mb-2.5 block text-[10px] font-medium uppercase text-ink/45"
+        style={{ letterSpacing: '0.1em' }}
       >
         {label}
       </label>
@@ -326,7 +324,7 @@ function FormTextarea({ label, name, placeholder, error, required }: FormTextare
         required={required}
         aria-describedby={error ? `${name}-error` : undefined}
         aria-invalid={error ? true : undefined}
-        className="w-full resize-none border-b border-paper-line bg-transparent py-3 text-[15px] text-ink placeholder:text-ink/25 transition-colors duration-200 ease-smooth focus:border-ink/40 focus:outline-none"
+        className="w-full resize-none border-b border-paper-line bg-transparent py-3 text-[15px] text-ink placeholder:text-ink/35 transition-colors duration-200 ease-smooth focus:border-ink/40 focus:outline-none"
       />
       {error && (
         <p id={`${name}-error`} role="alert" className="mt-1.5 text-[12px] text-red-500">
