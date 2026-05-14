@@ -44,8 +44,8 @@ export function WhatSection() {
                   not less.
                 </p>
                 <p>
-                  The gap between what a company actually delivers and how it is
-                  perceived is no longer cosmetic. It is commercial.
+                  When a company is unclear or under-presented, the cost shows
+                  up in trust, traction, and revenue.
                 </p>
               </div>
             </div>
