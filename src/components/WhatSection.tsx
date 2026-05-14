@@ -36,16 +36,16 @@ export function WhatSection() {
               />
               <div className="relative max-w-[58ch] space-y-5 text-[17px] leading-[1.65] text-ink/65 md:text-[19px]">
                 <p className="text-ink font-medium">
-                  Your business is stronger than the market sees.
+                  AI has made content easier to produce, but harder to trust.
                 </p>
                 <p>
-                  We close the gap between what a company actually delivers and
-                  how it is perceived — through sharper positioning, a stronger
-                  digital presence, and practical assets built to earn trust and
-                  create leverage.
+                  That makes clear positioning, strong proof, useful offers,
+                  owned distribution, and sharper digital assets more valuable,
+                  not less.
                 </p>
                 <p>
-                  Not advice. Not decks. Work that moves the business.
+                  The gap between what a company actually delivers and how it is
+                  perceived is no longer cosmetic. It is commercial.
                 </p>
               </div>
             </div>

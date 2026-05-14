@@ -24,7 +24,10 @@ export function Differentiator() {
             </figure>
 
             <p className="mt-12 text-[16.5px] leading-[1.65] text-ink/70 md:text-[17.5px]">
-              The difference is not just seeing what others miss — it is bringing it into form.
+              In a market flooded with content, the advantage is not more noise.
+            </p>
+            <p className="mt-4 text-[16.5px] leading-[1.65] text-ink/70 md:text-[17.5px]">
+              It is clearer form: sharper positioning, stronger proof, better systems, and assets that help attention become trust.
             </p>
           </div>
         </div>
