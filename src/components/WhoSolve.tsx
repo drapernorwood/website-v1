@@ -2,11 +2,11 @@ import Image from "next/image";
 import type { ReactNode } from "react";
 
 const WHO = [
-  "businesses that are stronger than the market currently perceives",
-  "companies whose website, messaging, or digital presence is not carrying the weight it should",
-  "founders and teams with serious capability but too much external blur",
-  "businesses that need strategic thinking and real execution — not consultants, decks, or hand-offs",
-  "companies ready to apply AI and modern systems with judgment, not hype",
+  "Businesses that are stronger than the market currently perceives.",
+  "Companies whose website, messaging, proof, or digital presence is not carrying the weight it should.",
+  "Founders and teams with serious capability, but unclear external structure.",
+  "Businesses that need strategic thinking connected to real execution.",
+  "Companies ready to use AI and modern systems with judgment, restraint, and practical purpose.",
 ];
 
 export function WhoSolve() {
@@ -42,7 +42,7 @@ export function WhoSolve() {
                   {" "}we help
                 </>
               }
-              lead="We work with companies that have substance, but not yet the structure, positioning, or digital presence to express it with full force."
+              lead="We work with companies that have real substance, but need clearer structure, sharper positioning, and a stronger digital presence to make that value easier to see."
               items={WHO}
             />
           </div>

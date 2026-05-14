@@ -48,10 +48,10 @@ export function CTASection() {
         {/* CTA */}
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="serif-display font-light text-[34px] leading-[1.12] tracking-tightserif text-ink md:text-[54px] lg:text-[64px]">
-            Need sharper positioning,
+            Need clearer positioning,
             <br className="hidden sm:block" />{' '}
-            stronger digital assets, or a{' '}
-            <em className="italic">clearer path forward?</em>
+            stronger digital assets, or a better{' '}
+            <em className="italic">system for earning trust?</em>
           </h2>
           <div className="mt-10 flex flex-col items-center gap-x-6 gap-y-3 sm:flex-row sm:justify-center md:mt-14">
             <button type="button" onClick={handleToggle} className="btn-primary">
