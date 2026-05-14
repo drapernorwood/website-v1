@@ -38,8 +38,13 @@ export function Hero() {
 
         <div className="mt-14 max-w-[56ch] md:mt-20">
           <p className="text-[17px] leading-[1.65] text-ink/70 md:text-[19px]">
-            We help companies clarify their value, strengthen their digital
-            presence, and build the assets, systems, and proof needed to earn trust.
+            We build trust engines for companies with real value.
+          </p>
+          <p className="mt-4 text-[17px] leading-[1.65] text-ink/70 md:text-[19px]">
+            Sharper positioning. Stronger proof. Better digital presence.
+          </p>
+          <p className="mt-4 text-[17px] leading-[1.65] text-ink/70 md:text-[19px]">
+            Practical systems that help the right people understand, trust, and choose you.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 md:mt-10">
