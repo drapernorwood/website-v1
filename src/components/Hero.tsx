@@ -41,10 +41,10 @@ export function Hero() {
             We build trust engines for companies with real value.
           </p>
           <p className="mt-4 text-[17px] leading-[1.65] text-ink/70 md:text-[19px]">
-            Sharper positioning. Stronger proof. Better digital presence.
-          </p>
-          <p className="mt-4 text-[17px] leading-[1.65] text-ink/70 md:text-[19px]">
-            Practical systems that help the right people understand, trust, and choose you.
+            Sharper positioning.<br />
+            Smarter systems.<br />
+            Strategic assets.<br />
+            Stronger proof.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 md:mt-10">
