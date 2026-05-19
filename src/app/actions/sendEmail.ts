@@ -11,9 +11,17 @@ const submissionLog = new Map<string, number[]>();
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
   const recent = (submissionLog.get(ip) ?? []).filter(t => now - t < 60_000);
-  if (recent.length >= 5) return true;
+  if (recent.length >= 3) return true;
   submissionLog.set(ip, [...recent, now]);
   return false;
+}
+
+// Bot submissions are typically long random alphanumeric strings with no spaces
+function looksLikeSpam(name: string, company: string, message: string): boolean {
+  const isRandomString = (s: string) =>
+    s.length > 16 && !/[\s,.'"\-!?]/.test(s) && /^[A-Za-z0-9]+$/.test(s);
+  const suspiciousCount = [name, company, message].filter(isRandomString).length;
+  return suspiciousCount >= 2;
 }
 
 function getClientIp(): string {
@@ -32,7 +40,11 @@ export async function sendInquiry(formData: FormData): Promise<SendResult> {
   // Honeypot: bots fill hidden fields, humans don't
   if ((formData.get('_hp') as string)?.trim()) return { success: true };
 
-  // Rate limit: max 5 submissions per minute per IP
+  // Timing check: humans need time to fill a form; bots submit instantly
+  const formOpenedAt = parseInt((formData.get('_ft') as string) ?? '0', 10);
+  if (!formOpenedAt || Date.now() - formOpenedAt < 1500) return { success: true };
+
+  // Rate limit: max 3 submissions per minute per IP
   if (isRateLimited(getClientIp())) {
     return { success: false, error: 'Please wait a moment before sending another inquiry.' };
   }
@@ -46,6 +58,10 @@ export async function sendInquiry(formData: FormData): Promise<SendResult> {
   if (!name || !email || !company || !message) {
     return { success: false, error: 'Please complete all required fields.' };
   }
+
+  // Content analysis: reject random-string bot payloads silently
+  if (looksLikeSpam(name, company, message)) return { success: true };
+
 
   try {
     await Promise.all([
