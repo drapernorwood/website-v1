@@ -27,6 +27,7 @@ function validateFields(data: {
 
 export function CTASection() {
   const [formOpen, setFormOpen] = useState(false);
+  const [formOpenedAt, setFormOpenedAt] = useState(0);
   const panelRef = useRef<HTMLDivElement>(null);
 
   function handleToggle() {
@@ -34,6 +35,7 @@ export function CTASection() {
       setFormOpen(false);
     } else {
       setFormOpen(true);
+      setFormOpenedAt(Date.now());
       setTimeout(() => {
         panelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }, 80);
@@ -103,7 +105,7 @@ export function CTASection() {
               }}
               className="mx-auto mt-20 max-w-xl border-t border-paper-line pb-4 pt-14"
             >
-              <InquiryPanel />
+              <InquiryPanel openedAt={formOpenedAt} />
             </div>
           </div>
         </div>
@@ -113,7 +115,7 @@ export function CTASection() {
   );
 }
 
-function InquiryPanel() {
+function InquiryPanel({ openedAt }: { openedAt: number }) {
   const [status, setStatus] = useState<FormStatus>('idle');
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [apiError, setApiError] = useState('');
@@ -178,8 +180,12 @@ function InquiryPanel() {
       </p>
 
       <form onSubmit={handleSubmit} noValidate className="mt-10">
-        {/* Honeypot — hidden from humans, filled by bots */}
-        <input type="text" name="_hp" aria-hidden="true" tabIndex={-1} autoComplete="off" style={{ display: 'none' }} />
+        {/* Honeypot — off-screen, invisible to humans, filled by bots */}
+        <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}>
+          <input type="text" name="_hp" tabIndex={-1} autoComplete="off" />
+        </div>
+        {/* Timing token — records when the form was opened */}
+        <input type="hidden" name="_ft" value={openedAt || ''} />
         <div className="grid grid-cols-1 gap-x-6 gap-y-7 sm:grid-cols-2">
           <FormField
             label="Name"
