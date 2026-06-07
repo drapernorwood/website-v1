@@ -36,16 +36,21 @@ export function WhatSection() {
               />
               <div className="relative max-w-[58ch] space-y-5 text-[17px] leading-[1.65] text-ink/65 md:text-[19px]">
                 <p className="text-ink font-medium">
-                  AI has made content easier to produce, but harder to trust.
+                  A company can have real value, strong proof, and serious
+                  capability — and still be underperceived.
                 </p>
                 <p>
-                  That makes clear positioning, strong proof, useful offers,
-                  owned distribution, and sharper digital assets more valuable,
-                  not less.
+                  The market does not meet the private truth of the business.
+                  It meets the language, proof, website, offers, visuals,
+                  systems, and context the business gives it.
                 </p>
                 <p>
-                  When a company is unclear or under-presented, the cost shows
-                  up in trust, traction, and revenue.
+                  Clarity is not only explanation.
+                </p>
+                <p>
+                  Sometimes it is recognition: the moment the right people
+                  understand what the thing is, why it matters, and why it
+                  belongs in their world.
                 </p>
               </div>
             </div>
