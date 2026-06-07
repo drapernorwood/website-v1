@@ -29,22 +29,23 @@ export function Hero() {
           style={{ lineHeight: "1.04" }}
           className="mt-8 text-display font-medium tracking-tightest text-ink md:mt-12"
         >
-          Make your business clearer
+          Your company is stronger
           <br className="hidden sm:block" />{" "}
           <span className="serif-display italic font-light text-ink/80">
-            {"— and harder to ignore."}
+            than the market can see.
           </span>
         </h1>
 
         <div className="mt-14 max-w-[56ch] md:mt-20">
           <p className="text-[17px] leading-[1.65] text-ink/70 md:text-[19px]">
-            We build trust engines for companies with real value.
+            The raw material is already there.
           </p>
           <p className="mt-4 text-[17px] leading-[1.65] text-ink/70 md:text-[19px]">
-            Sharper positioning.<br />
-            Smarter systems.<br />
-            Strategic assets.<br />
-            Stronger proof.
+            The proof. The ideas. The capability. The value.
+          </p>
+          <p className="mt-4 text-[17px] leading-[1.65] text-ink/70 md:text-[19px]">
+            We shape it into positioning, proof, systems, and digital presence
+            that help the right people understand, trust, and choose you.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 md:mt-10">
