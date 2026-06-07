@@ -236,10 +236,10 @@ export function Proof() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 grid-backdrop opacity-70"
       />
-      {/* Near-invisible paper grain — material weight */}
+      {/* Paper grain — eased back here so the structural grid reads through */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 grain-paper"
+        className="pointer-events-none absolute inset-0 grain-paper opacity-60"
       />
 
       <div className="container-dn relative">
