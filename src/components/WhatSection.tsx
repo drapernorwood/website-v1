@@ -39,9 +39,6 @@ export function WhatSection() {
                   From the inside, the value is obvious.
                 </p>
                 <p>
-                  The proof is there. The capability is there. The work is real.
-                </p>
-                <p>
                   But the market does not see the inside.
                 </p>
                 <p>
