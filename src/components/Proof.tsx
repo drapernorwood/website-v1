@@ -133,16 +133,18 @@ function ArtifactCell({
   image,
   alt,
   label,
+  marker = "work",
   onExpand,
 }: {
   image: string;
   alt: string;
   label: string;
+  marker?: "work" | "result";
   onExpand: (img: { src: string; alt: string }) => void;
 }) {
+  const isResult = marker === "result";
   return (
     <div className="flex h-full flex-col bg-paper py-4 md:py-10 md:px-8">
-      <span className="caption mb-3 md:hidden">{label}</span>
       <button
         type="button"
         onClick={() => onExpand({ src: image, alt })}
@@ -157,6 +159,16 @@ function ArtifactCell({
           sizes="(max-width: 768px) 100vw, 33vw"
         />
       </button>
+      {/* Dossier caption — Result carries the single accent: hidden value made legible */}
+      <div className="mt-3 flex items-center gap-2">
+        <span
+          aria-hidden="true"
+          className={`h-1.5 w-1.5 rounded-full ${isResult ? "bg-accent" : "bg-ink/25"}`}
+        />
+        <span className={`caption ${isResult ? "text-accent" : "text-ink/40"}`}>
+          {label}
+        </span>
+      </div>
     </div>
   );
 }
@@ -218,8 +230,19 @@ export function Proof() {
   }, [expanded]);
 
   return (
-    <section className="section">
-      <div className="container-dn">
+    <section className="section relative overflow-hidden">
+      {/* Faint structural field — proof grounded in measured structure */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 grid-backdrop opacity-70"
+      />
+      {/* Paper grain — eased back here so the structural grid reads through */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 grain-paper opacity-60"
+      />
+
+      <div className="container-dn relative">
         <div className="max-w-[54ch]">
           <h2 className="text-h2 font-medium tracking-tighter2 text-ink">
             Proof, built through real work.
@@ -292,7 +315,7 @@ export function Proof() {
                     </span>
                     <span className="caption">{c.work.title}</span>
                   </div>
-                  <ArtifactCell {...c.work} label="Work" onExpand={setExpanded} />
+                  <ArtifactCell {...c.work} label="Source Material" marker="work" onExpand={setExpanded} />
                   <PerspectiveCell
                     index={i}
                     teaser={c.perspective.teaser}
@@ -300,7 +323,7 @@ export function Proof() {
                     open={openCase === i}
                     onToggle={toggleCase}
                   />
-                  <ArtifactCell {...c.result} label="Result" onExpand={setExpanded} />
+                  <ArtifactCell {...c.result} label="Result" marker="result" onExpand={setExpanded} />
                 </div>
               ))}
             </div>
