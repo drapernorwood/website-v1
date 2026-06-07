@@ -9,6 +9,12 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 grid-backdrop opacity-30"
       />
 
+      {/* Faint paper grain — subliminal material weight */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 grain-paper"
+      />
+
       {/* Faint DN monogram — subliminal brand presence, not decoration */}
       <div
         aria-hidden="true"
