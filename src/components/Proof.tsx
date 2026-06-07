@@ -35,6 +35,33 @@ const BLOCKS: Block[] = [
 
 const CASES: Case[] = [
   {
+    work: { title: "The Lost Archives", image: "/la-work.png", alt: "The Lost Archives — discovery and packaging strategy" },
+    perspective: {
+      teaser: (
+        <>
+          The Lost Archives began with rare material that already had gravity. <strong className="font-semibold text-ink">The work was not to make it louder.</strong>
+        </>
+      ),
+      rest: (
+        <>
+          <p>
+            It was to give it the right form: context, pacing, tone, visual
+            language, and packaging that helped people feel the weight of what
+            had been hidden.
+          </p>
+          <p>
+            For the University of Science and Philosophy — the Walter and Lao
+            Russell institution at philosophy.org — that meant turning rare
+            recordings and buried material into{" "}
+            <em>a discovery-driven media property</em> with a clear path from
+            curiosity to deeper exploration.
+          </p>
+        </>
+      ),
+    },
+    result: { title: "The Lost Archives", image: "/la-results-1.png", alt: "The Lost Archives results — subscriber and catalogue metrics" },
+  },
+  {
     work: { title: "DataCenter Dynamics", image: "/dcd-work.png", alt: "DataCenter Dynamics Madrid event — digital marketing work" },
     perspective: {
       teaser: (
@@ -100,33 +127,6 @@ const CASES: Case[] = [
     },
     result: { title: "HealthLinks Podcast", image: "/hl-results.png", alt: "HealthLinks Podcast results — provider reach and listenership growth" },
   },
-  {
-    work: { title: "The Lost Archives", image: "/la-work.png", alt: "The Lost Archives — discovery and packaging strategy" },
-    perspective: {
-      teaser: (
-        <>
-          The Lost Archives began with rare material that already had gravity. <strong className="font-semibold text-ink">The work was not to make it louder.</strong>
-        </>
-      ),
-      rest: (
-        <>
-          <p>
-            It was to give it the right form: context, pacing, tone, visual
-            language, and packaging that helped people feel the weight of what
-            had been hidden.
-          </p>
-          <p>
-            For the University of Science and Philosophy — the Walter and Lao
-            Russell institution at philosophy.org — that meant turning rare
-            recordings and buried material into{" "}
-            <em>a discovery-driven media property</em> with a clear path from
-            curiosity to deeper exploration.
-          </p>
-        </>
-      ),
-    },
-    result: { title: "The Lost Archives", image: "/la-results.png", alt: "The Lost Archives results — subscriber and catalogue metrics" },
-  },
 ];
 
 function ArtifactCell({
@@ -144,7 +144,22 @@ function ArtifactCell({
 }) {
   const isResult = marker === "result";
   return (
-    <div className="flex h-full flex-col bg-paper py-4 md:py-10 md:px-8">
+    <div className="relative isolate flex h-full flex-col bg-paper py-4 md:py-10 md:px-8">
+      {/* Ground motif: Source Material = raw structure lines; Result = filled with
+          texture. Same paper brightness throughout — only the motif progresses. */}
+      <div
+        aria-hidden="true"
+        className={`pointer-events-none absolute inset-0 -z-10 ${
+          isResult ? "grain-paper" : "grid-fine"
+        }`}
+      />
+      {/* Result reads as filled-in substance: full grain over a whisper of added density */}
+      {isResult && (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10 bg-ink/[0.02]"
+        />
+      )}
       <button
         type="button"
         onClick={() => onExpand({ src: image, alt })}
@@ -160,7 +175,7 @@ function ArtifactCell({
         />
       </button>
       {/* Dossier caption — Result carries the single accent: hidden value made legible */}
-      <div className="mt-3 flex items-center gap-2">
+      <div className="relative mt-3 flex items-center gap-2">
         <span
           aria-hidden="true"
           className={`h-1.5 w-1.5 rounded-full ${isResult ? "bg-accent" : "bg-ink/25"}`}
@@ -188,7 +203,10 @@ function PerspectiveCell({
 }) {
   const restId = `proof-rest-${index}`;
   return (
-    <div className="flex h-full flex-col justify-center bg-paper py-4 md:py-10 md:px-8">
+    <div className="relative isolate flex h-full flex-col justify-center bg-paper py-4 md:py-10 md:px-8">
+      {/* Filling-in stage: structure lines with grain beginning to come through */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 grid-fine" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 grain-paper opacity-40" />
       <span className="caption mb-3 md:hidden">Perspective</span>
       <p className="text-[15px] leading-[1.7] text-ink/70">{teaser}</p>
       <div
@@ -305,6 +323,11 @@ export function Proof() {
                   key={i}
                   className="mt-10 first:mt-6 border-t border-paper-line pt-6 md:contents"
                 >
+                  {/* Clean full-width band between cases — separates entries and keeps
+                      the column grounds from running into one continuous stripe */}
+                  {i > 0 && (
+                    <div aria-hidden="true" className="hidden md:block md:col-span-3 h-12 bg-paper" />
+                  )}
                   {/* Mobile-only case heading — md:contents collapses the wrapper on desktop */}
                   <div className="md:hidden flex items-baseline gap-3">
                     <span
