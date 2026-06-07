@@ -144,18 +144,15 @@ function ArtifactCell({
 }) {
   const isResult = marker === "result";
   return (
-    <div
-      className={`relative flex h-full flex-col py-4 md:py-10 md:px-8 ${
-        isResult ? "bg-paper" : "bg-paper-soft"
-      }`}
-    >
-      {/* Source material sits on a denser, faintly textured stock — raw before refined */}
-      {!isResult && (
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 grain-paper opacity-50"
-        />
-      )}
+    <div className="relative isolate flex h-full flex-col bg-paper py-4 md:py-10 md:px-8">
+      {/* Ground motif: Source Material = raw structure lines; Result = filled with
+          texture. Same paper brightness throughout — only the motif progresses. */}
+      <div
+        aria-hidden="true"
+        className={`pointer-events-none absolute inset-0 -z-10 ${
+          isResult ? "grain-paper opacity-60" : "grid-fine"
+        }`}
+      />
       <button
         type="button"
         onClick={() => onExpand({ src: image, alt })}
@@ -199,7 +196,10 @@ function PerspectiveCell({
 }) {
   const restId = `proof-rest-${index}`;
   return (
-    <div className="flex h-full flex-col justify-center bg-paper py-4 md:py-10 md:px-8">
+    <div className="relative isolate flex h-full flex-col justify-center bg-paper py-4 md:py-10 md:px-8">
+      {/* Filling-in stage: structure lines with grain beginning to come through */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 grid-fine" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 grain-paper opacity-40" />
       <span className="caption mb-3 md:hidden">Perspective</span>
       <p className="text-[15px] leading-[1.7] text-ink/70">{teaser}</p>
       <div

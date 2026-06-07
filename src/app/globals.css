@@ -129,6 +129,16 @@ body {
   background-repeat: repeat;
 }
 
+/* Fine even grid for case grounds — raw structure, before it is filled in.
+   Unlike grid-analytical/backdrop this has no radial mask, so it reads as an
+   evenly faint scaffold across a panel. */
+.grid-fine {
+  background-image:
+    linear-gradient(to right, rgba(11, 12, 14, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 12, 14, 0.05) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
 /* Left-to-right fade mask — image fades from transparent into background on left */
 .fade-from-left {
   mask-image: linear-gradient(to right, transparent 0%, black 42%);
