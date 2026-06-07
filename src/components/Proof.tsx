@@ -150,9 +150,16 @@ function ArtifactCell({
       <div
         aria-hidden="true"
         className={`pointer-events-none absolute inset-0 -z-10 ${
-          isResult ? "grain-paper opacity-60" : "grid-fine"
+          isResult ? "grain-paper" : "grid-fine"
         }`}
       />
+      {/* Result reads as filled-in substance: full grain over a whisper of added density */}
+      {isResult && (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10 bg-ink/[0.03]"
+        />
+      )}
       <button
         type="button"
         onClick={() => onExpand({ src: image, alt })}
