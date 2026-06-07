@@ -4,28 +4,28 @@ const SERVICES = [
     kicker: "Clarity",
     title: "Positioning and strategy",
     body:
-      "Clarify what the company is, who it serves, why it matters, and what point of view it can own.",
+      "Clarify the real center of the business and the language needed for the right people to recognize it.",
   },
   {
     n: "02",
     kicker: "Trust",
     title: "Web and digital presence",
     body:
-      "Strengthen the digital front door so the business is easier to understand, trust, and choose.",
+      "Build the digital front door that gives the business credible, useful, and memorable form.",
   },
   {
     n: "03",
     kicker: "Leverage",
     title: "AI and modern systems",
     body:
-      "Use AI and modern tools to improve execution, output, workflow, and customer experience without replacing judgment.",
+      "Use AI and modern tools to support judgment, execution, speed, and better customer-facing experiences.",
   },
   {
     n: "04",
     kicker: "Craft",
     title: "Creative and growth assets",
     body:
-      "Build the proof, content, offers, and supporting assets that turn attention into trust and trust into action.",
+      "Create the proof, content, narrative, and supporting assets that help attention become trust.",
   },
 ];
 

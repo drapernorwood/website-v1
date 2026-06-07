@@ -105,16 +105,22 @@ const CASES: Case[] = [
     perspective: {
       teaser: (
         <>
-          Hidden material does not create impact just because it exists. <strong className="font-semibold text-ink">It needs a frame strong enough to make people care.</strong>
+          The Lost Archives began with rare material that already had gravity. <strong className="font-semibold text-ink">The work was not to make it louder.</strong>
         </>
       ),
       rest: (
         <>
           <p>
-            For the University of Science and Philosophy — the Walter and Lao Russell institution at philosophy.org — <em>we turned rare recordings and buried material into a discovery engine.</em>
+            It was to give it the right form: context, pacing, tone, visual
+            language, and packaging that helped people feel the weight of what
+            had been hidden.
           </p>
           <p>
-            The archive becomes the source, but <strong className="font-semibold text-ink">the system gives it motion:</strong> mystery, packaging, distribution, and a clear path from curiosity to deeper exploration.
+            For the University of Science and Philosophy — the Walter and Lao
+            Russell institution at philosophy.org — that meant turning rare
+            recordings and buried material into{" "}
+            <em>a discovery-driven media property</em> with a clear path from
+            curiosity to deeper exploration.
           </p>
         </>
       ),

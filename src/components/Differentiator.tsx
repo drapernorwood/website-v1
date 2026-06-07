@@ -24,10 +24,16 @@ export function Differentiator() {
             </figure>
 
             <p className="mt-12 text-[16.5px] leading-[1.65] text-ink/70 md:text-[17.5px]">
-              In a market flooded with content, the advantage is not more noise.
+              But the work is not only diagnosis.
             </p>
             <p className="mt-4 text-[16.5px] leading-[1.65] text-ink/70 md:text-[17.5px]">
-              It is clearer form: sharper positioning, stronger proof, better systems, and assets that help attention become trust.
+              It is giving form to what already has gravity: the proof, ideas,
+              offers, expertise, and capability inside the business.
+            </p>
+            <p className="mt-4 text-[16.5px] leading-[1.65] text-ink/70 md:text-[17.5px]">
+              That form becomes sharper positioning, stronger proof, clearer
+              digital presence, and practical systems that help attention
+              become trust.
             </p>
           </div>
         </div>
