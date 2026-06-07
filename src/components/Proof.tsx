@@ -323,21 +323,11 @@ export function Proof() {
                   key={i}
                   className="mt-10 first:mt-6 border-t border-paper-line pt-6 md:contents"
                 >
-                  {/* Catalogued case header (desktop) — a quiet filing label per entry.
-                      Also provides the clean band that separates stacked cases. */}
-                  <div
-                    className={`hidden md:flex md:col-span-3 items-baseline gap-3 bg-paper pb-4 ${
-                      i > 0 ? "pt-14" : "pt-2"
-                    }`}
-                  >
-                    <span
-                      aria-hidden="true"
-                      className="serif-display italic font-light text-[28px] leading-none text-ink/[0.20]"
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="caption">{c.work.title}</span>
-                  </div>
+                  {/* Clean full-width band between cases — separates entries and keeps
+                      the column grounds from running into one continuous stripe */}
+                  {i > 0 && (
+                    <div aria-hidden="true" className="hidden md:block md:col-span-3 h-12 bg-paper" />
+                  )}
                   {/* Mobile-only case heading — md:contents collapses the wrapper on desktop */}
                   <div className="md:hidden flex items-baseline gap-3">
                     <span
