@@ -35,6 +35,33 @@ const BLOCKS: Block[] = [
 
 const CASES: Case[] = [
   {
+    work: { title: "The Lost Archives", image: "/la-work.png", alt: "The Lost Archives — discovery and packaging strategy" },
+    perspective: {
+      teaser: (
+        <>
+          The Lost Archives began with rare material that already had gravity. <strong className="font-semibold text-ink">The work was not to make it louder.</strong>
+        </>
+      ),
+      rest: (
+        <>
+          <p>
+            It was to give it the right form: context, pacing, tone, visual
+            language, and packaging that helped people feel the weight of what
+            had been hidden.
+          </p>
+          <p>
+            For the University of Science and Philosophy — the Walter and Lao
+            Russell institution at philosophy.org — that meant turning rare
+            recordings and buried material into{" "}
+            <em>a discovery-driven media property</em> with a clear path from
+            curiosity to deeper exploration.
+          </p>
+        </>
+      ),
+    },
+    result: { title: "The Lost Archives", image: "/la-results.png", alt: "The Lost Archives results — subscriber and catalogue metrics" },
+  },
+  {
     work: { title: "DataCenter Dynamics", image: "/dcd-work.png", alt: "DataCenter Dynamics Madrid event — digital marketing work" },
     perspective: {
       teaser: (
@@ -100,37 +127,7 @@ const CASES: Case[] = [
     },
     result: { title: "HealthLinks Podcast", image: "/hl-results.png", alt: "HealthLinks Podcast results — provider reach and listenership growth" },
   },
-  {
-    work: { title: "The Lost Archives", image: "/la-work.png", alt: "The Lost Archives — discovery and packaging strategy" },
-    perspective: {
-      teaser: (
-        <>
-          The Lost Archives began with rare material that already had gravity. <strong className="font-semibold text-ink">The work was not to make it louder.</strong>
-        </>
-      ),
-      rest: (
-        <>
-          <p>
-            It was to give it the right form: context, pacing, tone, visual
-            language, and packaging that helped people feel the weight of what
-            had been hidden.
-          </p>
-          <p>
-            For the University of Science and Philosophy — the Walter and Lao
-            Russell institution at philosophy.org — that meant turning rare
-            recordings and buried material into{" "}
-            <em>a discovery-driven media property</em> with a clear path from
-            curiosity to deeper exploration.
-          </p>
-        </>
-      ),
-    },
-    result: { title: "The Lost Archives", image: "/la-results.png", alt: "The Lost Archives results — subscriber and catalogue metrics" },
-  },
 ];
-
-// The flagship case — given extra weight as the page's heaviest proof moment.
-const FLAGSHIP_INDEX = 3;
 
 function ArtifactCell({
   image,
@@ -303,64 +300,32 @@ export function Proof() {
         >
           <div className="overflow-hidden">
             <div className="md:grid md:grid-cols-3 md:gap-px md:bg-paper-line md:border-b md:border-l md:border-r md:border-paper-line">
-              {CASES.map((c, i) => {
-                const featured = i === FLAGSHIP_INDEX;
-                const cells = (
-                  <>
-                    <ArtifactCell {...c.work} label="Source Material" marker="work" onExpand={setExpanded} />
-                    <PerspectiveCell
-                      index={i}
-                      teaser={c.perspective.teaser}
-                      rest={c.perspective.rest}
-                      open={openCase === i}
-                      onToggle={toggleCase}
-                    />
-                    <ArtifactCell {...c.result} label="Result" marker="result" onExpand={setExpanded} />
-                  </>
-                );
-
-                if (featured) {
-                  // Flagship — framed as its own full-width row to carry more weight.
-                  return (
-                    <div
-                      key={i}
-                      className="mt-10 first:mt-6 border-t-2 border-ink/20 pt-6 md:mt-0 md:border-t-0 md:pt-0 md:col-span-3 md:grid md:grid-cols-3 md:gap-px md:bg-paper-line md:ring-2 md:ring-ink/15"
+              {CASES.map((c, i) => (
+                <div
+                  key={i}
+                  className="mt-10 first:mt-6 border-t border-paper-line pt-6 md:contents"
+                >
+                  {/* Mobile-only case heading — md:contents collapses the wrapper on desktop */}
+                  <div className="md:hidden flex items-baseline gap-3">
+                    <span
+                      aria-hidden="true"
+                      className="serif-display italic font-light text-[22px] leading-none text-ink/[0.22]"
                     >
-                      {/* Featured header — spans the full width of the framed case */}
-                      <div className="flex items-baseline gap-4 bg-paper pb-4 md:col-span-3 md:px-8 md:pb-3 md:pt-8">
-                        <span
-                          aria-hidden="true"
-                          className="serif-display italic font-light text-[26px] leading-none text-ink/[0.22] md:text-[36px]"
-                        >
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <span className="caption">Featured</span>
-                        <span className="caption text-ink/40">{c.work.title}</span>
-                      </div>
-                      {cells}
-                    </div>
-                  );
-                }
-
-                return (
-                  <div
-                    key={i}
-                    className="mt-10 first:mt-6 border-t border-paper-line pt-6 md:contents"
-                  >
-                    {/* Mobile-only case heading — md:contents collapses the wrapper on desktop */}
-                    <div className="md:hidden flex items-baseline gap-3">
-                      <span
-                        aria-hidden="true"
-                        className="serif-display italic font-light text-[22px] leading-none text-ink/[0.22]"
-                      >
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span className="caption">{c.work.title}</span>
-                    </div>
-                    {cells}
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="caption">{c.work.title}</span>
                   </div>
-                );
-              })}
+                  <ArtifactCell {...c.work} label="Source Material" marker="work" onExpand={setExpanded} />
+                  <PerspectiveCell
+                    index={i}
+                    teaser={c.perspective.teaser}
+                    rest={c.perspective.rest}
+                    open={openCase === i}
+                    onToggle={toggleCase}
+                  />
+                  <ArtifactCell {...c.result} label="Result" marker="result" onExpand={setExpanded} />
+                </div>
+              ))}
             </div>
           </div>
         </div>
