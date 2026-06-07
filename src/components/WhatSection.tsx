@@ -36,21 +36,30 @@ export function WhatSection() {
               />
               <div className="relative max-w-[58ch] space-y-5 text-[17px] leading-[1.65] text-ink/65 md:text-[19px]">
                 <p className="text-ink font-medium">
-                  A company can have real value, strong proof, and serious
-                  capability — and still be underperceived.
+                  From the inside, the value is obvious.
                 </p>
                 <p>
-                  The market does not meet the private truth of the business.
-                  It meets the language, proof, website, offers, visuals,
-                  systems, and context the business gives it.
+                  The proof is there. The capability is there. The work is real.
+                </p>
+                <p>
+                  But the market does not see the inside.
+                </p>
+                <p>
+                  It sees the form the business puts into the world: the
+                  positioning, website, proof, offers, visuals, systems,
+                  and signals.
+                </p>
+                <p>
+                  When that form is weak or scattered, customers hesitate,
+                  prospects misunderstand, and real value gets underperceived.
                 </p>
                 <p>
                   Clarity is not only explanation.
                 </p>
                 <p>
-                  Sometimes it is recognition: the moment the right people
-                  understand what the thing is, why it matters, and why it
-                  belongs in their world.
+                  It is recognition: the moment the right people understand
+                  what this is, why it matters, and why it belongs in their
+                  world.
                 </p>
               </div>
             </div>
