@@ -163,7 +163,7 @@ function ArtifactCell({
       <div className="mt-3 flex items-center gap-2">
         <span
           aria-hidden="true"
-          className={`h-1 w-1 rounded-full ${isResult ? "bg-accent" : "bg-ink/25"}`}
+          className={`h-1.5 w-1.5 rounded-full ${isResult ? "bg-accent" : "bg-ink/25"}`}
         />
         <span className={`caption ${isResult ? "text-accent" : "text-ink/40"}`}>
           {label}
@@ -234,7 +234,7 @@ export function Proof() {
       {/* Faint structural field — proof grounded in measured structure */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 grid-backdrop opacity-30"
+        className="pointer-events-none absolute inset-0 grid-backdrop opacity-70"
       />
       {/* Near-invisible paper grain — material weight */}
       <div
