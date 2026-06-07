@@ -129,6 +129,9 @@ const CASES: Case[] = [
   },
 ];
 
+// The flagship case — given extra weight as the page's heaviest proof moment.
+const FLAGSHIP_INDEX = 3;
+
 function ArtifactCell({
   image,
   alt,
@@ -300,32 +303,64 @@ export function Proof() {
         >
           <div className="overflow-hidden">
             <div className="md:grid md:grid-cols-3 md:gap-px md:bg-paper-line md:border-b md:border-l md:border-r md:border-paper-line">
-              {CASES.map((c, i) => (
-                <div
-                  key={i}
-                  className="mt-10 first:mt-6 border-t border-paper-line pt-6 md:contents"
-                >
-                  {/* Mobile-only case heading — md:contents collapses the wrapper on desktop */}
-                  <div className="md:hidden flex items-baseline gap-3">
-                    <span
-                      aria-hidden="true"
-                      className="serif-display italic font-light text-[22px] leading-none text-ink/[0.22]"
+              {CASES.map((c, i) => {
+                const featured = i === FLAGSHIP_INDEX;
+                const cells = (
+                  <>
+                    <ArtifactCell {...c.work} label="Source Material" marker="work" onExpand={setExpanded} />
+                    <PerspectiveCell
+                      index={i}
+                      teaser={c.perspective.teaser}
+                      rest={c.perspective.rest}
+                      open={openCase === i}
+                      onToggle={toggleCase}
+                    />
+                    <ArtifactCell {...c.result} label="Result" marker="result" onExpand={setExpanded} />
+                  </>
+                );
+
+                if (featured) {
+                  // Flagship — framed as its own full-width row to carry more weight.
+                  return (
+                    <div
+                      key={i}
+                      className="mt-10 first:mt-6 border-t-2 border-ink/20 pt-6 md:mt-0 md:border-t-0 md:pt-0 md:col-span-3 md:grid md:grid-cols-3 md:gap-px md:bg-paper-line md:ring-2 md:ring-ink/15"
                     >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="caption">{c.work.title}</span>
+                      {/* Featured header — spans the full width of the framed case */}
+                      <div className="flex items-baseline gap-4 bg-paper pb-4 md:col-span-3 md:px-8 md:pb-3 md:pt-8">
+                        <span
+                          aria-hidden="true"
+                          className="serif-display italic font-light text-[26px] leading-none text-ink/[0.22] md:text-[36px]"
+                        >
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <span className="caption">Featured</span>
+                        <span className="caption text-ink/40">{c.work.title}</span>
+                      </div>
+                      {cells}
+                    </div>
+                  );
+                }
+
+                return (
+                  <div
+                    key={i}
+                    className="mt-10 first:mt-6 border-t border-paper-line pt-6 md:contents"
+                  >
+                    {/* Mobile-only case heading — md:contents collapses the wrapper on desktop */}
+                    <div className="md:hidden flex items-baseline gap-3">
+                      <span
+                        aria-hidden="true"
+                        className="serif-display italic font-light text-[22px] leading-none text-ink/[0.22]"
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="caption">{c.work.title}</span>
+                    </div>
+                    {cells}
                   </div>
-                  <ArtifactCell {...c.work} label="Source Material" marker="work" onExpand={setExpanded} />
-                  <PerspectiveCell
-                    index={i}
-                    teaser={c.perspective.teaser}
-                    rest={c.perspective.rest}
-                    open={openCase === i}
-                    onToggle={toggleCase}
-                  />
-                  <ArtifactCell {...c.result} label="Result" marker="result" onExpand={setExpanded} />
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
