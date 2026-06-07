@@ -144,7 +144,18 @@ function ArtifactCell({
 }) {
   const isResult = marker === "result";
   return (
-    <div className="flex h-full flex-col bg-paper py-4 md:py-10 md:px-8">
+    <div
+      className={`relative flex h-full flex-col py-4 md:py-10 md:px-8 ${
+        isResult ? "bg-paper" : "bg-paper-soft"
+      }`}
+    >
+      {/* Source material sits on a denser, faintly textured stock — raw before refined */}
+      {!isResult && (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 grain-paper opacity-50"
+        />
+      )}
       <button
         type="button"
         onClick={() => onExpand({ src: image, alt })}
@@ -160,7 +171,7 @@ function ArtifactCell({
         />
       </button>
       {/* Dossier caption — Result carries the single accent: hidden value made legible */}
-      <div className="mt-3 flex items-center gap-2">
+      <div className="relative mt-3 flex items-center gap-2">
         <span
           aria-hidden="true"
           className={`h-1.5 w-1.5 rounded-full ${isResult ? "bg-accent" : "bg-ink/25"}`}
