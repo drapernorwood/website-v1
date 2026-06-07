@@ -42,7 +42,7 @@ export function WhatSection() {
                   But the market does not see the inside.
                 </p>
                 <p>
-                  It sees the form the business puts into the world: the
+                  It sees the form your business puts into the world: the
                   positioning, website, proof, offers, visuals, systems,
                   and signals.
                 </p>
