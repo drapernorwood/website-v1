@@ -6,6 +6,7 @@ import { WhoSolve } from "@/components/WhoSolve";
 import { Services } from "@/components/Services";
 import { Differentiator } from "@/components/Differentiator";
 import { Proof } from "@/components/Proof";
+import { Archive } from "@/components/Archive";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 
@@ -21,6 +22,7 @@ export default function HomePage() {
         <Services />
         <Differentiator />
         <Proof />
+        <Archive />
         <CTASection />
       </main>
       <Footer />
