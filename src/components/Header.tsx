@@ -1,124 +1,87 @@
 "use client";
-
-import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-
-const NAV = [
-  { href: "#services", label: "Services" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
-];
-
+import { useEffect, useRef, useState } from "react";
 export function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-
+  const toggle = useRef<HTMLButtonElement>(null);
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
+    const close = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && open) {
+        setOpen(false);
+        toggle.current?.focus();
+      }
+    };
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, [open]);
   return (
-    <header
-      className={[
-        "sticky top-0 z-50 w-full",
-        "transition-[background-color,border-color,backdrop-filter] duration-300 ease-smooth",
-        scrolled
-          ? "border-b border-paper-line bg-paper/85 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent",
-      ].join(" ")}
-    >
-      <div className="container-dn flex h-16 items-center justify-between md:h-[72px]">
-        <Link
-          href="/"
-          className="group inline-flex items-center"
-          aria-label="Draper Norwood — Home"
-        >
-          <Image
-            src="/brand/dn-wordmark-tight.png"
-            alt="Draper Norwood"
-            width={1262}
-            height={99}
-            priority
-            className="h-[18px] w-auto transition-opacity duration-200 ease-smooth group-hover:opacity-80 md:h-[22px]"
-          />
-        </Link>
-
-        <nav
-          className="hidden items-center gap-9 md:flex"
-          aria-label="Primary"
-        >
-          {NAV.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-[13.5px] text-ink/65 transition-colors duration-200 hover:text-ink"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="hidden md:block">
-          <Link href="#contact" className="btn-primary !px-5 !py-2.5 !text-[13px]">
-            Work With Us
+    <>
+      <a className="skip-link" href="#home">
+        Skip to content
+      </a>
+      <header className="site-header">
+        <div className="shell header-inner">
+          <Link
+            href="/"
+            className="wordmark"
+            aria-label="Draper Norwood home"
+            onClick={() => setOpen(false)}
+          >
+            <span className="brand-symbol" aria-hidden="true">
+              d/n
+            </span>
+            <span>
+              Draper
+              <br />
+              Norwood
+            </span>
           </Link>
-        </div>
-
-        <button
-          type="button"
-          className="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink/10 text-ink transition-colors duration-200 ease-smooth hover:bg-ink/[0.03]"
-          aria-label="Toggle menu"
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span className="sr-only">Menu</span>
-          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
-            {open ? (
-              <path
-                d="M3 3l10 10M13 3L3 13"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-              />
-            ) : (
-              <path
-                d="M2 5h12M2 11h12"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-              />
-            )}
-          </svg>
-        </button>
-      </div>
-
-      {open && (
-        <div className="md:hidden border-t border-paper-line bg-paper">
-          <div className="container-dn flex flex-col gap-1 py-4">
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="rounded-lg px-2 py-3 text-[15px] text-ink/80 hover:bg-paper-soft hover:text-ink"
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Link
-              href="#contact"
-              onClick={() => setOpen(false)}
-              className="btn-primary mt-2 w-full"
-            >
-              Work With Us
+          <span className="header-note">
+            Independent thinking.
+            <br />
+            Practical consequence.
+          </span>
+          <nav aria-label="Primary" className="desktop-nav">
+            <Link href="/#work">
+              <span>01</span> Work
             </Link>
-          </div>
+            <Link href="/#about">
+              <span>02</span> Practice
+            </Link>
+            <Link href="/#contact" className="nav-contact">
+              Let’s talk <span aria-hidden="true">↗</span>
+            </Link>
+          </nav>
+          <button
+            ref={toggle}
+            className="menu-toggle"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? "Close −" : "Menu +"}
+          </button>
         </div>
-      )}
-    </header>
+        <nav
+          id="mobile-menu"
+          aria-label="Mobile"
+          className="mobile-nav"
+          hidden={!open}
+        >
+          <Link href="/#work" onClick={() => setOpen(false)}>
+            01 / Work <span>↗</span>
+          </Link>
+          <Link href="/#about" onClick={() => setOpen(false)}>
+            02 / Practice <span>↗</span>
+          </Link>
+          <Link href="/#services" onClick={() => setOpen(false)}>
+            03 / Capabilities <span>↗</span>
+          </Link>
+          <Link href="/#contact" onClick={() => setOpen(false)}>
+            Let’s talk <span>↗</span>
+          </Link>
+        </nav>
+      </header>
+    </>
   );
 }

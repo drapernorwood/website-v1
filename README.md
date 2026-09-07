@@ -1,63 +1,36 @@
-# website-v1
+# Draper Norwood website
 
-Official Draper Norwood website. This repository contains the first version of the company’s public-facing web presence.
+A Next.js App Router site for Draper Norwood. The September 2026 redesign is on `redesign/stronger-form`; the original site is recoverable at tag `checkpoint/pre-redesign-2026-09-07` (original HEAD e3b5345).
 
-## Purpose
+## Run
 
-Website V1 is the foundation for Draper Norwood’s online brand.
+- `npm ci`
+- `npm run dev` — local development
+- `npm run build` — production build
+- `npm run start` — production server
+- `npm run typecheck` and `npm run lint`
+- `node --test tests/inquiry.test.cjs` — isolated form tests; email provider and headers are mocked, so no email is sent
 
-It should:
-- communicate what Draper Norwood builds
-- present the company professionally
-- support current and future product launches
-- serve as the main web presence for the organization
+## Structure
 
-## Current Priorities
+- `src/app/page.tsx`: homepage
+- `src/components/Hero.tsx`: keyboard-accessible Material / Perspective / Form study
+- `src/app/work/[slug]/page.tsx`: four statically generated case studies
+- `src/lib/work.ts`: case copy, metrics, and evidence boundaries
+- `src/components/CTASection.tsx`: always-visible inquiry form
+- `src/app/actions/sendEmail.ts`: validated server action, Resend notification and confirmation
+- `src/app/globals.css`: responsive visual system and reduced-motion behavior
+- `src/app/fonts`: self-hosted fonts and OFL licenses
+- `docs/RELEASE-NOTES.md`: creative decisions, provenance, and verification
 
-- build a clean homepage
-- define clear messaging
-- create a professional brand presentation
-- prepare for deployment
-- keep the structure simple and scalable
+## Email and analytics
 
-## Status
+Set `RESEND_API_KEY` in the hosting environment to enable delivery. The sender remains `hello@drapernorwood.com`; its domain must be verified in the existing Resend account. No secrets are stored in this repository. Without a key, the form reports that sending is unavailable and the direct email link remains available.
 
-Active development.
+The Vercel Analytics integration is retained. Its collection depends on the existing Vercel project's configuration. The in-memory rate limiter is bounded but per instance; it is not a distributed abuse control.
 
-## Stack
+## Publication
 
-Planned stack:
-- Next.js
-- TypeScript
-- Tailwind CSS
-- Vercel
+The redesign is prepared separately from the live site. A local build and mocked tests do not prove live email deliverability. Verify the existing host environment and perform a separately authorized real delivery check before replacing production.
 
-## Workflow
-
-This project is being developed with Claude Code and GitHub.
-
-Core workflow:
-- build locally
-- commit in small, clean increments
-- keep decisions practical
-- optimize for shipping fast
-
-## Local Development
-
-```bash
-git clone https://github.com/drapernorwood/website-v1.git
-cd website-v1
-npm install
-npm run dev
-```
-
-## Branching
-
-Current approach:
-- use `main` by default
-- create feature branches only when useful
-- avoid unnecessary workflow complexity at this stage
-
-## Goal
-
-Ship a fast, clean, credible V1 website for Draper Norwood.
+Canonical URLs use `https://www.drapernorwood.com`, matching the existing public site's redirect. Homepage anchors `#home`, `#work`, `#about`, `#services`, and `#contact` remain available. All case routes have their own metadata and appear in the sitemap.

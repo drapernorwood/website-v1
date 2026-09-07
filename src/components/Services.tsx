@@ -1,78 +1,65 @@
-const SERVICES = [
+const services = [
   {
-    n: "01",
-    kicker: "Clarity",
-    title: "Positioning and strategy",
-    body:
-      "Clarify the real center of the business and the language needed for the right people to recognize it.",
+    title: "Positioning & strategy",
+    problem: "“People don’t quite get what we do.”",
+    body: "Find the center of the business and give it a clear place in the market. Shape the offer, the audience, the message, and the reasons to believe.",
+    outputs: "Positioning · Offer structure · Messaging · Narrative strategy",
   },
   {
-    n: "02",
-    kicker: "Trust",
-    title: "Web and digital presence",
-    body:
-      "Build the digital front door that gives the business credible, useful, and memorable form.",
+    title: "Web & digital experiences",
+    problem: "“Our presence undersells our work.”",
+    body: "Build a digital experience that reflects the actual quality of the company. Connect the story, the proof, and the path from interest to inquiry.",
+    outputs: "Websites · Landing pages · Digital products · Customer journeys",
   },
   {
-    n: "03",
-    kicker: "Leverage",
-    title: "AI and modern systems",
-    body:
-      "Use AI and modern tools to support judgment, execution, speed, and better customer-facing experiences.",
+    title: "AI & practical systems",
+    problem: "“There has to be a better way to do this.”",
+    body: "Find where modern tools can remove friction and make the team more capable. Build useful workflows and tools around the people who will use them.",
+    outputs: "Knowledge systems · AI workflows · Internal tools · Automation",
   },
   {
-    n: "04",
-    kicker: "Craft",
-    title: "Creative and growth assets",
-    body:
-      "Create the proof, content, narrative, and supporting assets that help attention become trust.",
+    title: "Creative & growth assets",
+    problem: "“We have the substance. It isn’t reaching people.”",
+    body: "Give valuable work a public life. Turn evidence, expertise, and ideas into the media, campaigns, and sales assets that help people pay attention and act.",
+    outputs: "Media properties · Proof packaging · Campaigns · Sales assets",
   },
 ];
-
 export function Services() {
   return (
-    <section id="services" className="pt-28 pb-24 md:pt-40 md:pb-36 lg:pt-48 lg:pb-44">
-      <div className="container-dn">
-        <div>
-          <h2 className="text-h2 font-medium tracking-tighter2 text-ink">
-            <span className="serif-display italic font-light text-ink/80">
-              How
-            </span>
-            {" "}we help
-          </h2>
-        </div>
-
-        <ul className="services-list mt-12 border-t border-paper-line md:mt-20">
-          {SERVICES.map((s) => (
-            <li key={s.n} className="border-b border-paper-line">
-              <article className="services-row grid grid-cols-12 gap-x-6 gap-y-2 py-5 md:gap-y-0 md:py-8">
-                <div className="col-span-2 md:col-span-1">
-                  <span
-                    aria-hidden="true"
-                    className="services-number serif-display italic font-light text-[28px] leading-none text-ink/50 md:text-[52px] lg:text-[64px]"
-                  >
-                    {s.n}
-                  </span>
-                </div>
-
-                <div className="col-span-10 md:col-span-5">
-                  <span className="caption block text-[10px] text-ink/60 tracking-[0.28em]">
-                    {s.kicker}
-                  </span>
-                  <h3 className="mt-3 text-[24px] font-medium leading-[1.22] tracking-tight text-ink md:mt-4 md:text-[32px] md:leading-[1.12] lg:text-[36px]">
-                    {s.title}
-                  </h3>
-                </div>
-
-                <div className="col-span-12 md:col-span-6 md:pt-2">
-                  <p className="max-w-[46ch] text-[15.5px] leading-[1.72] text-ink/60 md:text-[17px] md:text-ink/65">
-                    {s.body}
-                  </p>
-                </div>
-              </article>
-            </li>
-          ))}
-        </ul>
+    <section id="services" className="services-section shell">
+      <div className="services-intro">
+        <p className="eyebrow">03 / What we build</p>
+        <h2>
+          One problem.
+          <br />
+          Several kinds
+          <br />
+          of thinking.
+        </h2>
+        <p>
+          Strategy, creative work, technology, and execution belong in the same
+          conversation. The constraint tells us where to start.
+        </p>
+      </div>
+      <div className="services-accordions">
+        {services.map((service, i) => (
+          <details className="service" key={service.title} open={i === 0}>
+            <summary>
+              <span className="folio">0{i + 1}</span>
+              <div>
+                <span className="service-problem">{service.problem}</span>
+                <h3>{service.title}</h3>
+              </div>
+              <span className="service-plus" aria-hidden="true">
+                +
+              </span>
+            </summary>
+            <div className="service-details">
+              <p>{service.body}</p>
+              <p className="service-outputs">{service.outputs}</p>
+            </div>
+          </details>
+        ))}
       </div>
     </section>
   );

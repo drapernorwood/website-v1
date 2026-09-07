@@ -1,26 +1,19 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { LogoStrip } from "@/components/LogoStrip";
-import { WhatSection } from "@/components/WhatSection";
-import { WhoSolve } from "@/components/WhoSolve";
-import { Services } from "@/components/Services";
-import { Differentiator } from "@/components/Differentiator";
 import { Proof } from "@/components/Proof";
+import { Services } from "@/components/Services";
+import { Practice } from "@/components/Practice";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
-
 export default function HomePage() {
   return (
     <>
       <Header />
       <main id="home">
         <Hero />
-        <LogoStrip />
-        <WhatSection />
-        <WhoSolve />
-        <Services />
-        <Differentiator />
         <Proof />
+        <Practice />
+        <Services />
         <CTASection />
       </main>
       <Footer />

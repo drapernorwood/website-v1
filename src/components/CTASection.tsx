@@ -1,344 +1,182 @@
-'use client';
-
-import { useState, useRef } from 'react';
-import Link from 'next/link';
-import { sendInquiry } from '@/app/actions/sendEmail';
-
-type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
-type FieldErrors = Partial<Record<'name' | 'email' | 'company' | 'message', string>>;
-
-function validateFields(data: {
-  name: string;
-  email: string;
-  company: string;
-  message: string;
-}): FieldErrors {
-  const errors: FieldErrors = {};
-  if (!data.name) errors.name = 'Required';
-  if (!data.email) {
-    errors.email = 'Required';
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-    errors.email = 'Enter a valid email address';
-  }
-  if (!data.company) errors.company = 'Required';
-  if (!data.message) errors.message = 'Required';
-  return errors;
-}
-
+"use client";
+import { FormEvent, useEffect, useRef, useState } from "react";
+import { sendInquiry } from "@/app/actions/sendEmail";
 export function CTASection() {
-  const [formOpen, setFormOpen] = useState(false);
-  const [formOpenedAt, setFormOpenedAt] = useState(0);
-  const panelRef = useRef<HTMLDivElement>(null);
-
-  function handleToggle() {
-    if (formOpen) {
-      setFormOpen(false);
-    } else {
-      setFormOpen(true);
-      setFormOpenedAt(Date.now());
-      setTimeout(() => {
-        panelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }, 80);
-    }
-  }
-
-  return (
-    <section id="contact" className="relative overflow-hidden py-28 md:py-40 lg:py-48">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 grid-backdrop opacity-30" />
-      <div className="container-dn relative">
-
-        {/* CTA */}
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="serif-display font-light text-[34px] leading-[1.12] tracking-tightserif text-ink md:text-[54px] lg:text-[64px]">
-            Need clearer positioning,
-            <br className="hidden sm:block" />{' '}
-            stronger digital assets, or a better{' '}
-            <em className="italic">system for earning trust?</em>
-          </h2>
-          <div className="mt-10 flex flex-col items-center gap-x-6 gap-y-3 sm:flex-row sm:justify-center md:mt-14">
-            <button type="button" onClick={handleToggle} className="btn-primary">
-              Start the conversation
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
-                aria-hidden="true"
-                style={{
-                  transform: formOpen ? 'rotate(90deg)' : 'rotate(0deg)',
-                  transition: 'transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)',
-                }}
-              >
-                <path
-                  d="M2 7h10M8 3l4 4-4 4"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                />
-              </svg>
-            </button>
-            <Link href="#services" className="link-quiet opacity-75">
-              Explore services
-              <span aria-hidden="true">→</span>
-            </Link>
-          </div>
-        </div>
-
-        {/* Inquiry panel — grid-template-rows trick for smooth height reveal */}
-        <div
-          aria-hidden={!formOpen}
-          style={{
-            display: 'grid',
-            gridTemplateRows: formOpen ? '1fr' : '0fr',
-            transition: 'grid-template-rows 0.65s cubic-bezier(0.22, 1, 0.36, 1)',
-          }}
-        >
-          <div style={{ overflow: 'hidden' }}>
-            <div
-              ref={panelRef}
-              style={{
-                opacity: formOpen ? 1 : 0,
-                transform: formOpen ? 'translateY(0)' : 'translateY(10px)',
-                transition:
-                  'opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.1s, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.1s',
-              }}
-              className="mx-auto mt-20 max-w-xl border-t border-paper-line pb-4 pt-14"
-            >
-              <InquiryPanel openedAt={formOpenedAt} />
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle",
   );
-}
-
-function InquiryPanel({ openedAt }: { openedAt: number }) {
-  const [status, setStatus] = useState<FormStatus>('idle');
-  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
-  const [apiError, setApiError] = useState('');
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-
-    const values = {
-      name: (formData.get('name') as string).trim(),
-      email: (formData.get('email') as string).trim(),
-      company: (formData.get('company') as string).trim(),
-      message: (formData.get('message') as string).trim(),
-    };
-
-    const errors = validateFields(values);
-    if (Object.keys(errors).length > 0) {
-      setFieldErrors(errors);
-      return;
-    }
-
-    setFieldErrors({});
-    setApiError('');
-    setStatus('submitting');
-
+  const [error, setError] = useState("");
+  const [openedAt, setOpenedAt] = useState(0);
+  const confirmation = useRef<HTMLDivElement>(null);
+  useEffect(() => setOpenedAt(Date.now()), []);
+  useEffect(() => {
+    if (status === "sent") confirmation.current?.focus();
+  }, [status]);
+  async function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (status === "sending") return;
+    setStatus("sending");
+    setError("");
     try {
-      const result = await sendInquiry(formData);
-      if (result.success) {
-        setStatus('success');
-      } else {
-        setStatus('error');
-        setApiError(result.error);
+      const result = await sendInquiry(new FormData(event.currentTarget));
+      if (result.success) setStatus("sent");
+      else {
+        setStatus("error");
+        setError(result.error);
       }
     } catch {
-      setStatus('error');
-      setApiError('Something went wrong. Please try again or email us directly.');
+      setStatus("error");
+      setError(
+        "Your inquiry could not be sent. Please try again or email hello@drapernorwood.com.",
+      );
     }
   }
-
-  if (status === 'success') {
-    return (
-      <div className="py-4">
-        <p className="serif-display font-light text-[26px] leading-[1.15] tracking-tightserif text-ink">
-          Thank you. We&apos;ll be in touch.
-        </p>
-        <p className="mt-4 text-[14px] leading-relaxed text-ink/50">
-          We typically respond within one business day.
-        </p>
-      </div>
-    );
-  }
-
-  const isSubmitting = status === 'submitting';
-
   return (
-    <>
-      <p
-        className="text-[15px] text-ink/60"
-        style={{ letterSpacing: '-0.005em' }}
-      >
-        Share a few details and we&apos;ll see if there&apos;s a fit.
-      </p>
-
-      <form onSubmit={handleSubmit} noValidate className="mt-10">
-        {/* Honeypot — off-screen, invisible to humans, filled by bots */}
-        <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}>
-          <input type="text" name="_hp" tabIndex={-1} autoComplete="off" />
-        </div>
-        {/* Timing token — records when the form was opened */}
-        <input type="hidden" name="_ft" value={openedAt || ''} />
-        <div className="grid grid-cols-1 gap-x-6 gap-y-7 sm:grid-cols-2">
-          <FormField
-            label="Name"
-            name="name"
-            type="text"
-            placeholder="Your name"
-            error={fieldErrors.name}
-            required
-          />
-          <FormField
-            label="Work email"
-            name="email"
-            type="email"
-            placeholder="you@company.com"
-            error={fieldErrors.email}
-            required
-          />
-          <FormField
-            label="Company"
-            name="company"
-            type="text"
-            placeholder="Company name"
-            error={fieldErrors.company}
-            required
-          />
-          <FormField
-            label="Website or relevant link"
-            name="website"
-            type="url"
-            placeholder="https://"
-          />
-        </div>
-
-        <div className="mt-7">
-          <FormTextarea
-            label="What are you looking to improve?"
-            name="message"
-            placeholder="A short note about your business, goals, or where you need help"
-            error={fieldErrors.message}
-            required
-          />
-        </div>
-
-        {apiError && (
-          <p className="mt-5 text-[13px] text-red-500">{apiError}</p>
-        )}
-
-        <div className="mt-10 space-y-4">
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="btn-primary disabled:cursor-not-allowed disabled:opacity-40"
-          >
-            {isSubmitting ? 'Sending…' : 'Send inquiry'}
-            {!isSubmitting && (
-              <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-                <path
-                  d="M2 7h10M8 3l4 4-4 4"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                />
-              </svg>
-            )}
-          </button>
-          <p className="text-[13px] text-ink/40">
-            Prefer email?{' '}
-            <Link
-              href="mailto:hello@drapernorwood.com"
-              className="text-ink/60 underline underline-offset-2 transition-colors duration-200 hover:text-ink"
-            >
-              hello@drapernorwood.com
-            </Link>
+    <section id="contact" className="contact-section">
+      <div className="shell contact-layout">
+        <div className="contact-copy">
+          <p className="eyebrow">04 / Start a conversation</p>
+          <h2>
+            What could
+            <br />
+            be <em>stronger?</em>
+          </h2>
+          <p>
+            A company that’s difficult to explain.
+            <br />A body of work that deserves more.
+            <br />A system that could work better.
           </p>
+          <p>
+            You don’t need a perfect brief.
+            <br />
+            Start with what’s there.
+          </p>
+          <a className="contact-email" href="mailto:hello@drapernorwood.com">
+            hello@drapernorwood.com <span aria-hidden="true">↗</span>
+          </a>
         </div>
-      </form>
-    </>
-  );
-}
-
-interface FormFieldProps {
-  label: string;
-  name: string;
-  type: string;
-  placeholder: string;
-  error?: string;
-  required?: boolean;
-}
-
-function FormField({ label, name, type, placeholder, error, required }: FormFieldProps) {
-  return (
-    <div>
-      <label
-        htmlFor={name}
-        className="mb-2.5 block text-[10px] font-medium uppercase text-ink/45"
-        style={{ letterSpacing: '0.1em' }}
-      >
-        {label}
-      </label>
-      <input
-        id={name}
-        name={name}
-        type={type}
-        placeholder={placeholder}
-        required={required}
-        aria-describedby={error ? `${name}-error` : undefined}
-        aria-invalid={error ? true : undefined}
-        className="w-full border-b border-paper-line bg-transparent py-3 text-[15px] text-ink placeholder:text-ink/35 transition-colors duration-200 ease-smooth focus:border-ink/40 focus:outline-none"
-      />
-      {error && (
-        <p id={`${name}-error`} role="alert" className="mt-1.5 text-[12px] text-red-500">
-          {error}
-        </p>
-      )}
-    </div>
-  );
-}
-
-interface FormTextareaProps {
-  label: string;
-  name: string;
-  placeholder: string;
-  error?: string;
-  required?: boolean;
-}
-
-function FormTextarea({ label, name, placeholder, error, required }: FormTextareaProps) {
-  return (
-    <div>
-      <label
-        htmlFor={name}
-        className="mb-2.5 block text-[10px] font-medium uppercase text-ink/45"
-        style={{ letterSpacing: '0.1em' }}
-      >
-        {label}
-      </label>
-      <textarea
-        id={name}
-        name={name}
-        rows={4}
-        placeholder={placeholder}
-        required={required}
-        aria-describedby={error ? `${name}-error` : undefined}
-        aria-invalid={error ? true : undefined}
-        className="w-full resize-none border-b border-paper-line bg-transparent py-3 text-[15px] text-ink placeholder:text-ink/35 transition-colors duration-200 ease-smooth focus:border-ink/40 focus:outline-none"
-      />
-      {error && (
-        <p id={`${name}-error`} role="alert" className="mt-1.5 text-[12px] text-red-500">
-          {error}
-        </p>
-      )}
-    </div>
+        {status === "sent" ? (
+          <div
+            className="form-success"
+            role="status"
+            tabIndex={-1}
+            ref={confirmation}
+          >
+            <span className="eyebrow">Inquiry received</span>
+            <h3>
+              Something to
+              <br />
+              <em>build from.</em>
+            </h3>
+            <p>Thank you. We’ll be in touch.</p>
+            <button
+              className="text-link"
+              onClick={() => {
+                setStatus("idle");
+                setOpenedAt(Date.now());
+              }}
+            >
+              Send another inquiry <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+        ) : (
+          <form
+            className="inquiry-form"
+            onSubmit={submit}
+            aria-label="Project inquiry"
+            aria-busy={status === "sending"}
+          >
+            <p className="form-intro">
+              Tell us a little about the business.
+              <br />
+              <span>Fields marked * are required.</span>
+            </p>
+            <input type="hidden" name="_ft" value={openedAt} />
+            <div className="honeypot" aria-hidden="true">
+              <label htmlFor="other">Leave this empty</label>
+              <input id="other" name="_hp" tabIndex={-1} autoComplete="off" />
+            </div>
+            <div className="form-grid">
+              <label htmlFor="name">
+                Your name *
+                <input
+                  id="name"
+                  name="name"
+                  autoComplete="name"
+                  required
+                  maxLength={120}
+                  placeholder="First and last name"
+                />
+              </label>
+              <label htmlFor="email">
+                Work email *
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  maxLength={254}
+                  placeholder="you@company.com"
+                />
+              </label>
+              <label htmlFor="company">
+                Company *
+                <input
+                  id="company"
+                  name="company"
+                  autoComplete="organization"
+                  required
+                  maxLength={160}
+                  placeholder="Company or organization"
+                />
+              </label>
+              <label htmlFor="website">
+                Website / relevant link
+                <input
+                  id="website"
+                  name="website"
+                  type="url"
+                  autoComplete="url"
+                  maxLength={2048}
+                  placeholder="https://"
+                />
+              </label>
+            </div>
+            <label htmlFor="message">
+              What could be stronger? *
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows={3}
+                maxLength={5000}
+                placeholder="What you do. What’s getting in the way. What you have in mind."
+              />
+            </label>
+            {error && (
+              <p className="form-error" role="alert">
+                {error}
+              </p>
+            )}
+            <div className="form-bottom">
+              <span>
+                A direct conversation.
+                <br />
+                No mailing list.
+              </span>
+              <button
+                type="submit"
+                className="submit-button"
+                disabled={status === "sending"}
+              >
+                {status === "sending" ? "Sending…" : "Send inquiry"}
+                <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </form>
+        )}
+      </div>
+    </section>
   );
 }
