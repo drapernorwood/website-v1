@@ -37,7 +37,6 @@ export function Header() {
               priority
             />
           </Link>
-          <span className="header-note">Strategy. Web. AI. Execution.</span>
           <nav aria-label="Primary" className="desktop-nav">
             <Link href="/#explore">Explore</Link>
             <Link href="/#work">Work</Link>

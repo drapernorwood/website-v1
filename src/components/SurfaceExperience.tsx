@@ -2,8 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState, type CSSProperties, type FormEvent } from "react";
-import { BusinessCutaway } from "./BusinessCutaway";
-import { WorkingModel } from "./WorkingModel";
+import { BusinessCutaway, layerForFocus } from "./BusinessCutaway";
+import { type BusinessLayer } from "./LayerInspection";
 import { CTASection } from "./CTASection";
 import {
   perspectives,
@@ -24,7 +24,10 @@ type FirstRead = {
   sourceNote: string;
 };
 export function SurfaceExperience() {
-  const [depth, setDepth] = useState(12);
+  const [depth, setDepth] = useState(0);
+  const [inspectedLayer, setInspectedLayer] = useState<BusinessLayer | null>(
+    null,
+  );
   const [focus, setFocus] = useState<Focus | null>(null);
   const [challenge, setChallenge] = useState("");
   const [routingNote, setRoutingNote] = useState("");
@@ -46,7 +49,19 @@ export function SurfaceExperience() {
     "healthlinks",
     "the-lost-archives",
   ];
-  function choose(next: Focus) {
+  function lookWithin(layer: BusinessLayer) {
+    setDepth(100);
+    setInspectedLayer(layer);
+    requestAnimationFrame(() =>
+      document.getElementById("business-object")?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "instant"
+          : "smooth",
+        block: "start",
+      }),
+    );
+  }
+  function choose(next: Focus, showPerspective = false) {
     setFocus(next);
     setDepth(100);
     setRoutingNote("");
@@ -55,16 +70,18 @@ export function SurfaceExperience() {
     setCopyState(false);
     controller.current?.abort();
     setReading(false);
+    if (!showPerspective) {
+      lookWithin(layerForFocus[next]);
+      return;
+    }
+    setInspectedLayer(null);
     requestAnimationFrame(() => {
-      document
-        .getElementById("services")
-        ?.scrollIntoView({
-          behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
-            .matches
-            ? "instant"
-            : "smooth",
-          block: "start",
-        });
+      document.getElementById("services")?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "instant"
+          : "smooth",
+        block: "start",
+      });
       resultHeading.current?.focus({ preventScroll: true });
     });
   }
@@ -154,13 +171,11 @@ export function SurfaceExperience() {
   }
   function takeToContact() {
     setPrefill(brief());
-    document
-      .getElementById("contact")
-      ?.scrollIntoView({
-        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-          ? "instant"
-          : "smooth",
-      });
+    document.getElementById("contact")?.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "instant"
+        : "smooth",
+    });
   }
   return (
     <div
@@ -168,47 +183,45 @@ export function SurfaceExperience() {
       style={{ "--signal": p?.color || "#e7b28b" } as CSSProperties}
       data-focus={focus || "all"}
     >
-      <section className="arrival" aria-labelledby="arrival-title">
+      <section
+        className="arrival arrival-refined"
+        aria-labelledby="arrival-title"
+      >
         <div className="arrival-copy">
-          <p className="eyebrow">
-            <span className="status-dot" /> INDEPENDENT THINKING. PRACTICAL
-            CONSEQUENCE.
-          </p>
           <h1 id="arrival-title">
-            There’s more
-            <br />
-            to your
-            <br />
-            <em>business.</em>
+            <span>There’s more</span>
+            <span>to your</span>
+            <span>business.</span>
           </h1>
           <p className="arrival-intro">
-            What the world sees is only the surface. <br />
-            We connect what’s underneath—and build what comes next.
+            Strategy, websites, and AI systems—built around what makes your
+            business valuable.
           </p>
           <button
             className="reveal-button"
-            onClick={() => setDepth(depth > 45 ? 12 : 100)}
+            onClick={() => {
+              setInspectedLayer(null);
+              setDepth(depth > 45 ? 0 : 100);
+            }}
             aria-pressed={depth > 45}
           >
             <span className="round-icon" aria-hidden="true">
               {depth > 45 ? "−" : "+"}
             </span>
-            {depth > 45 ? "Return to the surface" : "Look beneath the surface"}
+            {depth > 45 ? "Close the model" : "Look inside"}
           </button>
           <a className="arrival-shortcut" href="#explore">
             Make it about your business <span aria-hidden="true">↘</span>
           </a>
         </div>
-        <BusinessCutaway depth={depth} setDepth={setDepth} focus={focus} />
-        <div className="arrival-foot">
-          <span>
-            STRATEGY <i>/</i> WEB <i>/</i> AI <i>/</i> EXECUTION
-          </span>
-          <p>A clearer presence. A more capable business.</p>
-          <a href="#explore" aria-label="Explore your business challenge">
-            ↓
-          </a>
-        </div>
+        <BusinessCutaway
+          depth={depth}
+          setDepth={setDepth}
+          focus={focus}
+          inspectedLayer={inspectedLayer}
+          onInspect={setInspectedLayer}
+          onChooseFocus={(next) => choose(next, true)}
+        />
       </section>
 
       <section
@@ -299,7 +312,37 @@ export function SurfaceExperience() {
             <p>{p.intro}</p>
           </div>
           <div className="lens-body">
-            <WorkingModel key={focus} focus={focus} />
+            <div className="lens-connection">
+              <span className="eyebrow">THE PARTS WORK TOGETHER</span>
+              <div>
+                {{
+                  positioning: [
+                    "Expertise",
+                    "A clear offer",
+                    "A reason to choose",
+                  ],
+                  digital: ["Positioning", "Proof", "A better website"],
+                  systems: ["Knowledge", "Human judgment", "Useful systems"],
+                  growth: [
+                    "A strong idea",
+                    "The right audience",
+                    "A next step",
+                  ],
+                }[focus].map((part, index) => (
+                  <p key={part}>
+                    <span>0{index + 1}</span>
+                    {part}
+                    {index < 2 ? <i aria-hidden="true">↓</i> : null}
+                  </p>
+                ))}
+              </div>
+              <button
+                className="underlined-link"
+                onClick={() => lookWithin(layerForFocus[focus])}
+              >
+                Look inside this connection <span aria-hidden="true">↗</span>
+              </button>
+            </div>
             <div className="lens-copy">
               <span className="eyebrow">WHAT WE’RE LOOKING AT</span>
               <h3>{p.underneath}</h3>

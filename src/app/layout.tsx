@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 import "./surface.css";
+import "./layer-inspection.css";
+import "./business-object.css";
 const sans = localFont({
   src: [
     { path: "./fonts/manrope-regular.ttf", weight: "400" },
