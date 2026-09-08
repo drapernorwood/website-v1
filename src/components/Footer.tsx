@@ -1,16 +1,22 @@
 import Link from "next/link";
+import Image from "next/image";
 export function Footer() {
   return (
     <footer className="site-footer">
       <div className="shell">
         <div className="footer-top">
           <Link href="/" className="footer-name">
-            Draper Norwood<span aria-hidden="true">↗</span>
+            <Image
+              src="/brand/dn-lockup-tight.png"
+              alt="Draper Norwood"
+              width={1300}
+              height={237}
+              sizes="(max-width:760px) 80vw, 45vw"
+            />
           </Link>
           <p>
-            Real value.
-            <br />
-            Stronger form.
+            A clearer presence.
+            <br />A more capable business.
           </p>
         </div>
         <div className="footer-bottom">

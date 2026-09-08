@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
-import "./globals.css";
+import "./surface.css";
 const sans = localFont({
   src: [
     { path: "./fonts/manrope-regular.ttf", weight: "400" },
@@ -26,23 +26,23 @@ const serif = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.drapernorwood.com"),
   title: {
-    default: "Draper Norwood — Real value. Stronger form.",
+    default: "Draper Norwood — Beneath the surface. Beyond the obvious.",
     template: "%s — Draper Norwood",
   },
   description:
-    "Strategy, creative work, digital experiences, and practical AI systems. Draper Norwood helps companies give stronger form to the value they already have.",
+    "Look beneath the surface of your business. Draper Norwood connects strategy, web, AI, and execution to build a clearer presence and a more capable company.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Draper Norwood — Real value. Stronger form.",
+    title: "Draper Norwood — Beneath the surface. Beyond the obvious.",
     description:
-      "We find what makes a business valuable. Then give it a form the world can see.",
+      "A clearer presence. A more capable business. Strategy, web, AI, and execution.",
     type: "website",
     locale: "en_US",
     siteName: "Draper Norwood",
   },
   twitter: {
     card: "summary",
-    title: "Draper Norwood — Real value. Stronger form.",
+    title: "Draper Norwood — Beneath the surface. Beyond the obvious.",
     description:
       "Strategy, creative work, digital experiences, and practical systems.",
   },

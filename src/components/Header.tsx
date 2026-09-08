@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -27,27 +28,19 @@ export function Header() {
             aria-label="Draper Norwood home"
             onClick={() => setOpen(false)}
           >
-            <span className="brand-symbol" aria-hidden="true">
-              d/n
-            </span>
-            <span>
-              Draper
-              <br />
-              Norwood
-            </span>
+            <Image
+              src="/brand/dn-lockup-tight.png"
+              alt="Draper Norwood"
+              width={1300}
+              height={237}
+              sizes="(max-width: 760px) 190px, 280px"
+              priority
+            />
           </Link>
-          <span className="header-note">
-            Independent thinking.
-            <br />
-            Practical consequence.
-          </span>
+          <span className="header-note">Strategy. Web. AI. Execution.</span>
           <nav aria-label="Primary" className="desktop-nav">
-            <Link href="/#work">
-              <span>01</span> Work
-            </Link>
-            <Link href="/#about">
-              <span>02</span> Practice
-            </Link>
+            <Link href="/#explore">Explore</Link>
+            <Link href="/#work">Work</Link>
             <Link href="/#contact" className="nav-contact">
               Let’s talk <span aria-hidden="true">↗</span>
             </Link>
@@ -68,14 +61,17 @@ export function Header() {
           className="mobile-nav"
           hidden={!open}
         >
+          <Link href="/#explore" onClick={() => setOpen(false)}>
+            Explore <span>↗</span>
+          </Link>
           <Link href="/#work" onClick={() => setOpen(false)}>
-            01 / Work <span>↗</span>
+            Work <span>↗</span>
           </Link>
           <Link href="/#about" onClick={() => setOpen(false)}>
-            02 / Practice <span>↗</span>
+            Practice <span>↗</span>
           </Link>
           <Link href="/#services" onClick={() => setOpen(false)}>
-            03 / Capabilities <span>↗</span>
+            Capabilities <span>↗</span>
           </Link>
           <Link href="/#contact" onClick={() => setOpen(false)}>
             Let’s talk <span>↗</span>

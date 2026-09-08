@@ -1,13 +1,24 @@
 "use client";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { sendInquiry } from "@/app/actions/sendEmail";
-export function CTASection() {
+export function CTASection({
+  initialMessage = "",
+}: {
+  initialMessage?: string;
+}) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",
   );
   const [error, setError] = useState("");
   const [openedAt, setOpenedAt] = useState(0);
   const confirmation = useRef<HTMLDivElement>(null);
+  const [message, setMessage] = useState("");
+  useEffect(() => {
+    if (initialMessage) {
+      setMessage(initialMessage.slice(0, 5000));
+      setStatus("idle");
+    }
+  }, [initialMessage]);
   useEffect(() => setOpenedAt(Date.now()), []);
   useEffect(() => {
     if (status === "sent") confirmation.current?.focus();
@@ -35,16 +46,16 @@ export function CTASection() {
     <section id="contact" className="contact-section">
       <div className="shell contact-layout">
         <div className="contact-copy">
-          <p className="eyebrow">04 / Start a conversation</p>
+          <p className="eyebrow">03 / Start a conversation</p>
           <h2>
-            What could
+            Let’s see what
             <br />
-            be <em>stronger?</em>
+            <em>could be.</em>
           </h2>
           <p>
-            A company that’s difficult to explain.
-            <br />A body of work that deserves more.
-            <br />A system that could work better.
+            Bring the business. The ambition.
+            <br />
+            The thing that isn’t quite working.
           </p>
           <p>
             You don’t need a perfect brief.
@@ -151,6 +162,8 @@ export function CTASection() {
                 required
                 rows={3}
                 maxLength={5000}
+                value={message}
+                onChange={(event) => setMessage(event.target.value)}
                 placeholder="What you do. What’s getting in the way. What you have in mind."
               />
             </label>
