@@ -1,44 +1,66 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces } from "next/font/google";
+import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
-import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
+import "./surface.css";
+import "./layer-inspection.css";
+import "./business-object.css";
+const sans = localFont({
+  src: [
+    { path: "./fonts/manrope-regular.ttf", weight: "400" },
+    { path: "./fonts/manrope-medium.ttf", weight: "500" },
+    { path: "./fonts/manrope-semibold.ttf", weight: "600" },
+  ],
   variable: "--font-sans",
   display: "swap",
-  weight: ["300", "400", "500", "600"],
 });
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
+const serif = localFont({
+  src: [
+    { path: "./fonts/instrument-serif.ttf", weight: "400", style: "normal" },
+    {
+      path: "./fonts/instrument-serif-italic.ttf",
+      weight: "400",
+      style: "italic",
+    },
+  ],
   variable: "--font-serif",
   display: "swap",
-  style: ["normal", "italic"],
-  axes: ["opsz", "SOFT"],
 });
-
 export const metadata: Metadata = {
-  title: "Draper Norwood — Strategy, Web, and AI Execution",
+  metadataBase: new URL("https://www.drapernorwood.com"),
+  title: {
+    default: "Draper Norwood — Beneath the surface. Beyond the obvious.",
+    template: "%s — Draper Norwood",
+  },
   description:
-    "Draper Norwood helps companies sharpen positioning, strengthen digital presence, and build practical assets that support measurable business improvement.",
-  metadataBase: new URL("https://drapernorwood.com"),
+    "Look beneath the surface of your business. Draper Norwood connects strategy, web, AI, and execution to build a clearer presence and a more capable company.",
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Draper Norwood",
+    title: "Draper Norwood — Beneath the surface. Beyond the obvious.",
     description:
-      "Strategy, web, and AI execution for sharper positioning and stronger digital presence.",
+      "A clearer presence. A more capable business. Strategy, web, AI, and execution.",
     type: "website",
+    locale: "en_US",
+    siteName: "Draper Norwood",
+  },
+  twitter: {
+    card: "summary",
+    title: "Draper Norwood — Beneath the surface. Beyond the obvious.",
+    description:
+      "Strategy, creative work, digital experiences, and practical systems.",
   },
 };
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
-      <body className="font-sans antialiased">
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${sans.variable} ${serif.variable}`}
+    >
+      <body>
         {children}
         <Analytics />
       </body>
