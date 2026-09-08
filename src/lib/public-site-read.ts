@@ -269,7 +269,7 @@ export function inspectPublicHtml(
       detail: `A public action link is labeled “${text(contact[2], 100) || attribute(contact[0], "href")}”.`,
     });
   const actionLabel = contact
-    ? `the “${text(contact[2], 100) || attribute(contact[0], "href")} link`
+    ? `the “${text(contact[2], 100) || attribute(contact[0], "href")}” link`
     : "the next step";
   const publicCue = heading
     ? `the heading “${heading}”`
